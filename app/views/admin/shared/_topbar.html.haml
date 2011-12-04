@@ -6,6 +6,8 @@
         %ul
           = main_nav :users do
             = link_to t('admin.label.users'), admin_users_path
+          = main_nav :reports do
+            = link_to t('admin.label.reports'), admin_reports_path
 
       %ul.nav.secondary-nav
         %li.dropdown
