@@ -1,0 +1,17 @@
+common: &common
+  adapter: postgresql
+  encoding: utf8
+  username: postgres
+  password: postgres
+
+development:
+  <<: *common
+  database: playable_development
+
+test: &test
+  <<: *common
+  database: playable_test
+
+production:
+  <<: *common
+  database: playable_production
