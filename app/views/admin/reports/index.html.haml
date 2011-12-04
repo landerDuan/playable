@@ -24,8 +24,11 @@
         - else
           - collection.each do |resource|
             %tr
-              %td= resource.email
-              %td= resource.username
+              %td= resource.user.name
+              %td= resource.plan
+              %td= resource.goal
+              %td= resource.content
+              %td= resource.current_date
               %td
                 = link_to t('admin.actions.show'), resource_path(resource), :class => 'btn'
                 = link_to t('admin.actions.edit'), edit_resource_path(resource), :class => 'btn'

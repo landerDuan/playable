@@ -16,4 +16,6 @@ class User < ActiveRecord::Base
                   :password,
                   :password_confirmation,
                   :remember_me
+  
+  has_many:reports
 end
