@@ -7,6 +7,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.datetime  :birthdate
       t.string    :gender
       t.text      :bio
+      t.boolean   :is_admin, :default => false
       
       t.database_authenticatable :null => false
       t.recoverable
@@ -25,6 +26,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
     add_index :users, :confirmation_token,   :unique => true
     add_index :users, :authentication_token, :unique => true
     add_index :users, :username,             :unique => true
+    add_index :users, :is_admin
   end
 
 end

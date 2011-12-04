@@ -15,7 +15,11 @@ User.blueprint(:admin) do
 end
 
 Report.blueprint do
-  # Attributes here
+  user    { User.make! }
+  plan    { Faker::Lorem.paragraph }
+  goal    { Faker::Lorem.paragraph }
+  content { Faker::Lorem.paragraph }
+  score   { rand(10) }
 end
 
 Mark.blueprint do
@@ -26,5 +30,9 @@ Group.blueprint do
 end
 
 Role.blueprint do
+  # Attributes here
+end
+
+Post.blueprint do
   # Attributes here
 end

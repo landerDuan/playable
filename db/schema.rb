@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111204061241) do
+ActiveRecord::Schema.define(:version => 20111204062304) do
 
   create_table "groups", :force => true do |t|
     t.string   "name"
@@ -51,15 +51,36 @@ ActiveRecord::Schema.define(:version => 20111204061241) do
     t.datetime "updated_at"
   end
 
+  add_index "marks", ["checkin_at"], :name => "index_marks_on_checkin_at"
+  add_index "marks", ["checkout_at"], :name => "index_marks_on_checkout_at"
+  add_index "marks", ["state"], :name => "index_marks_on_state"
+  add_index "marks", ["type_identifier"], :name => "index_marks_on_type_identifier"
+  add_index "marks", ["user_id"], :name => "index_marks_on_user_id"
+
+  create_table "posts", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "permalink"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "posts", ["permalink"], :name => "index_posts_on_permalink"
+  add_index "posts", ["title"], :name => "index_posts_on_title"
+  add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
+
   create_table "reports", :force => true do |t|
     t.integer  "user_id"
     t.text     "plan"
-    t.text     "gool"
+    t.text     "goal"
     t.text     "content"
     t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "reports", ["user_id"], :name => "index_reports_on_user_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -78,8 +99,9 @@ ActiveRecord::Schema.define(:version => 20111204061241) do
     t.datetime "birthdate"
     t.string   "gender"
     t.text     "bio"
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.boolean  "is_admin",                              :default => false
+    t.string   "email",                                 :default => "",    :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -95,7 +117,6 @@ ActiveRecord::Schema.define(:version => 20111204061241) do
     t.string   "authentication_token"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_admin"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
