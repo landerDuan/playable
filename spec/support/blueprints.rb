@@ -9,3 +9,7 @@ User.blueprint do
   bio       { Faker::Lorem.paragraph }
   confirmed_at { Time.zone.now }
 end
+
+Usre.blueprint do
+  is_admin { true }
+end
