@@ -4,6 +4,7 @@ zh:
       users: '用户'
       pages: '静态页面'
       signout: '注销帐户'
+      marks: '签到'
     info:
       user: 'users and administrators'
       pages: '静态页面'

@@ -1,0 +1,39 @@
+.page-header
+  %h1
+    = t('activerecord.models.' + resource_class.name.downcase)
+    %small= t('admin.info.' + resource_class.name.downcase)
+
+= link_to t(ta Mark, :add), checkin_admin_marks_path(), :method => :put
+
+.row
+  .span16
+    %table#sortTableExample.zebra-striped
+      %thead
+        %tr
+          %th.blue= ta Mark, :data
+          %th.blue= ta Mark, :user_id
+          %th.blue= ta Mark, :checkin_at
+          %th.blue= ta Mark, :checkout_at
+          %th.blue= ta Mark, :real_work_time
+          %th.blue= ta Mark, :description
+          %th.blue= ta Mark, :feedback
+          %th.blue= ta Mark, :type_identifier
+          %th.blue= ta Mark, :state
+      %tbody
+        - if collection.blank?
+          %tr
+            %td &nbsp;
+            %td{:colspan => 6}= t('admin.meta.empty_data')
+        - else
+          - collection.each do |resource|
+            %tr
+              %td= resource.data
+              %td= resource.user_id
+              %td= resource.checkin_at
+              %td= resource.checkout_at
+              %td= resource.real_work_time
+              %td= resource.description
+              %td= resource.feedback
+              %td= resource.type_identifier
+              %td= resource.state
+    = paginate collection

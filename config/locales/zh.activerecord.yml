@@ -2,6 +2,7 @@ zh:
   activerecord:
     models:
       user: 用户
+      mark: 签到
     attributes:
       user:
         username: 登陆名
@@ -12,3 +13,14 @@ zh:
         current_password: 当前密码
         bio: 简单介绍
         remember_me: 记住登录信息
+      mark:
+        data: 日期
+        user_id: 用户名
+        checkin_at: 上班时间
+        checkout_at: 下班时间
+        real_work_time: 实际工作时间
+        description: 员工备注
+        feedback: 管理员反馈
+        type_identifier: 是否旷工
+        state: 管理员是否同意
+        add: 签到
