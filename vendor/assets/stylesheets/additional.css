@@ -1,0 +1,53 @@
+form input, form textarea, form select, input[type="checkbox"], input[type="radio"] {
+  margin-left: 50px;
+}
+
+form label.collection_radio {
+  float: none;
+  margin-left: 10px;
+}
+
+form .clearfix span.error {
+  display: block;
+  max-width: 600px;
+  font-size: 11px;
+  line-height: 18px;
+  margin-left: 180px;
+  color: #9D261D;
+}
+form .clearfix span.hint {
+  display: block;
+  max-width: 600px;
+  font-size: 11px;
+  line-height: 18px;
+  margin-left: 180px;
+  color: #BFBFBF;
+}
+.ke-container.ke-container-default {
+  margin-left: 180px;
+}
+
+li.gap {
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
+  float: left;
+  line-height: 34px;
+  padding: 0 14px;
+  text-decoration: none;
+}
+
+.add_more {
+  margin-left: 365px;
+}
+
+.topbar {
+  z-index: 9998;
+}
+
+.footer {
+  background-color: white;
+}
+
+.right {
+  float: right;
+  margin: 3px 0;
+}

@@ -1,0 +1,14 @@
+zh:
+  activerecord:
+    models:
+      user: 用户
+    attributes:
+      user:
+        username: 登陆名
+        name: 姓名
+        email: 邮件地址
+        password: 密码
+        password_confirmation: 密码验证
+        current_password: 当前密码
+        bio: 简单介绍
+        remember_me: 记住登录信息

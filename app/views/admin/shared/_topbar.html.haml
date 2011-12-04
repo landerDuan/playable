@@ -1,0 +1,11 @@
+.topbar{'data-scrollspy' => 'scrollspy'}
+  .topbar-inner
+    .container
+      = link_to Settings.admin_title, admin_users_path, :class => 'brand'
+      %ul
+        = main_nav :users do
+          = link_to t('admin.label.users'), admin_users_path
+
+      %ul.nav.secondary-nav
+        %li.dropdown
+          %li= link_to t('admin.label.signout'), destroy_user_session_path, :method => :delete
