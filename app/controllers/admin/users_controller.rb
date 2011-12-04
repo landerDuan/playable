@@ -1,4 +1,5 @@
 class Admin::UsersController < Admin::BaseController
+  main_nav_highlight :users
   
   protected
   
