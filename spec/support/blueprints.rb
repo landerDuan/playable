@@ -13,3 +13,10 @@ end
 User.blueprint(:admin) do
   is_admin { true }
 end
+Report.blueprint do
+  # Attributes here
+end
+
+Mark.blueprint do
+  # Attributes here
+end
