@@ -10,6 +10,6 @@ User.blueprint do
   confirmed_at { Time.zone.now }
 end
 
-Usre.blueprint do
+User.blueprint do
   is_admin { true }
 end
