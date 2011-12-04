@@ -43,7 +43,7 @@ Playable::Application.routes.draw do
 
   namespace :admin do
     root :to => 'users#index'
-    resources :users
+    resources :users, :groups, :roles
   end
 
   # You can have the root of your site routed with "root"

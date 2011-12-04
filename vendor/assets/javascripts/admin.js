@@ -17,3 +17,8 @@
 //= require rails.validations
 //= require nested_form
 //= require bootstrap.config
+
+
+$(function() {
+  $('#topbar').dropdown();
+})
