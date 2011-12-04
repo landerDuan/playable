@@ -11,65 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111204061241) do
-
-  create_table "groups", :force => true do |t|
-    t.string   "name"
-    t.string   "code"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "groups", ["code"], :name => "index_groups_on_code"
-
-  create_table "groups_roles", :id => false, :force => true do |t|
-    t.integer "group_id"
-    t.integer "role_id"
-  end
-
-  add_index "groups_roles", ["group_id"], :name => "index_groups_roles_on_group_id"
-  add_index "groups_roles", ["role_id"], :name => "index_groups_roles_on_role_id"
-
-  create_table "groups_users", :id => false, :force => true do |t|
-    t.integer "group_id"
-    t.integer "user_id"
-  end
-
-  add_index "groups_users", ["group_id"], :name => "index_groups_users_on_group_id"
-  add_index "groups_users", ["user_id"], :name => "index_groups_users_on_user_id"
-
-  create_table "marks", :force => true do |t|
-    t.integer  "user_id"
-    t.datetime "checkin_at"
-    t.datetime "checkout_at"
-    t.text     "description"
-    t.text     "feedback"
-    t.string   "type_identifier"
-    t.string   "state"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "reports", :force => true do |t|
-    t.integer  "user_id"
-    t.text     "plan"
-    t.text     "gool"
-    t.text     "content"
-    t.integer  "score"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "roles", :force => true do |t|
-    t.string   "name"
-    t.string   "code"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "roles", ["code"], :name => "index_roles_on_code"
+ActiveRecord::Schema.define(:version => 20111204041137) do
 
   create_table "users", :force => true do |t|
     t.string   "username"
