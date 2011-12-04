@@ -2,6 +2,7 @@ zh:
   activerecord:
     models:
       user: 用户
+      report: 日报
       mark: 签到
     attributes:
       user:
@@ -13,6 +14,11 @@ zh:
         current_password: 当前密码
         bio: 简单介绍
         remember_me: 记住登录信息
+      report:
+        plan: 任务
+        goal: 目标
+        content: 实际情况
+        datetime: 日期
       mark:
         data: 日期
         user_id: 用户名

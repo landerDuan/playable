@@ -2,11 +2,13 @@ zh:
   admin:
     label:
       users: '用户'
+      reports: '日报'
       pages: '静态页面'
       signout: '注销帐户'
       marks: '签到'
     info:
       user: 'users and administrators'
+      report: 'Add A Report'
       pages: '静态页面'
     meta:
       confirm: '你确定吗?'

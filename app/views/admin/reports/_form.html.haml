@@ -1,0 +1,9 @@
+= simple_form_for @report, :url => url do |f|
+  = f.input :user_id,:as => :hidden,:input_html => { :value => '1' }
+  = f.input :current_date
+  = f.input :plan
+  = f.input :goal
+  = f.input :content
+  = f.input :score
+  
+  = f.submit 'Submit'

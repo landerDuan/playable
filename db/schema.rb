@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111204062304) do
+ActiveRecord::Schema.define(:version => 20111204073933) do
 
   create_table "groups", :force => true do |t|
     t.string   "name"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20111204062304) do
     t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "current_date"
   end
 
   add_index "reports", ["user_id"], :name => "index_reports_on_user_id"

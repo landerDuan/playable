@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :marks
+  
   # Include default devise modules. Others available are:
   # :timeoutable and :omniauthable
   devise  :database_authenticatable,
@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
                   :password,
                   :password_confirmation,
                   :remember_me
+
+  has_many :marks
+  has_many :reports
+
 end
