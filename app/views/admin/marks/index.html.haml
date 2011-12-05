@@ -3,7 +3,8 @@
     = t('activerecord.models.' + resource_class.name.downcase)
     %small= t('admin.info.' + resource_class.name.downcase)
 
-= link_to t(ta Mark, :add), checkin_admin_marks_path(), :method => :put
+= link_to t(ta Mark, :checkin), checkin_admin_marks_path(), :method => :put
+= link_to t(ta Mark, :checkout), checkout_admin_marks_path(), :method => :put
 
 .row
   .span16
@@ -23,15 +24,22 @@
         - if collection.blank?
           %tr
             %td &nbsp;
-            %td{:colspan => 6}= t('admin.meta.empty_data')
+            %td{:colspan => 9}= t('admin.meta.empty_data')
         - else
           - collection.each do |resource|
             %tr
-              %td= resource.data
-              %td= resource.user_id
-              %td= resource.checkin_at
-              %td= resource.checkout_at
-              %td= resource.real_work_time
+              %td= resource.created_at.to_date
+              %td= resource.user.email
+              - if resource.checkin_at
+                %td= resource.checkin_at
+              - else
+              - if resource.checkout_at
+                %td= resource.checkout_at.strftime("%Y-%m-%d %H:%I:%S")
+              - else
+              - if resource.checkout_at
+                %td= ((resource.checkout_at.to_i - resource.checkin_at.to_i)/3600.00).to_s << '天'
+               
+              - else
               %td= resource.description
               %td= resource.feedback
               %td= resource.type_identifier

@@ -49,6 +49,7 @@ Playable::Application.routes.draw do
     resources :marks do
       collection do
         put :checkin
+        put :checkout
       end
     end
   end
