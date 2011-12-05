@@ -29,4 +29,5 @@ zh:
         feedback: 管理员反馈
         type_identifier: 是否旷工
         state: 管理员是否同意
-        add: 签到
+        checkin: 签到
+        checkout: 签出
