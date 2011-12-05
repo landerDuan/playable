@@ -12,6 +12,7 @@
         %tr
           %th.blue= ta User, :email
           %th.blue= ta User, :username
+          %th.blue= ta User, :create_at
           %th.yellow= t('admin.actions.default')
       %tbody
         - if collection.blank?
@@ -23,6 +24,7 @@
             %tr
               %td= resource.email
               %td= resource.username
+              %td= resource.created_at.strftime("%Y-%m-%d %H:%M")
               %td
                 = link_to t('admin.actions.show'), resource_path(resource), :class => 'btn'
                 = link_to t('admin.actions.edit'), edit_resource_path(resource), :class => 'btn'
