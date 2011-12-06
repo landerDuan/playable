@@ -3,42 +3,59 @@
     = t('activerecord.models.' + resource_class.name.downcase)
     %small= t('admin.info.' + resource_class.name.downcase)
 
-= link_to t(ta Mark, :checkin), checkin_admin_marks_path(), :method => :put
-= link_to t(ta Mark, :checkout), checkout_admin_marks_path(), :method => :put
+- if !@today_check_info
+  = link_to t(ta Mark, :checkin), checkin_admin_marks_path(), :method => :put
+  = (ta Mark, :checkout)
+- else
+  - if !@today_check_info.checkout_at
+    = (ta Mark, :checkin)
+    = link_to t(ta Mark, :checkout), checkout_admin_marks_path(), :method => :put
+  - else
+    = (ta Mark, :checkin)
+    = (ta Mark, :checkout)
+    
+%br
 
+= simple_form_for @mark, :url => admin_marks_path, :method => :get  do |f| 
+  按用户名查找:
+  = f.select :user_id, User.all.map { |r| [r.username, r.id] }
+  按日期查找:
+  = f.input :checkin_at
+  %div
+    = f.button :submit, t('admin.actions.add')
+    
 .row
   .span16
     %table#sortTableExample.zebra-striped
       %thead
         %tr
           %th.blue= ta Mark, :data
-          %th.blue= ta Mark, :user_id
-          %th.blue= ta Mark, :checkin_at
-          %th.blue= ta Mark, :checkout_at
+          %th.blue= ta Mark, :user_name
+          %th.blue{:width => 150}= ta Mark, :checkin_at
+          %th.blue{:width => 150}= ta Mark, :checkout_at
           %th.blue= ta Mark, :real_work_time
           %th.blue= ta Mark, :description
           %th.blue= ta Mark, :feedback
           %th.blue= ta Mark, :type_identifier
           %th.blue= ta Mark, :state
       %tbody
-        - if collection.blank?
+        - if @all_marks.blank?
           %tr
             %td &nbsp;
             %td{:colspan => 9}= t('admin.meta.empty_data')
         - else
-          - collection.each do |resource|
+          - @all_marks.each do |resource|
             %tr
               %td= resource.created_at.to_date
-              %td= resource.user.email
+              %td= resource.user.username
               - if resource.checkin_at
-                %td= resource.checkin_at
+                %td= resource.checkin_at.strftime("%Y-%m-%d %H:%I")
               - else
               - if resource.checkout_at
-                %td= resource.checkout_at.strftime("%Y-%m-%d %H:%I:%S")
+                %td= resource.checkout_at.strftime("%Y-%m-%d %H:%I")
               - else
               - if resource.checkout_at
-                %td= ((resource.checkout_at.to_i - resource.checkin_at.to_i)/3600.00).to_s << '天'
-               
+                %td= ((resource.checkout_at.to_i - resource.checkin_at.to_i)/3600.00).round(2).to_s << '小时'
               - else
               %td= resource.description
               %td= resource.feedback
