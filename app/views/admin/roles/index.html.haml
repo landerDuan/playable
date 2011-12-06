@@ -1,0 +1,31 @@
+.page-header
+  %h1
+    = t('activerecord.models.' + resource_class.name.downcase)
+    %small= t('admin.info.' + resource_class.name.downcase)
+.well
+  = link_to tt(resource_class.to_s), new_resource_url, :class => 'btn large primary'
+  = paginate collection
+.row
+  .span16
+    %table#sortTableExample.zebra-striped
+      %thead
+        %tr
+          %th.blue= ta Role, :name
+          %th.blue= ta Role, :code
+          %th.blue= ta Role, :description
+          %th.yellow= t('admin.actions.default')
+      %tbody
+        - if collection.blank?
+          %tr
+            %td &nbsp;
+            %td{:colspan => 6}= t('admin.meta.empty_data')
+        - else
+          - collection.each do |resource|
+            %tr
+              %td= resource.name
+              %td= resource.code
+              %td= resource.description
+              %td
+                = link_to t('admin.actions.edit'), edit_resource_path(resource), :class => 'btn'
+                = link_to t('admin.actions.delete'), resource_path(resource), :method => :delete, :confirm => t('admin.meta.confirm'), :class => 'btn danger'
+    = paginate collection
