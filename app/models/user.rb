@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
 
   has_many :marks
   has_many :reports
+  has_and_belongs_to_many :groups
 
 end
 # == Schema Information
