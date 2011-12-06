@@ -6,6 +6,8 @@
   = link_to tt(resource_class.to_s), new_resource_url, :class => 'btn large primary'
   = paginate collection
 .row
+  - @all_user.each do |user|
+    = link_to user.name, admin_reports_path(:uid=> user.id)
   .span16
     %table#sortTableExample.zebra-striped
       %thead
@@ -17,12 +19,12 @@
           %th.blue= ta Report, :datetime
           %th.yellow= t('admin.actions.default')
       %tbody
-        - if collection.blank?
+        - if @reports.blank?
           %tr
             %td &nbsp;
             %td{:colspan => 6}= t('admin.meta.empty_data')
         - else
-          - collection.each do |resource|
+          - @reports.each do |resource|
             %tr
               %td= resource.user.name
               %td= resource.plan

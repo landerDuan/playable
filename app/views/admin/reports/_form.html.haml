@@ -1,9 +1,9 @@
 = simple_form_for @report, :url => url do |f|
   = f.input :user_id,:as => :hidden,:input_html => { :value => '1' }
-  = f.input :current_date
-  = f.input :plan
-  = f.input :goal
-  = f.input :content, :input_html => { :class => 'mini' }
+  = f.input :current_date, :as => :date, :start_year => Date.today.year ,:end_year => Date.today.year + 5, :discard_day => false,:order => [:year, :month, :day],:input_html => { :style => 'width:80px' }
+  = f.input :plan, :input_html => { :style => 'width:200px;height:20px' }
+  = f.input :goal, :input_html => { :style => 'width:200px;height:80px' }
+  = f.input :content, :input_html => { :style => 'width:200px;height:120px' }
   = f.input :score
   .actions
     = f.button :submit, t('admin.actions.add'), :class => 'btn middle success'
