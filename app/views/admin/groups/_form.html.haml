@@ -1,0 +1,7 @@
+= simple_form_for @group, :defaults => { :class => '.form-stacked' }, :url => url  do |f| 
+  = f.input :name
+  = f.input :code
+  = f.input :description
+  = f.association :roles, :as => :select, :collection => Role.all(:order => 'name')
+  .actions
+    = f.button :submit, t('admin.actions.submit'), :class => 'btn middle success'
