@@ -6,8 +6,9 @@
   = link_to tt(resource_class.to_s), new_resource_url, :class => 'btn large primary'
   = paginate collection
 .row
-  - @all_user.each do |user|
-    = link_to user.name, admin_reports_path(:uid=> user.id)
+  = simple_form_for @user, :url=>admin_reports_path, :method=>:get do |f|
+    = f.select :id, User.all.map { |r| [r.name, r.id] }, :Pinclude_blank => true
+    = f.submit :submit
   .span16
     %table#sortTableExample.zebra-striped
       %thead

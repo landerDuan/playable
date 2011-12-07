@@ -5,12 +5,15 @@ class Admin::ReportsController < Admin::BaseController
     redirect_to admin_reports_path
   end
   def index
- 		@uid = params[:uid]
-  	if !@uid
+  	if !params[:user]
   		@uid = current_user[:id]
+    else
+      @uid = params[:user][:id]
   	end
   	@reports = Report.where('user_id=' << @uid.to_s)
   	@all_user = User.all
+    @user = User.new
+
   end
   
   protected
