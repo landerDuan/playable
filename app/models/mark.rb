@@ -1,4 +1,8 @@
 class Mark < ActiveRecord::Base
+  
+  attr_accessor :number
+  
+  
   belongs_to :user
 end
 # == Schema Information
