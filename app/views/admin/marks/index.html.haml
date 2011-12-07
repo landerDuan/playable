@@ -17,12 +17,12 @@
 %br
 
 = simple_form_for @mark, :url => admin_marks_path, :method => :get  do |f| 
-  按用户名查找:
+  = ta Mark, :search_as_name
   = f.select :user_id, User.all.map { |r| [r.username, r.id] }
-  按日期查找:
+  = ta Mark, :search_as_date
   = f.input :checkin_at
   %div
-    = f.button :submit, t('admin.actions.add')
+    = f.button :submit, t('admin.actions.search')
     
 .row
   .span16
@@ -48,16 +48,18 @@
             %tr
               %td= resource.created_at.to_date
               %td= resource.user.username
-              - if resource.checkin_at
-                %td= resource.checkin_at.strftime("%Y-%m-%d %H:%I")
-              - else
+              %td= resource.checkin_at.strftime("%Y-%m-%d %H:%I")
+              
               - if resource.checkout_at
                 %td= resource.checkout_at.strftime("%Y-%m-%d %H:%I")
               - else
+                %td
+                
               - if resource.checkout_at
                 %td= ((resource.checkout_at.to_i - resource.checkin_at.to_i)/3600.00).round(2).to_s << '小时'
               - else
-              %td= resource.description
+                %td
+              %td= resource.description =link_to t('admin.actions.edit'), edit_resource_path(resource)
               %td= resource.feedback
               %td= resource.type_identifier
               %td= resource.state
