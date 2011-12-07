@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  
+
   # Include default devise modules. Others available are:
   # :timeoutable and :omniauthable
   devise  :database_authenticatable,
@@ -21,8 +21,15 @@ class User < ActiveRecord::Base
   has_many :marks
   has_many :reports
   has_and_belongs_to_many :groups
+  
+  symbolize :gender, :in => [:male, :female], :methods => true, :allow_nil => true
+
+  def confirmation_required?
+    false
+  end
 
 end
+
 # == Schema Information
 #
 # Table name: users

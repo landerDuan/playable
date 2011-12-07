@@ -1,9 +1,6 @@
 class Admin::RolesController < Admin::BaseController
   main_nav_highlight :authorize
-    
-  def show
-    redirect_to admin_roles_path
-  end
+  actions :index, :edit, :update, :new, :create, :destroy
 
   protected
   
