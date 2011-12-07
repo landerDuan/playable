@@ -44,8 +44,9 @@ class Admin::MarksController < Admin::BaseController
     @today = Time.now.to_time.to_s[0,10]
     @search_user = params[:mark]
     if @search_user
-      @user = User.where("username = '" << @search_user[:user_id] << "'")
-      params[:user_id] = @user[0]['id']
+      #@user = User.where("username = '" << @search_user[:user_id] << "'")
+      #params[:user_id] = @user[0]['id']
+      params[:user_id] = @search_user[:user_id]
       @all_marks = Mark.find(:all, :conditions => ["user_id = :user_id",params], :limit => 1)
     else
       params[:user_id] = @user_id
@@ -64,6 +65,10 @@ class Admin::MarksController < Admin::BaseController
     render :text => @user[0]['id']
     @all_marks = Mark.find(:all, :conditions => ["user_id = :user_id",params],:limit => 1)
     #redirect_to admin_marks_path
+  end
+  
+  def show
+    redirect_to admin_marks_path
   end
   
   protected

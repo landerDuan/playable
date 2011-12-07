@@ -32,3 +32,4 @@ zh:
       reset: 重置信息
       new: '创建新%{model}'
       submit: '提交信息'
+      search: 查询

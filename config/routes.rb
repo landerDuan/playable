@@ -44,7 +44,12 @@ Playable::Application.routes.draw do
 
   namespace :admin do
     root :to => 'users#index'
-    resources :users, :groups
+    
+    resources :users do
+      resources :reports, :only => :index
+    end
+    
+    resources :groups
     resources :roles, :except => :show
     resources :reports
     resources :marks do
