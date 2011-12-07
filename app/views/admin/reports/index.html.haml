@@ -5,18 +5,18 @@
 .well
   = link_to tt(resource_class.to_s), new_resource_url, :class => 'btn large primary'
   = paginate collection
+  
+= render 'search'
+  
 .row
-  - @all_user.each do |user|
-    = link_to user.name, admin_reports_path(:uid=> user.id)
   .span16
     %table#sortTableExample.zebra-striped
       %thead
         %tr
-          %th.blue= ta User, :name
+          %th.blue= ta Report, :user
           %th.blue= ta Report, :plan
           %th.blue= ta Report, :goal
-          %th.blue= ta Report, :content
-          %th.blue= ta Report, :datetime
+          %th.blue= ta Report, :current_date
           %th.yellow= t('admin.actions.default')
       %tbody
         - if @reports.blank?
@@ -24,13 +24,12 @@
             %td &nbsp;
             %td{:colspan => 6}= t('admin.meta.empty_data')
         - else
-          - @reports.each do |resource|
+          - collection.each do |resource|
             %tr
-              %td= resource.user.name
-              %td= resource.plan
-              %td= resource.goal
-              %td= resource.content
-              %td= resource.current_date
+              %td= link_to resource.user.username, admin_user_reports_path(resource.user)
+              %td= truncate(resource.plan, :length => 30)
+              %td= truncate(resource.goal, :length => 30)
+              %td= resource.current_date.to_date
               %td
                 = link_to t('admin.actions.show'), resource_path(resource), :class => 'btn'
                 = link_to t('admin.actions.edit'), edit_resource_path(resource), :class => 'btn'
