@@ -1,12 +1,15 @@
-= simple_form_for @user, :defaults => { :class => '.form-stacked' }, :url => url  do |f| 
-  = f.input :username, :input_html => { :class => 'small' }
-  = f.input :name
-  = f.input :phone
-  = f.input :birthdate, :as => :date, :start_year => Date.today.year - 90, :end_year => Date.today.year - 12, :order => [:year, :month, :day], :input_html => { :class => 'small' }
-  = f.input :gender
-  = f.input :bio
-  = f.input :email
-  = f.input :is_admin
+= simple_form_for resource, :url => url  do |f|
+  .fieldset
+    = f.input :email
+    = f.input :username
+    = f.input :password
+    = f.input :password_confirmaiton
+    = f.input :name
+    = f.input :phone
+    = f.input :birthdate, :as => :date, :start_year => Date.today.year - 90, :end_year => Date.today.year - 12, :order => [:year, :month, :day], :input_html => { :class => 'small' }
+    = f.input :gender, :as => :radio, :collection => User.get_gender_values
+    = f.input :bio, :input_html => { :class => 'xxlarge', :rows => 5 }
 
-  .actions
-    = f.button :submit, t('admin.actions.add'), :class => 'btn middle success'
+    .actions
+      = f.button :submit, t('admin.actions.add'), :class => 'btn middle success'
+      = button_tag 'Reset', :type => 'reset', :class => 'btn'

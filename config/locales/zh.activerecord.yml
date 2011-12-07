@@ -12,11 +12,17 @@ zh:
         name: 姓名
         email: 邮件地址
         password: 密码
-        password_confirmation: 密码验证
+        password_confirmaiton: 密码验证
         current_password: 当前密码
         bio: 简单介绍
         remember_me: 记住登录信息
         groups: 所属组
+        gender: 性别
+        phone: 电话
+        enums:
+          gender:
+            male: 男
+            female: 女
       report:
         plan: 任务
         goal: 目标

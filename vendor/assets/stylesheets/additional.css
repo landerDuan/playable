@@ -2,11 +2,6 @@ form input, form textarea, form select, input[type="checkbox"], input[type="radi
   margin-left: 50px;
 }
 
-form label.collection_radio {
-  float: none;
-  margin-left: 10px;
-}
-
 form .clearfix span.error {
   display: block;
   max-width: 600px;
@@ -23,6 +18,11 @@ form .clearfix span.hint {
   margin-left: 180px;
   color: #BFBFBF;
 }
+
+form .clearfix span label.collection_check_boxes, form .clearfix span label.collection_radio {
+  float: none;
+  margin-left: 10px;
+}
 .ke-container.ke-container-default {
   margin-left: 180px;
 }
@@ -35,6 +35,138 @@ li.gap {
   text-decoration: none;
 }
 
+.media-grid a {
+  color: black;
+  text-align: center;
+}
+.row a {
+  color: black;
+}
+.row .well span.price {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.btn.black {
+  background-color: black;
+  background-image: none;
+}
+
+.row .well a.btn.black {
+  color: white;
+}
+
+.blogentry .avatar {
+  float: left;
+  padding: 3px;
+  margin-right: 10px;
+}
+
+.blogentry h3 {
+  margin-left: 55px;
+  line-height: 26px;
+}
+.blogentry .meta {
+/*  background: none repeat scroll 0 0 #F5F5F5;*/
+border-radius: 0 0 3px 3px;
+margin-bottom: 5px;
+}
+.blogentry .meta li.more {
+  float: right;
+}
+.blogentry .meta .tags a {
+  background: none repeat scroll 0 0 black;
+  color: #FFFFFF;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+h5.category {
+  background-color: #222222;
+  background-image: -moz-linear-gradient(center top , #333333, #222222);
+  background-repeat: repeat-x;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+  text-align: center;
+}
+
+.user_detail.span16 p {
+  width: 85%;
+}
+.row h5.category a {
+  color: white;
+}
+
+.blogentry hr {
+  margin: 2px 0 19px;
+}
+
+.popover-well.gallery {
+  width: 410px;
+  float: left;
+  margin-right: 20px;
+}
+.popover-well.gallery .inner {
+  width: 250px;
+}
+.popover-well.gallery img.large-bird {
+  margin: 5px 0 0 290px;
+}
+.popover-well .popover-wrapper {
+  margin-left: 0px;
+  height: 140px;
+  width: 80%;
+}
+.popover-well ul.albums {
+
+}
+
+.popover-well {
+  min-height: 125px;
+}
+
+.alert-message.notice {
+  background-color: black;
+  color: white;
+  background-image: -moz-linear-gradient(center top , black, black);
+  background-repeat: repeat-x;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.alert-message.notice a {
+  color: white;
+}
+
+.alert-message.notice p {
+  color: white;
+}
+.artist_albums {
+  padding-top: 30px;
+}
+.artist_album ul.media-grid {
+  margin-left: 0;
+}
+.artist_album ul.media-grid a {
+  border: 1px solid #DDDDDD;
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  float: left;
+  margin: 0 0 5px 5px;
+  padding: 2px;
+}
+
+.media-grid li a.btn {
+  float: right;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  color: white;
+}
+.media-grid li span {
+  float: right;
+}
+
+.press.media-grid a {
+  border: 0;
+}
 .add_more {
   margin-left: 365px;
 }
@@ -47,6 +179,21 @@ li.gap {
   background-color: white;
 }
 
+img.welcome {
+  border: 0 none;
+  display: block;
+  margin: 200px auto auto;
+  vertical-align: middle;
+}
+ul.breadcrumb.welcome {
+  background-color: white;
+  background-image: none;
+  border: 0;
+  border-radius: 3px 3px 3px 3px;
+  box-shadow: 0 1px 0 #FFFFFF inset;
+  margin: 10px 0 0 30px;
+  padding: 7px 14px;
+}
 .right {
   float: right;
   margin: 3px 0;
