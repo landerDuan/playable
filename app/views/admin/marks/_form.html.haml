@@ -1,16 +1,4 @@
 = simple_form_for @mark, :defaults => { :class => '.form-stacked' }, :url => url  do |f| 
   = f.input :description
-  = f.input :number, :input_html => { :value => 1 }
-  
-  = link_to '+', '#', :id => 'add_number'
-
   .actions
     = f.button :submit, t('admin.actions.edit'), :class => 'btn middle success'
-    
-
-:javascript
-  $(function() {
-    $('#add_number').click(function() {
-      
-    })
-  })
