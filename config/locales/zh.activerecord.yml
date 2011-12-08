@@ -43,7 +43,7 @@ zh:
         state: 管理员是否同意
         checkin: 签到
         checkout: 签出
-        search_as_name: 按名称查询
+        search_as_name: 按用户名查询
         search_as_date: 按日期查询
       group:
         name: 组名称

@@ -47,6 +47,7 @@ Playable::Application.routes.draw do
     
     resources :users do
       resources :reports, :only => :index
+      resources :marks, :only => :index
     end
     
     resources :groups
