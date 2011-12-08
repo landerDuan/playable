@@ -7,7 +7,9 @@
   = paginate collection
   
 = render 'search'
-  
+= link_to '<<', admin_reports_path
+= 'aaaa'
+= link_to '>>', admin_reports_path
 .row
   .span16
     %table#sortTableExample.zebra-striped
@@ -19,7 +21,7 @@
           %th.blue= ta Report, :current_date
           %th.yellow= t('admin.actions.default')
       %tbody
-        - if @reports.blank?
+        - if collection.blank?
           %tr
             %td &nbsp;
             %td{:colspan => 6}= t('admin.meta.empty_data')
@@ -31,7 +33,6 @@
               %td= truncate(resource.goal, :length => 30)
               %td= resource.current_date.to_date
               %td
-                = link_to t('admin.actions.show'), resource_path(resource), :class => 'btn'
                 = link_to t('admin.actions.edit'), edit_resource_path(resource), :class => 'btn'
                 = link_to t('admin.actions.delete'), resource_path(resource), :method => :delete, :confirm => t('admin.meta.confirm'), :class => 'btn danger'
     = paginate collection

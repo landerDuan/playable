@@ -9,7 +9,6 @@ class Admin::ReportsController < Admin::BaseController
     else
       @search ||= end_of_association_chain.search(params[:search])
     end
-    
     @reports = @search.page(params[:page]) 
   end
 
