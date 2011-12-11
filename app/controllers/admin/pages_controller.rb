@@ -1,5 +1,7 @@
 class Admin::PagesController < Admin::BaseController
 	main_nav_highlight :pages
+	include_kindeditor
+	
   protected
 
   def collection
