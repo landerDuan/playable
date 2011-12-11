@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20111211033855) do
-=======
-ActiveRecord::Schema.define(:version => 20111211035212) do
->>>>>>> 397d335319db70c7d9390fc2d8c4404814beab81
 
   create_table "events", :force => true do |t|
     t.integer  "user_id"
@@ -35,16 +31,6 @@ ActiveRecord::Schema.define(:version => 20111211035212) do
   add_index "events", ["type_identifier"], :name => "index_events_on_type_identifier"
   add_index "events", ["user_id"], :name => "index_events_on_user_id"
 
-  create_table "groups", :force => true do |t|
-    t.string   "name"
-    t.string   "code"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "groups", ["code"], :name => "index_groups_on_code"
-
   create_table "groups_roles", :id => false, :force => true do |t|
     t.integer "group_id"
     t.integer "role_id"
@@ -53,15 +39,6 @@ ActiveRecord::Schema.define(:version => 20111211035212) do
   add_index "groups_roles", ["group_id"], :name => "index_groups_roles_on_group_id"
   add_index "groups_roles", ["role_id"], :name => "index_groups_roles_on_role_id"
 
-  create_table "groups_users", :id => false, :force => true do |t|
-    t.integer "group_id"
-    t.integer "user_id"
-  end
-
-  add_index "groups_users", ["group_id"], :name => "index_groups_users_on_group_id"
-  add_index "groups_users", ["user_id"], :name => "index_groups_users_on_user_id"
-
-<<<<<<< HEAD
   create_table "marks", :force => true do |t|
     t.integer  "user_id"
     t.datetime "checkin_at"
@@ -90,8 +67,10 @@ ActiveRecord::Schema.define(:version => 20111211035212) do
     t.datetime "updated_at"
   end
 
-=======
->>>>>>> 397d335319db70c7d9390fc2d8c4404814beab81
+  add_index "pages", ["code"], :name => "index_pages_on_code"
+  add_index "pages", ["position"], :name => "index_pages_on_position"
+  add_index "pages", ["priority"], :name => "index_pages_on_priority"
+
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
     t.string   "title"
@@ -127,24 +106,6 @@ ActiveRecord::Schema.define(:version => 20111211035212) do
   end
 
   add_index "roles", ["code"], :name => "index_roles_on_code"
-
-  create_table "ttevents", :force => true do |t|
-    t.integer  "user_id"
-    t.datetime "checkin_at"
-    t.datetime "checkout_at"
-    t.text     "description"
-    t.text     "feedback"
-    t.string   "type_identifier"
-    t.string   "state"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "ttevents", ["checkin_at"], :name => "index_marks_on_checkin_at"
-  add_index "ttevents", ["checkout_at"], :name => "index_marks_on_checkout_at"
-  add_index "ttevents", ["state"], :name => "index_marks_on_state"
-  add_index "ttevents", ["type_identifier"], :name => "index_marks_on_type_identifier"
-  add_index "ttevents", ["user_id"], :name => "index_marks_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "username"

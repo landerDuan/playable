@@ -1,0 +1,8 @@
+zh:
+  layout:
+    home: 首页
+    account: 帐户
+    profile_settings: 帐户设置
+    password_settings: 密码修改
+    sign_in: 登录
+    sign_out: 退出

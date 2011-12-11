@@ -25,10 +25,6 @@ end
 Event.blueprint do
 end
 
-Group.blueprint do
-  # Attributes here
-end
-
 Role.blueprint do
   # Attributes here
 end

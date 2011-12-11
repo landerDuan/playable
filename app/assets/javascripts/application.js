@@ -6,4 +6,18 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require bootstrap/jquery.tablesorter.min
+//= require bootstrap/dropdown
+//= require bootstrap/twipsy
+//= require bootstrap/scrollspy
+//= require bootstrap/tabs
+//= require bootstrap/popover
+//= require bootstrap/alerts
+//= require bootstrap/modal
+//= require rails.validations
+//= require nested_form
+//= require bootstrap.config
+
+$(function() {
+  $('#topbar').dropdown();
+})
