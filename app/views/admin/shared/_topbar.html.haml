@@ -14,11 +14,10 @@
               %li= link_to t('admin.label.roles'), admin_roles_path
           = main_nav :reports do
             = link_to t('admin.label.reports'), admin_reports_path
-          = main_nav :marks do
-            = link_to t('admin.label.marks'), admin_marks_path
+          = main_nav :events do
+            = link_to t('admin.label.events'), admin_events_path
           = main_nav :pages do
             = link_to t('admin.label.pages'), admin_pages_path
-
       %ul.nav.secondary-nav
         %li.dropdown
           %li= link_to t('admin.label.signout'), destroy_user_session_path, :method => :delete

@@ -5,7 +5,7 @@ zh:
       reports: '日报'
       pages: '静态页面'
       signout: '注销帐户'
-      marks: '签到'
+      events: '签到'
       authorize: '授权'
       groups: '组'
       roles: '权限'

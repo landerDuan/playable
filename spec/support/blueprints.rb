@@ -22,7 +22,7 @@ Report.blueprint do
   score   { rand(10) }
 end
 
-Mark.blueprint do
+Event.blueprint do
 end
 
 Group.blueprint do

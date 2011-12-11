@@ -1,0 +1,87 @@
+.page-header
+  %h1
+    = t('activerecord.models.' + resource_class.name.downcase)
+    %small= t('admin.info.' + resource_class.name.downcase)
+
+- if !@today_check_info
+  = link_to t(ta Event, :checkin), checkin_admin_events_path(), :method => :put
+  = (ta Event, :checkout)
+- else
+  - if !@today_check_info.checkout_at
+    = (ta Event, :checkin)
+    = link_to t(ta Event, :checkout), checkout_admin_events_path(), :method => :put
+  - else
+    = (ta Event, :checkin)
+    = (ta Event, :checkout)
+    
+%br
+
+/ = simple_form_for @event, :url => admin_events_path, :method => :get  do |f| 
+/   = ta Event, :search_as_name
+/   = f.select :user_id, User.all.map { |r| [r.username, r.id] }
+/   = ta Event, :search_as_date
+/   = f.input :checkin_at
+/   %div
+/     = f.button :submit, t('admin.actions.search')
+= render  "search"
+
+
+= simple_form_for @search, :url => admin_events_path  do |f| 
+  = link_to '<==', '#', :id => 'pre_number', :onclick => "alert('hahahaa')"
+  = f.input :test_member, :input_html => {:value => 10}
+  = link_to '==>', '#', :id => 'next_number'
+  
+:javascript
+  $(function() {
+    $('#next_number').click(
+      function() {
+        var oldNumber = $("#search_test_member").val();
+        $("#search_test_member").val(parseInt(oldNumber) + 1);
+        $("#search_test_member").show();
+      }
+    )
+  })
+
+.row
+  .span16
+    %table#sortTableExample.zebra-striped
+      %thead
+        %tr
+          %th.blue= ta Event, :data
+          %th.blue= ta Event, :user_name
+          %th.blue{:width => 150}= ta Event, :checkin_at
+          %th.blue{:width => 150}= ta Event, :checkout_at
+          %th.blue= ta Event, :real_work_time
+          %th.blue= ta Event, :description
+          %th.blue= ta Event, :feedback
+          %th.blue= ta Event, :type_identifier
+          %th.blue= ta Event, :state
+      %tbody
+        - if collection.blank?
+          %tr
+            %td &nbsp;
+            %td{:colspan => 9}= t('admin.meta.empty_data')
+        - else
+          - collection.each do |resource|
+            %tr
+              %td= resource.created_at.to_date
+              %td= link_to resource.user.username, admin_user_events_path(resource.user)
+              %td= resource.checkin_at.strftime("%Y-%m-%d %H:%I")
+              
+              - if resource.checkout_at
+                %td= resource.checkout_at.strftime("%Y-%m-%d %H:%I")
+              - else
+                %td
+                
+              - if resource.checkout_at
+                %td= ((resource.checkout_at.to_i - resource.checkin_at.to_i)/3600.00).round(2).to_s << '小时'
+              - else
+                %td
+              %td
+                = resource.description
+                %br
+                = link_to t('admin.actions.edit'), edit_resource_path(resource)
+              %td= resource.feedback
+              %td= resource.type_identifier
+              %td= resource.state
+    = paginate collection

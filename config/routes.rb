@@ -47,13 +47,13 @@ Playable::Application.routes.draw do
     
     resources :users do
       resources :reports, :only => :index
-      resources :marks, :only => :index
+      resources :events, :only => :index
     end
     
     resources :groups
     resources :roles, :except => :show
     resources :reports
-    resources :marks do
+    resources :events do
       collection do
         put :checkin
         put :checkout

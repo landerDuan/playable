@@ -1,0 +1,4 @@
+= simple_form_for @event, :defaults => { :class => '.form-stacked' }, :url => url  do |f| 
+  = f.input :description
+  .actions
+    = f.button :submit, t('admin.actions.edit'), :class => 'btn middle success'
