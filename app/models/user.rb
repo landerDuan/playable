@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
                   :password_confirmation,
                   :remember_me
 
-  has_many :marks
+  has_many :events
   has_many :reports
   has_and_belongs_to_many :groups
   

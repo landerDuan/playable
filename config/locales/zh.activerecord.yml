@@ -3,7 +3,7 @@ zh:
     models:
       user: 用户
       report: 日报
-      mark: 签到
+      event: 签到
       group: 组
       role: 权限
     attributes:
@@ -28,7 +28,7 @@ zh:
         goal: 目标
         content: 实际情况
         datetime: 日期
-      mark:
+      event:
         data: 日期
         user_name: 用户名
         checkin_at: 上班时间

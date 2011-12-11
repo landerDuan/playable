@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111204073933) do
+ActiveRecord::Schema.define(:version => 20111211030403) do
+
+  create_table "events", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "checkin_at"
+    t.datetime "checkout_at"
+    t.text     "description"
+    t.text     "feedback"
+    t.string   "type_identifier"
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "events", ["checkin_at"], :name => "index_events_on_checkin_at"
+  add_index "events", ["checkout_at"], :name => "index_events_on_checkout_at"
+  add_index "events", ["state"], :name => "index_events_on_state"
+  add_index "events", ["type_identifier"], :name => "index_events_on_type_identifier"
+  add_index "events", ["user_id"], :name => "index_events_on_user_id"
 
   create_table "groups", :force => true do |t|
     t.string   "name"
