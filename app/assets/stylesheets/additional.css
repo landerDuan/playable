@@ -7,16 +7,20 @@ html {
     width: 100%;
 }
 
+.topbar {
+  margin-bottom: 10px;
+  position: static;
+}
 
 .container-fluid > .content {
     margin-left: -23px;
-    margin-right: 316px;
+    margin-right: 236px;
 }
 
 .container-fluid > .sidebar {
     float: right;
     position: relative;
-    width: 320px;
+    width: 240px;
 }
 
 .topbar-inner, .topbar .fill {

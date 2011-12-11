@@ -24,6 +24,8 @@ zh:
       empty_data: '暂时没有数据, 你可以添加新的数据!'
       back_to_top: '回到顶部'
       foot_content: 'Playable website, 版权所有.'
+      delete_the_image_below: 删除图片
+      add_photo: 添加图片
     actions:
       default: 操作
       add: 添加一个新的
