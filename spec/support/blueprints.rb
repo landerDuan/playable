@@ -29,10 +29,18 @@ Role.blueprint do
   # Attributes here
 end
 
+Page.blueprint do
+  # Attributes here
+end
+
 Post.blueprint do
   # Attributes here
 end
 
-Page.blueprint do
+Comment.blueprint do
+  # Attributes here
+end
+
+Category.blueprint do
   # Attributes here
 end

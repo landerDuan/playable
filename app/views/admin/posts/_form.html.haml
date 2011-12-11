@@ -1,0 +1,7 @@
+= simple_form_for @post, :url => url do |f|
+  = f.input :title
+  = f.input :content, :input_html => { :id => 'kindeditor_input' }
+  = f.input :permalink
+  = f.input :category_id, :as => :select, :collection => Category.all.collect { |x| [x.name, x.id] }, :prompt => true
+  .actions
+    = f.button :submit, t('activerecord.attributes.post.add'), :class => 'btn middle success'
