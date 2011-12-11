@@ -1,3 +1,51 @@
+/*================== Layout ==================*/
+html {
+    background-color: #EEEEEE;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.024) inset;
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.topbar-inner, .topbar .fill {
+  background-color: #4A91B9;
+  background-image: -moz-linear-gradient(center top , #559BC3, #4A91B9);
+}
+
+.topbar-inner a {
+  color: white;
+}
+
+.topbar-inner ul li.active a, .topbar-inner ul li.active a {
+  background-color: #4588AD;
+}
+
+ul.nav.main_menu a {
+  font-size: 13px;
+}
+
+.topbar div > ul .menu-dropdown, .nav .menu-dropdown, .topbar div > ul .dropdown-menu, .nav .dropdown-menu {
+  background-color: #4A91B9;
+}
+
+.topbar div > ul .menu-dropdown li a, .nav .menu-dropdown li a, .topbar div > ul .dropdown-menu li a, .nav .dropdown-menu li a {
+    color: white;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.topbar div > ul .menu-dropdown li a:hover, .nav .menu-dropdown li a:hover, .topbar div > ul .dropdown-menu li a:hover, .nav .dropdown-menu li a:hover {
+    background-color: #4588AD;
+    background-image: -moz-linear-gradient(center top , #4588AD, #4588AD);
+    background-repeat: repeat-x;
+    color: #FFFFFF;
+}
+
+.topbar div > ul .menu-dropdown .divider, .nav .menu-dropdown .divider, .topbar div > ul .dropdown-menu .divider, .nav .dropdown-menu .divider {
+  border-color: #E0E0E0;
+  background: none;
+}
+
+
 form input, form textarea, form select, input[type="checkbox"], input[type="radio"] {
   margin-left: 50px;
 }

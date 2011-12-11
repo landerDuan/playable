@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20111211035212) do
+=======
+ActiveRecord::Schema.define(:version => 20111211033855) do
+>>>>>>> 7e6107285aa21c1d0220549e89a70eb25c7114f6
 
   create_table "events", :force => true do |t|
     t.integer  "user_id"
@@ -31,16 +35,6 @@ ActiveRecord::Schema.define(:version => 20111211035212) do
   add_index "events", ["type_identifier"], :name => "index_events_on_type_identifier"
   add_index "events", ["user_id"], :name => "index_events_on_user_id"
 
-  create_table "groups", :force => true do |t|
-    t.string   "name"
-    t.string   "code"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "groups", ["code"], :name => "index_groups_on_code"
-
   create_table "groups_roles", :id => false, :force => true do |t|
     t.integer "group_id"
     t.integer "role_id"
@@ -49,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20111211035212) do
   add_index "groups_roles", ["group_id"], :name => "index_groups_roles_on_group_id"
   add_index "groups_roles", ["role_id"], :name => "index_groups_roles_on_role_id"
 
+<<<<<<< HEAD
   create_table "groups_users", :id => false, :force => true do |t|
     t.integer "group_id"
     t.integer "user_id"
@@ -57,6 +52,8 @@ ActiveRecord::Schema.define(:version => 20111211035212) do
   add_index "groups_users", ["group_id"], :name => "index_groups_users_on_group_id"
   add_index "groups_users", ["user_id"], :name => "index_groups_users_on_user_id"
 
+=======
+>>>>>>> 7e6107285aa21c1d0220549e89a70eb25c7114f6
   create_table "marks", :force => true do |t|
     t.integer  "user_id"
     t.datetime "checkin_at"
@@ -85,6 +82,13 @@ ActiveRecord::Schema.define(:version => 20111211035212) do
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
+=======
+  add_index "pages", ["code"], :name => "index_pages_on_code"
+  add_index "pages", ["position"], :name => "index_pages_on_position"
+  add_index "pages", ["priority"], :name => "index_pages_on_priority"
+
+>>>>>>> 7e6107285aa21c1d0220549e89a70eb25c7114f6
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
     t.string   "title"
