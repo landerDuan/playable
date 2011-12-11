@@ -1,6 +1,12 @@
 zh:
   layout:
     home: 首页
+    products: 案例展示
+    jobs: 职位招聘
+    contact_us: 联系我们
+    messages: 消息
+    blog_notifier: 博客留言 (%{count})
+    contact_notifier: 联系信息 (%{count})
     account: 帐户
     profile_settings: 帐户设置
     password_settings: 密码修改

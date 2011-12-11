@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111211052732) do
+ActiveRecord::Schema.define(:version => 20111211072008) do
 
   create_table "assets", :force => true do |t|
     t.string   "asset"
@@ -91,6 +91,27 @@ ActiveRecord::Schema.define(:version => 20111211052732) do
   add_index "posts", ["permalink"], :name => "index_posts_on_permalink"
   add_index "posts", ["title"], :name => "index_posts_on_title"
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
+
+  create_table "product_photos", :force => true do |t|
+    t.integer  "product_id"
+    t.string   "photo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "product_photos", ["product_id"], :name => "index_product_photos_on_product_id"
+
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.text     "description"
+    t.integer  "priority",    :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "products", ["name"], :name => "index_products_on_name"
+  add_index "products", ["priority"], :name => "index_products_on_priority"
 
   create_table "reports", :force => true do |t|
     t.integer  "user_id"

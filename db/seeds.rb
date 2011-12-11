@@ -8,6 +8,6 @@ DatabaseCleaner.clean
 FileUtils.rm_rf(File.join(Rails.root, 'public', 'uploads'))
 
 p "> create admin user..."
-User.make!(:admin, :email => 'admin@playable.com')
+User.make!(:admin, :email => 'admin@playab.net')
 p "admin user was created."
 

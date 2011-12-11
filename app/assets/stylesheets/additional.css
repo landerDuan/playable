@@ -7,6 +7,18 @@ html {
     width: 100%;
 }
 
+
+.container-fluid > .content {
+    margin-left: -23px;
+    margin-right: 316px;
+}
+
+.container-fluid > .sidebar {
+    float: right;
+    position: relative;
+    width: 320px;
+}
+
 .topbar-inner, .topbar .fill {
   background-color: #4A91B9;
   background-image: -moz-linear-gradient(center top , #559BC3, #4A91B9);
