@@ -1,4 +1,5 @@
 class Admin::PagesController < Admin::BaseController
+	include_kindeditor
 	main_nav_highlight :pages
   protected
 
