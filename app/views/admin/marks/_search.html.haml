@@ -1,8 +1,0 @@
-.well
-  = simple_form_for @search, :url => collection_path, :method => :get do |f|
-    / = ta Mark, :search_as_name
-    = f.input :user_id_equals, :as => :select, :collection => User.all.collect { |x| [x.username, x.id] }
-    / = ta Mark, :search_as_date
-    = f.input :checkin_at_gte, :as => :date
-    
-    = f.button :submit, t('admin.actions.search'), :class => 'btn middle success'
