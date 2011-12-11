@@ -1,0 +1,8 @@
+= simple_form_for @page, :url => url do |f|
+  = f.input :name
+  = f.input :code
+  = f.input :content
+  = f.input :priority
+  = f.input :position
+  .actions
+    = f.button :submit, t('admin.actions.add'), :class => 'btn middle success'

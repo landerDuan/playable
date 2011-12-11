@@ -6,6 +6,7 @@ zh:
       mark: 签到
       group: 组
       role: 权限
+      page: 静态页面
     attributes:
       user:
         username: 登陆名
@@ -30,7 +31,6 @@ zh:
         content: 实际情况
         current_date: 日期
         search: 搜索
-        user_id_equals: abc
       mark:
         data: 日期
         user_name: 用户名
@@ -54,3 +54,10 @@ zh:
         name: 权限名称
         code: 权限代码
         description: 说明
+      page:
+        name: 名称
+        code: 搜索
+        content: 内容
+        priority: 排序
+        position: 位置
+        created_at: 日期

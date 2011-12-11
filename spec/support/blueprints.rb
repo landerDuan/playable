@@ -36,3 +36,7 @@ end
 Post.blueprint do
   # Attributes here
 end
+
+Page.blueprint do
+  # Attributes here
+end

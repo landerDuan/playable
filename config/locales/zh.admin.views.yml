@@ -14,7 +14,7 @@ zh:
       report: 'reports of users'
       group: 'groups of users'
       role: 'roles of groups'
-      pages: '静态页面'
+      page: '静态页面'
     meta:
       confirm: '你确定吗?'
       select_notifier: '请选择一个选项...'

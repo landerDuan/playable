@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111204073933) do
+ActiveRecord::Schema.define(:version => 20111211033855) do
 
   create_table "groups", :force => true do |t|
     t.string   "name"
@@ -56,6 +56,16 @@ ActiveRecord::Schema.define(:version => 20111204073933) do
   add_index "marks", ["state"], :name => "index_marks_on_state"
   add_index "marks", ["type_identifier"], :name => "index_marks_on_type_identifier"
   add_index "marks", ["user_id"], :name => "index_marks_on_user_id"
+
+  create_table "pages", :force => true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.text     "content"
+    t.string   "priority"
+    t.string   "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", :force => true do |t|
     t.integer  "user_id"

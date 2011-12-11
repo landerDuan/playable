@@ -59,6 +59,7 @@ Playable::Application.routes.draw do
         put :checkout
       end
     end
+    resources :pages
   end
 
   # You can have the root of your site routed with "root"
