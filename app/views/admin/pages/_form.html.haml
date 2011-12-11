@@ -1,7 +1,7 @@
 = simple_form_for @page, :url => url do |f|
   = f.input :name
   = f.input :code
-  = f.input :content
+  = f.input :content, :input_html => { :id => 'kindeditor_input' }
   = f.input :priority
   = f.input :position
   .actions
