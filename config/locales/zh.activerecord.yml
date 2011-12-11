@@ -24,10 +24,13 @@ zh:
             male: 男
             female: 女
       report:
+        user: 用户名
         plan: 任务
         goal: 目标
         content: 实际情况
-        datetime: 日期
+        current_date: 日期
+        search: 搜索
+        user_id_equals: abc
       event:
         data: 日期
         user_name: 用户名

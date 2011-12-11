@@ -1,7 +1,7 @@
 .well
   = simple_form_for @search, :url => collection_path, :method => :get do |f|
     = f.input :user_id_equals, :as => :select, :collection => User.all.collect { |x| [x.username, x.id] }
-    = f.input :current_date_gte, :as => :date
-    = f.input :current_date_lte, :as => :date
+    = f.input :current_date_gte, :as => :date, :input_html=> {:style=>"width:80px"}
+    = f.input :current_date_lte, :as => :date, :input_html=> {:style=>"width:80px"}
     
-    = f.button :submit, :class => 'btn middle success'
+    = f.button :submit, t('activerecord.attributes.report.search'), :class => 'btn middle success'
