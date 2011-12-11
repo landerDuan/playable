@@ -12,3 +12,5 @@ zh:
     password_settings: 密码修改
     sign_in: 登录
     sign_out: 退出
+  sidebar:
+    settings: 帐号设置
