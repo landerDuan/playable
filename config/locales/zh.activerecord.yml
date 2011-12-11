@@ -7,6 +7,7 @@ zh:
       group: 组
       role: 权限
       page: 静态页面
+      product: 案例
     attributes:
       user:
         username: 登陆名
@@ -60,4 +61,10 @@ zh:
         content: 内容
         priority: 排序
         position: 位置
+        created_at: 日期
+      product:
+        name: 名称
+        photo: 图片
+        description: 介绍
+        priority: 排序
         created_at: 日期

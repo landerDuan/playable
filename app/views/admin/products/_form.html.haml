@@ -1,0 +1,8 @@
+= simple_form_for @product, :url => url do |f|
+  = f.input :name
+  = f.image_tag(@Product_photo.photo) if @Product_photo.photo?
+  = f.input :url
+  = f.input :description
+  = f.input :priority
+  .actions
+    = f.button :submit, t('admin.actions.add'), :class => 'btn middle success'

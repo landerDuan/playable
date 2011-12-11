@@ -22,7 +22,7 @@ Playable::Application.routes.draw do
         put :checkout
       end
     end
-    resources :pages
+    resources :pages,:products
   end
 
   root :to => 'home#index'
