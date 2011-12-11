@@ -21,6 +21,7 @@ html {
     float: right;
     position: relative;
     width: 240px;
+    background-color: #E7F6F9;
 }
 
 .topbar-inner, .topbar .fill {
