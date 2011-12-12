@@ -68,3 +68,5 @@ zh:
         description: 介绍
         priority: 排序
         created_at: 日期
+        url: 网站地址
+        photo: 图片

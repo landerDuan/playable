@@ -6,14 +6,15 @@
     = f.input :priority
     
     %hr
-    - resource.photos.each do |photo|
-      = f.simple_fields_for :photos, photo do |p|
-        .photo{:style => 'float: left;'}
-          = label_tag ''
-          = image_tag(photo.photo.small)
-          %br/
-          = label_tag ''
-          = p.link_to_remove t('admin.meta.delete_the_image_below')
+    - if resource.photos
+      - resource.photos.each do |photo|
+        = f.simple_fields_for :photos, photo do |p|
+          .photo{:style => 'float: left;'}
+            = label_tag ''
+            = image_tag(photo.photo.small) if photo.photo?
+            %br/
+            = label_tag ''
+            = p.link_to_remove t('admin.meta.delete_the_image_below')
     %fieldset
       = f.simple_fields_for :photos, resource.photos.build do |p|
         = p.input :photo, :as => :file

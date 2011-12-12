@@ -3,8 +3,8 @@
     = resource_class.name.pluralize
     %small= t("admin.headerline.#{resource_class.name.downcase}")
 .well
-  = link_to 'Back to list', collection_path, :class => 'btn large primary'
-  = link_to 'Edit', edit_resource_path(resource), :class => 'btn large info'
+  = link_to t('admin.actions.back'), collection_path, :class => 'btn large primary'
+  = link_to t('admin.actions.edit'), edit_resource_path(resource), :class => 'btn large info'
   
 .row
   .span16
