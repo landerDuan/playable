@@ -9,6 +9,7 @@ zh:
       authorize: '授权'
       groups: '组'
       roles: '权限'
+      posts: '博客'
       products: '案例'
     info:
       user: 'users and administrators'

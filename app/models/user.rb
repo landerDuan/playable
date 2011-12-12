@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   has_many :events
   has_many :reports
   has_and_belongs_to_many :groups
+  has_many :posts
   
   symbolize :gender, :in => [:male, :female], :methods => true, :allow_nil => true
 

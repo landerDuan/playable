@@ -12,6 +12,7 @@ Playable::Application.routes.draw do
     resources :users do
       resources :reports, :only => :index
       resources :events, :only => :index
+      resources :posts, :only => :index
     end
 
     resources :roles, :except => :show
@@ -22,6 +23,9 @@ Playable::Application.routes.draw do
         put :checkout
       end
     end
+
+    resources :pages
+    resources :posts
     resources :pages,:products
   end
 
