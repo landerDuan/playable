@@ -4,17 +4,16 @@
     %small= t('admin.info.' + resource_class.name.downcase)
 .well
   = link_to tt(resource_class.to_s), new_resource_url, :class => 'btn large primary'
+  = paginate collection
+
 .row
   .span16
     %table#sortTableExample.zebra-striped
       %thead
         %tr
-          %th.blue= ta Page, :name
-          %th.blue= ta Page, :code
-          %th.blue= ta Page, :content
-          %th.blue= ta Page, :priority
-          %th.blue= ta Page, :position
-          %th.blue= ta Page, :created_at
+          %th.blue= ta Product, :name
+          %th.blue= ta Product, :description
+          %th.blue= ta Product, :priority
           %th.yellow= t('admin.actions.default')
       %tbody
         - if collection.blank?
@@ -24,12 +23,11 @@
         - else
           - collection.each do |resource|
             %tr
-              %td= truncate(resource.name, :length => 30)
-              %td= truncate(resource.code, :length => 30)
-              %td= truncate(resource.content, :length => 30)
-              %td= truncate(resource.priority, :length => 30)
-              %td= truncate(resource.position, :length => 30)
-              %td= resource.created_at.to_date
+              %td= resource.name
+              %td= truncate(resource.description, :length => 20)
+              %td= resource.priority
               %td
+                = link_to t('admin.actions.show'), resource_path(resource), :class => 'btn'
                 = link_to t('admin.actions.edit'), edit_resource_path(resource), :class => 'btn'
                 = link_to t('admin.actions.delete'), resource_path(resource), :method => :delete, :confirm => t('admin.meta.confirm'), :class => 'btn danger'
+    = paginate collection

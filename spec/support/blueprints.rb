@@ -44,3 +44,11 @@ end
 Category.blueprint do
   # Attributes here
 end
+
+Product.blueprint do
+  # Attributes here
+end
+
+ProductPhoto.blueprint do
+  # Attributes here
+end

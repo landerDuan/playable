@@ -14,8 +14,13 @@
             = link_to t('admin.label.events'), admin_events_path
           = main_nav :pages do
             = link_to t('admin.label.pages'), admin_pages_path
+<<<<<<< HEAD
           = main_nav :posts do
             = link_to t('admin.label.posts'), admin_posts_path
+=======
+          = main_nav :products do
+            = link_to t('admin.label.products'), admin_products_path
+>>>>>>> 24fe82041e2b91420c8ce3675fbb0265cea1368f
       %ul.nav.secondary-nav
         %li.dropdown
           %li= link_to t('admin.label.signout'), destroy_user_session_path, :method => :delete

@@ -1,0 +1,23 @@
+= simple_nested_form_for resource, :url => url do |f|
+  .fieldset
+    = f.input :name
+    = f.input :url
+    = f.input :description
+    = f.input :priority
+    
+    %hr
+    - resource.photos.each do |photo|
+      = f.simple_fields_for :photos, photo do |p|
+        .photo{:style => 'float: left;'}
+          = label_tag ''
+          = image_tag(photo.photo.small)
+          %br/
+          = label_tag ''
+          = p.link_to_remove t('admin.meta.delete_the_image_below')
+    %fieldset
+      = f.simple_fields_for :photos, resource.photos.build do |p|
+        = p.input :photo, :as => :file
+      = f.link_to_add t('admin.meta.add_photo'), :photos, :class => 'btn info add_more'
+    
+    .actions
+      = f.button :submit, t('admin.actions.add'), :class => 'btn middle success'
