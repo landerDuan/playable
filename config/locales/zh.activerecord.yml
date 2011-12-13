@@ -7,8 +7,10 @@ zh:
       group: 组
       role: 权限
       page: 静态页面
-      post: 博客
+      post: 博客管理
       product: 案例
+      category: 分类管理
+      comment: 回复管理
     attributes:
       user:
         username: 登陆名
@@ -69,9 +71,10 @@ zh:
         permalink: 链接
         content: 内容
         is_top: 是否置顶
-        category_id: 分类
+        category: 分类
         created_at: 创建日期
         add: 添加
+        comments: 回复条数
       product:
         name: 名称
         photo: 图片
@@ -80,3 +83,13 @@ zh:
         created_at: 日期
         url: 网站地址
         photo: 图片
+      category:
+        code: 编号
+        name: 名称
+        created_at: 日期
+      comment:
+        name: 名称
+        email: 邮件地址
+        content: 内容
+        created_at: 日期
+        post: 博客标题

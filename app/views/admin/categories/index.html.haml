@@ -10,14 +10,9 @@
     %table#sortTableExample.zebra-striped
       %thead
         %tr
-          %th.blue= ta Post, :auth
-          %th.blue= ta Post, :permalink
-          %th.blue= ta Post, :category
-          %th.blue= ta Post, :title
-          %th.blue= ta Post, :content
-          %th.blue= ta Post, :is_top
-          %th.blue= ta Post, :comments
-          %th.blue= ta Post, :created_at
+          %th.blue= ta Category, :code
+          %th.blue= ta Category, :name
+          %th.blue= ta Category, :created_at
           %th.yellow= t('admin.actions.default')
       %tbody
         - if collection.blank?
@@ -27,17 +22,10 @@
         - else
           - collection.each do |resource|
             %tr
-              %td= link_to resource.user.username, admin_user_posts_path(resource.user)
-              %td= resource.permalink
-              %td= resource.category.name
-              %td= resource.title
-              %td= resource.content
-              %td= resource.is_top
-              %td= link_to resource.comments.count, admin_post_comments_path(resource)
+              %td= resource.code
+              %td= resource.name
               %td= resource.created_at.strftime("%Y-%m-%d %H:%I")
               %td
-                = link_to t('admin.actions.show'), resource_path(resource), :class => 'btn'
-                = link_to t('admin.actions.comment'), admin_post_comments_path(resource), :class => 'btn'
                 = link_to t('admin.actions.edit'), edit_resource_path(resource), :class => 'btn'
                 = link_to t('admin.actions.delete'), resource_path(resource), :method => :delete, :confirm => t('admin.meta.confirm'), :class => 'btn danger'
     = paginate collection

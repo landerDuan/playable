@@ -1,0 +1,30 @@
+.page-header
+  %h1
+    = t('activerecord.models.' + resource_class.name.downcase)
+    %small= t('admin.info.' + resource_class.name.downcase)
+.well
+  = link_to t('admin.actions.back'), collection_path, :class => 'btn large primary'
+  = link_to t('admin.actions.edit'), edit_resource_path(resource), :class => 'btn large info'
+  
+.row
+  .span16
+    %table.zebra-striped
+      %tbody
+        %tr
+          %td= ta Product, :name
+          %td= resource.user.name
+        %tr
+          %td= ta Product, :title
+          %td= resource.title
+        %tr
+          %td= ta Product, :content
+          %td= resource.content
+        %tr
+          %td= ta Product, :permalink
+          %td= resource.permalink
+        %tr
+          %td= ta Product, :is_top
+          %td= resource.is_top
+        %tr
+          %td= ta Product, :category
+          %td= resource.category.name

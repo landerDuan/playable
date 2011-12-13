@@ -1,0 +1,35 @@
+.page-header
+  %h1
+    = t('activerecord.models.' + resource_class.name.downcase)
+    %small= t('admin.info.' + resource_class.name.downcase)
+  .well
+    = link_to tt(resource_class.to_s), new_admin_post_comment_path(),:class => 'btn large primary'
+  = paginate collection
+
+.row
+  .span16
+    %table#sortTableExample.zebra-striped
+      %thead
+        %tr
+          %th.blue= ta Comment, :name
+          %th.blue= ta Comment, :email
+          %th.blue= ta Comment, :content
+          %th.blue= ta Comment, :created_at
+          %th.yellow= t('admin.actions.default')
+      %tbody
+        - if collection.blank?
+          %tr
+            %td &nbsp;
+            %td{:colspan => 6}= t('admin.meta.empty_data')
+        - else
+          - collection.each do |resource|
+            %tr
+              %td= resource.name
+              %td= truncate(resource.email, :length => 20)
+              %td= truncate(resource.content, :length => 20)
+              %td= resource.created_at.strftime("%Y-%m-%d %H:%I")
+              %td
+                = link_to t('admin.actions.show'), admin_post_comment_path(@post,resource), :class => 'btn'
+                = link_to t('admin.actions.edit'), edit_admin_post_comment_path(@post,resource), :class => 'btn'
+                = link_to t('admin.actions.delete'), admin_post_comment_path(@post,resource), :method => :delete, :confirm => t('admin.meta.confirm'), :class => 'btn danger'
+    = paginate collection

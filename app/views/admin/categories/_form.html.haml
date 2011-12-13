@@ -1,0 +1,6 @@
+= simple_nested_form_for @category, :url => url do |f|
+  .fieldset
+    = f.input :code
+    = f.input :name
+    .actions
+      = f.button :submit, t('admin.actions.add'), :class => 'btn middle success'

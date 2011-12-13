@@ -1,0 +1,27 @@
+.page-header
+  %h1
+    = t('activerecord.models.' + resource_class.name.downcase)
+    %small= t('admin.info.' + resource_class.name.downcase)
+.well
+  = link_to t('admin.actions.back'), admin_post_comments_path(@post), :class => 'btn large primary'
+  = link_to t('admin.actions.edit'), edit_admin_post_comment_path(@post,resource), :class => 'btn large info'
+  
+.row
+  .span16
+    %table.zebra-striped
+      %tbody
+        %tr
+          %td= ta Comment, :post
+          %td= resource.post.title
+        %tr
+          %td= ta Comment, :name
+          %td= resource.name
+        %tr
+          %td= ta Comment, :email
+          %td= resource.email
+        %tr
+          %td= ta Comment, :content
+          %td= resource.content
+        %tr
+          %td= ta Comment, :created_at
+          %td= resource.created_at

@@ -25,8 +25,10 @@ Playable::Application.routes.draw do
     end
 
     resources :pages
-    resources :posts
-    resources :pages,:products
+    resources :posts do
+       resources :comments
+    end
+    resources :pages,:products,:categories
   end
 
   root :to => 'home#index'

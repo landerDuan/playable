@@ -1,6 +1,6 @@
 class Admin::PostsController < Admin::BaseController
 	main_nav_highlight :posts
- include_kindeditor
+ 	include_kindeditor
  
 	protected
   

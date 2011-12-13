@@ -1,0 +1,16 @@
+.page-header
+  %h1
+    = t('activerecord.models.' + resource_class.name.downcase)
+    %small= t('admin.info.' + resource_class.name.downcase)
+.well
+  = link_to t('admin.actions.back'), admin_post_comments_path, :class => 'btn large primary'
+
+.row
+  .span16
+= simple_nested_form_for @comment, :url => url do |f|
+  .fieldset
+    = f.input :name
+    = f.input :email
+    = f.input :content, :input_html => { :id => 'kindeditor_input' }
+    .actions
+      = f.button :submit, t('admin.actions.add'), :class => 'btn middle success'

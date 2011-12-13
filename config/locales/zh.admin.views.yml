@@ -10,7 +10,10 @@ zh:
       groups: '组'
       roles: '权限'
       posts: '博客'
+      posts_manager: '博文管理'
+      categories: '分类管理'
       products: '案例'
+      comments: '回复管理'
     info:
       user: 'users and administrators'
       report: 'reports of users'
@@ -38,3 +41,4 @@ zh:
       new: '创建新%{model}'
       submit: '提交信息'
       search: 查询
+      comment: 查看回复
