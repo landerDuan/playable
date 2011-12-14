@@ -19,6 +19,13 @@
         - else
           %li= link_to current_user.name, profile_path
           %li.dropdown
+            = link_to t('workspace'), '#', :class => 'dropdown-toggle'
+            %ul.dropdown-menu
+              %li= link_to t('layout.checkin'), '#'
+              %li= link_to t('layout.add_report'), '#'
+              %li= link_to t('layout.add_post'), '#'
+              
+          %li.dropdown
             = link_to t('layout.messages'), '#', :class => 'dropdown-toggle'
             %ul.dropdown-menu
               %li= link_to t('layout.blog_notifier', :count => 0), '#'

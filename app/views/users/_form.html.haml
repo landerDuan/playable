@@ -1,6 +1,6 @@
-= simple_form_for @user, :url => url  do |f|
+= simple_form_for resource, :url => url  do |f|
   .fieldset
-    = f.input :email, :input_html => {:readonly => 'true'}
+    = f.input :email, :input_html => { :readonly => true }
     = f.input :username
     = f.input :name
     = f.input :phone
@@ -9,5 +9,5 @@
     = f.input :bio, :input_html => { :class => 'xxlarge', :rows => 5 }
 
     .actions
-      = f.button :submit, t('admin.actions.add'), :class => 'btn middle success'
+      = f.button :submit, :class => 'btn middle success'
       = button_tag 'Reset', :type => 'reset', :class => 'btn'

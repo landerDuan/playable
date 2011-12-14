@@ -1,12 +1,14 @@
 /*================== Layout ==================*/
 html {
-    background-color: #EEEEEE;
+    background-color: #DDF3F7;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.024) inset;
     display: table;
     height: 100%;
     width: 100%;
 }
-
+body {
+  background: none;
+}
 .topbar {
   margin-bottom: 10px;
   position: static;
@@ -14,7 +16,7 @@ html {
 
 .container-fluid > .content {
     margin-left: -23px;
-    margin-right: 236px;
+    margin-right: 250px;
 }
 
 .container-fluid > .sidebar {
@@ -22,6 +24,19 @@ html {
     position: relative;
     width: 240px;
     background-color: #E7F6F9;
+}
+
+.sidebar .box h5 {
+    font-size: 14px;
+     font-weight: 400;
+     height: 15px;
+     line-height: 15px;
+     margin: 20px 0 1px;
+     padding: 6px 15px;
+}
+
+.sidebar .box ul {
+  list-style: none;
 }
 
 .topbar-inner, .topbar .fill {

@@ -1,6 +1,8 @@
 Playable::Application.routes.draw do
   devise_for :users
   
+  resources :users
+  
   match 'settings'    => 'users#edit',  :via => :get, :as => :settings
   match 'members'     => 'users#index', :via => :get, :as => :members
   match 'my/profile'  => 'users#show',  :via => :get, :as => :profile

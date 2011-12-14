@@ -57,16 +57,6 @@ ActiveRecord::Schema.define(:version => 20111213092020) do
   add_index "events", ["type_identifier"], :name => "index_events_on_type_identifier"
   add_index "events", ["user_id"], :name => "index_events_on_user_id"
 
-  create_table "groups", :force => true do |t|
-    t.string   "name"
-    t.string   "code"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "groups", ["code"], :name => "index_groups_on_code"
-
   create_table "groups_roles", :id => false, :force => true do |t|
     t.integer "group_id"
     t.integer "role_id"
@@ -74,14 +64,6 @@ ActiveRecord::Schema.define(:version => 20111213092020) do
 
   add_index "groups_roles", ["group_id"], :name => "index_groups_roles_on_group_id"
   add_index "groups_roles", ["role_id"], :name => "index_groups_roles_on_role_id"
-
-  create_table "groups_users", :id => false, :force => true do |t|
-    t.integer "group_id"
-    t.integer "user_id"
-  end
-
-  add_index "groups_users", ["group_id"], :name => "index_groups_users_on_group_id"
-  add_index "groups_users", ["user_id"], :name => "index_groups_users_on_user_id"
 
   create_table "marks", :force => true do |t|
     t.integer  "user_id"
@@ -111,11 +93,15 @@ ActiveRecord::Schema.define(:version => 20111213092020) do
     t.datetime "updated_at"
   end
 
+  add_index "pages", ["code"], :name => "index_pages_on_code"
+  add_index "pages", ["position"], :name => "index_pages_on_position"
+  add_index "pages", ["priority"], :name => "index_pages_on_priority"
+
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
     t.string   "title"
-    t.text     "content"
     t.string   "permalink"
+    t.text     "content"
     t.boolean  "is_top"
     t.integer  "category_id"
     t.datetime "created_at"
@@ -123,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20111213092020) do
   end
 
   add_index "posts", ["category_id"], :name => "index_posts_on_category_id"
+  add_index "posts", ["is_top"], :name => "index_posts_on_is_top"
   add_index "posts", ["title"], :name => "index_posts_on_title"
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 
