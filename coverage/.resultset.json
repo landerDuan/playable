@@ -1,0 +1,149 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/suncx/Workspace/playable/app/models/user.rb": [
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/suncx/Workspace/playable/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/suncx/Workspace/playable/app/helpers/application_helper.rb": [
+        1,
+        1,
+        0,
+        null,
+        1,
+        null
+      ],
+      "/home/suncx/Workspace/playable/app/helpers/admin/categories_helper.rb": [
+        1,
+        null
+      ],
+      "/home/suncx/Workspace/playable/app/helpers/admin/comments_helper.rb": [
+        1,
+        null
+      ],
+      "/home/suncx/Workspace/playable/app/helpers/admin/events_helper.rb": [
+        1,
+        null
+      ],
+      "/home/suncx/Workspace/playable/app/helpers/admin/groups_helper.rb": [
+        1,
+        null
+      ],
+      "/home/suncx/Workspace/playable/app/helpers/admin/pages_helper.rb": [
+        1,
+        null
+      ],
+      "/home/suncx/Workspace/playable/app/helpers/admin/posts_helper.rb": [
+        1,
+        null
+      ],
+      "/home/suncx/Workspace/playable/app/helpers/admin/products_helper.rb": [
+        1,
+        null
+      ],
+      "/home/suncx/Workspace/playable/app/helpers/admin/reports_helper.rb": [
+        1,
+        null
+      ],
+      "/home/suncx/Workspace/playable/app/helpers/admin/roles_helper.rb": [
+        1,
+        null
+      ],
+      "/home/suncx/Workspace/playable/app/helpers/admin/users_helper.rb": [
+        1,
+        null
+      ],
+      "/home/suncx/Workspace/playable/app/helpers/home_helper.rb": [
+        1,
+        null
+      ],
+      "/home/suncx/Workspace/playable/app/helpers/users_helper.rb": [
+        1,
+        null
+      ],
+      "/home/suncx/Workspace/playable/app/models/kindeditor/asset.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1323768082
+  }
+}

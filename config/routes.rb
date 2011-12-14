@@ -5,6 +5,8 @@ Playable::Application.routes.draw do
   match 'members'     => 'users#index', :via => :get, :as => :members
   match 'my/profile'  => 'users#show',  :via => :get, :as => :profile
   match 'u/:username' => 'users#show',  :via => :get, :as => :username
+  match 'update'    => 'users#update',  :via => :put, :as => :update
+
 
   namespace :admin do
     root :to => 'users#index'
