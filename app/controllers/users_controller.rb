@@ -5,12 +5,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    p "111111111111111111111111111"
     p @user = User.find(current_user[:id])
-    p "22222222222222222222222222"
     p params[:user]
     if @user.update_attributes(params[:user])
-      p "3333333"
       redirect_to settings_path()
     else
 

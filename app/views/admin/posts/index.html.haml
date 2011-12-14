@@ -4,7 +4,7 @@
     %small= t('admin.info.' + resource_class.name.downcase)
 .well
   = link_to tt(resource_class.to_s), new_resource_url(),:class => 'btn large primary'
-
+= render 'search'
 .row
   .span16
     %table#sortTableExample.zebra-striped
@@ -15,6 +15,7 @@
           %th.blue= ta Post, :category
           %th.blue= ta Post, :title
           %th.blue= ta Post, :content
+          %th.blue= ta Post, :tag
           %th.blue= ta Post, :is_top
           %th.blue= ta Post, :comments
           %th.blue= ta Post, :created_at
@@ -32,6 +33,7 @@
               %td= resource.category.name
               %td= resource.title
               %td= resource.content
+              %td= resource.tags.map(&:name).join(',')
               %td= resource.is_top
               %td= link_to resource.comments.count, admin_post_comments_path(resource)
               %td= resource.created_at.strftime("%Y-%m-%d %H:%I")

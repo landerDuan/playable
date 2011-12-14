@@ -11,20 +11,27 @@
     %table.zebra-striped
       %tbody
         %tr
-          %td= ta Product, :name
+          %td= ta Post, :auth
           %td= resource.user.name
         %tr
-          %td= ta Product, :title
+          %td= ta Post, :title
           %td= resource.title
         %tr
-          %td= ta Product, :content
+          %td= ta Post, :content
           %td= resource.content
         %tr
-          %td= ta Product, :permalink
+          %td= ta Post, :tag
+          %td= resource.tags.map(&:name).join(',')
+        %tr
+          %td= ta Post, :permalink
           %td= resource.permalink
         %tr
-          %td= ta Product, :is_top
-          %td= resource.is_top
+          %td= ta Post, :is_top
+          %td
+            - if resource.is_top?
+              Yes
+            -else
+              No
         %tr
-          %td= ta Product, :category
+          %td= ta Post, :category
           %td= resource.category.name
