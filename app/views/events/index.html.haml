@@ -2,10 +2,20 @@
   %h1 
     = t('layout.checkin')
     
-  - if @event.checkout_at?
+  - if @event.blank?
     = link_to t("event.check_in"), checkin_path, :class => 'btn large primary'
+    %span.btn.large.disabled  
+      = t("event.check_out")
   - else
-    = link_to t("event.check_out"), checkout_path, :class => 'btn large primary'
+    - if @event.checkout_at.blank?
+      %span.btn.large.disabled
+        = t("event.check_in")
+      = link_to t("event.check_out"), checkout_path, :class => 'btn large primary'
+    - else
+      %span.btn.large.disabled
+        = t("event.check_in")
+      %span.btn.large.disabled
+        = t("event.check_out")
 
 .row
   .span16
@@ -31,10 +41,10 @@
             %tr
               %td= resource.created_at.to_date
               %td= link_to resource.user.username, admin_user_events_path(resource.user)
-              %td= resource.checkin_at.strftime("%Y-%m-%d %H:%I")
+              %td= resource.checkin_at.strftime("%Y-%m-%d %H:%M:%S")
               
               - if resource.checkout_at
-                %td= resource.checkout_at.strftime("%Y-%m-%d %H:%I")
+                %td= resource.checkout_at.strftime("%Y-%m-%d %H:%M:%S")
               - else
                 %td
                 
