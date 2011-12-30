@@ -2,20 +2,19 @@
   %h1 
     = t('layout.checkin')
     
-  - if @event.blank?
-    = link_to t("event.check_in"), checkin_path, :class => 'btn large primary'
-    %span.btn.large.disabled  
+  - if @status.blank? || @status == 1
+    = link_to t("event.check_in"), checkin_path, :class => 'btn large success'
+    %span.btn.middle.disabled  
       = t("event.check_out")
+  - elsif @status ==2
+    %span.btn.middle.disabled
+      = t("event.check_in")
+    = link_to t("event.check_out"), checkout_path, :class => 'btn large danger'
   - else
-    - if @event.checkout_at.blank?
-      %span.btn.large.disabled
-        = t("event.check_in")
-      = link_to t("event.check_out"), checkout_path, :class => 'btn large primary'
-    - else
-      %span.btn.large.disabled
-        = t("event.check_in")
-      %span.btn.large.disabled
-        = t("event.check_out")
+    %span.btn.middle.disabled
+      = t("event.check_in")
+    %span.btn.middle.disabled
+      = t("event.check_out")
 
 .row
   .span16
@@ -39,7 +38,7 @@
         - else
           - @events.each do |resource|
             %tr
-              %td= resource.created_at.to_date
+              %td= resource.checkin_at.to_date
               %td= link_to resource.user.username, admin_user_events_path(resource.user)
               %td= resource.checkin_at.strftime("%Y-%m-%d %H:%M:%S")
               

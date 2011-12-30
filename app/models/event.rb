@@ -1,13 +1,25 @@
 class Event < ActiveRecord::Base
 	belongs_to :user
 
-	def check_in
-		@event = self.new
-    @event.user_id = current_user[:id]
-    @event.checkin_at = Time.now
-    @event.save
-    redirect_to events_path
-	end
+  def self.check_in(user_id)
+  		@new_event = Event.new(:user_id => user_id, :checkin_at => Time.now)
+  		@new_event.save
+  end
+
+  def check_out(user_id)
+  		@now_event = self.update_attributes(:user_id => user_id, :checkout_at => Time.now)
+  end
+
+  def status
+  	if !self.checkout_at.blank? && self.checkin_at < Time.now.to_date
+  		1
+  	elsif self.checkout_at.blank?
+  		2
+  	else
+  		3
+  	end  	
+  end
+
 end
 # == Schema Information
 #
