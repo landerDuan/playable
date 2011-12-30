@@ -1,0 +1,27 @@
+.page-header
+  %h1 
+    = t('layout.add_report')
+
+.row
+  %table#sortTableExample.zebra-striped
+    %thead
+      %tr
+        %th.blue= ta Report, :user
+        %th.blue= ta Report, :plan
+        %th.blue= ta Report, :goal
+        %th.blue= ta Report, :current_date
+        %th.yellow= t('admin.actions.default')
+    %tbody
+      - if @reports.blank?
+        %tr
+          %td &nbsp;
+          %td{:colspan => 6}= t('admin.meta.empty_data')
+      - else
+        - @reports.each do |resource|
+          %tr
+            %td= resource.user.name
+            %td= truncate(resource.plan, :length => 30)
+            %td= truncate(resource.goal, :length => 30)
+            %td= resource.current_date.to_date
+            %td
+              = link_to t('admin.actions.edit'), edit_report_path(resource), :class => 'btn'

@@ -12,6 +12,18 @@ zh:
     password_settings: 密码修改
     sign_in: 登录
     sign_out: 退出
+    workspace: 工作
+    checkin: 签到\签出
+    add_report: 日报
+    add_post: 博客
   sidebar:
     settings: 帐号设置
     password_settings: 密码修改
+  event:
+    check_in: 签到
+    check_out: 签出
+  product:
+    empty_data: 暂时没有数据
+    name: 项目名称
+    url: 网址
+    description: 描述

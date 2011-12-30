@@ -3,6 +3,6 @@
     / = ta Event, :search_as_name
     = f.input :user_id_equals, :as => :select, :collection => User.all.collect { |x| [x.username, x.id] }
     / = ta Event, :search_as_date
-    = f.input :checkin_at_gte, :as => :date
+    = f.input :checkin_at_gte, :as => :string, :input_html=> {:style=>"width:120px;height:20px", :onfocus => "javascript:HS_setDate(this)"}
     
     = f.button :submit, t('admin.actions.search'), :class => 'btn middle success'

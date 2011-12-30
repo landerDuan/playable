@@ -1,7 +1,7 @@
 .topbar{'data-scrollspy' => 'scrollspy', 'data-dropdown' => 'dropdown'}
   .topbar-inner
     .container
-      = link_to 'Playable', admin_users_path, :class => 'brand'
+      = link_to 'Playable', root_path, :class => 'brand', :target => "_blank"
       - if user_signed_in?
         %ul
           = main_nav :users do

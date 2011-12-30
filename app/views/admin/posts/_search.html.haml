@@ -1,6 +1,7 @@
 .well
   = simple_form_for @search, :url => collection_path, :method => :get do |f|
     = f.input :user_id_equals, :as => :select, :collection => User.all.collect { |x| [x.username, x.id] }
-    = f.input :created_at_gte, :as => :date, :input_html=> {:style=>"width:80px"}
+    = f.input :created_at_gte, :as => :string, :input_html=> {:style=>"width:120px;height:20px", :onfocus => "javascript:HS_setDate(this)"}
+
     
     = f.button :submit, t('activerecord.attributes.report.search'), :class => 'btn middle success'

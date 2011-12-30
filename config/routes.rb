@@ -2,7 +2,15 @@ Playable::Application.routes.draw do
   devise_for :users
   
   resources :users
-  
+  resources :events
+  resources :reports
+  resources :products
+
+  match 'pages/:type' => 'pages#index', :via => :get, :as => :pages
+  match 'checkin' => 'events#check_in', :via => :get, :as => :checkin
+  match 'checkout' => 'events#check_out', :via => :get, :as => :checkout
+
+
   match 'settings'    => 'users#edit',  :via => :get, :as => :settings
   match 'members'     => 'users#index', :via => :get, :as => :members
   match 'my/profile'  => 'users#show',  :via => :get, :as => :profile

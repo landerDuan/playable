@@ -60,7 +60,7 @@ zh:
         description: 说明
       page:
         name: 名称
-        code: 搜索
+        code: 页面
         content: 内容
         priority: 排序
         position: 位置

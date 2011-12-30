@@ -1,0 +1,35 @@
+.page-header
+  %h1 
+    = t('layout.products')
+
+  %table
+    - if @products.blank?
+      %tr
+        %td &nbsp;
+        %td{:colspan => 9}= t('product.empty_data')
+    - else
+      - @products.each do |product| 
+        %tr
+          %td 
+            - product.photos.each do |photo|
+              = image_tag photo.photo.small
+
+          %td
+            = t('product.name') << ':' << product.name
+            %br
+            = t('product.description') << ':' << product.description
+            %br
+            = t('product.url') << ':' << product.url
+            
+
+
+
+
+%script
+  window.addEvent('domready', function(){SexyLightbox = new SexyLightBox({color:'white', dir: '../../assets/images'});})
+%div#top
+  %div.img_container
+    %ul
+      %li
+        = link_to image_tag("small_php_mysql.jpg"), "php_mysql.jpg", :rel => "sexylightbox[group1]"
+    
