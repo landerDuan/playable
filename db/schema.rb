@@ -84,9 +84,13 @@ ActiveRecord::Schema.define(:version => 20111213092020) do
   add_index "marks", ["user_id"], :name => "index_marks_on_user_id"
 
   create_table "pages", :force => true do |t|
-    t.string   "name"
+    t.string   "name_zh"
+    t.string   "name_en"
+    t.string   "name_jp"
     t.string   "code"
-    t.text     "content"
+    t.text     "content_zh"
+    t.text     "content_en"
+    t.text     "content_jp"
     t.string   "priority"
     t.string   "position"
     t.datetime "created_at"

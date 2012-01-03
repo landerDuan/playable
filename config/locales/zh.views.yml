@@ -3,7 +3,7 @@ zh:
     home: 首页
     products: 案例展示
     jobs: 职位招聘
-    contact_us: 联系我们
+    about_us: 关于我们
     messages: 消息
     blog_notifier: 博客留言 (%{count})
     contact_notifier: 联系信息 (%{count})
@@ -16,6 +16,10 @@ zh:
     checkin: 签到\签出
     add_report: 日报
     add_post: 博客
+    langue: 语言
+    english: 英文
+    japanese: 日文
+    chinese: 中文
   sidebar:
     settings: 帐号设置
     password_settings: 密码修改

@@ -9,9 +9,13 @@
     %table#sortTableExample.zebra-striped
       %thead
         %tr
-          %th.blue= ta Page, :name
+          %th.blue= ta Page, :name_zh
+          %th.blue= ta Page, :name_en
+          %th.blue= ta Page, :name_jp
           %th.blue= ta Page, :code
-          %th.blue= ta Page, :content
+          %th.blue= ta Page, :content_zh
+          %th.blue= ta Page, :content_en
+          %th.blue= ta Page, :content_jp
           %th.blue= ta Page, :priority
           %th.blue= ta Page, :position
           %th.blue= ta Page, :created_at
@@ -24,9 +28,13 @@
         - else
           - collection.each do |resource|
             %tr
-              %td= truncate(resource.name, :length => 30)
+              %td= truncate(resource.name_zh, :length => 30)
+              %td= truncate(resource.name_en, :length => 30)
+              %td= truncate(resource.name_jp, :length => 30)
               %td= truncate(resource.code, :length => 30)
-              %td= truncate(resource.content, :length => 30)
+              %td= truncate(resource.content_zh, :length => 30)
+              %td= truncate(resource.content_en, :length => 30)
+              %td= truncate(resource.content_jp, :length => 30)
               %td= truncate(resource.priority, :length => 30)
               %td= truncate(resource.position, :length => 30)
               %td= resource.created_at.to_date
