@@ -9,6 +9,7 @@ class Post < ActiveRecord::Base
 	belongs_to :category
 	belongs_to :user
 end
+
 # == Schema Information
 #
 # Table name: posts
