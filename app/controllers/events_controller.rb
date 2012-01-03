@@ -2,8 +2,15 @@ class EventsController < ApplicationController
   main_nav_highlight :events
 
   def index
-    @status = current_user.events.order("id").last.try(:status)
-    @events = current_user.events.page(params[:page])
+    @event_last = current_user.events.order("id").last
+    @status = @event_last.try(:status)
+    if @status == 2
+      if @event_last.checkin_at < Time.now.to_date
+        @event_last.auto_check_out
+        @status = @event_last.try(:status)
+      end
+    end
+    @events = current_user.events.where("created_at >='#{Time.now.beginning_of_week.to_date}'").order("id desc").page(params[:page])
   end
 
   def check_in

@@ -20,6 +20,11 @@ class Event < ActiveRecord::Base
   	end  	
   end
 
+  def auto_check_out
+    self.checkout_at = Time.now.to_date.to_s << "23:59:59"
+    self.save
+  end
+
 end
 # == Schema Information
 #

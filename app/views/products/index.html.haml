@@ -11,9 +11,16 @@
       - @products.each do |product| 
         %tr
           %td 
-            - product.photos.each do |photo|
-              = image_tag photo.photo.small
-
+            %div#top
+              %div.img_container
+                %ul
+                  - product.photos.each do |photo|
+                    - if photo == product.photos.first
+                      %li{:style => "list-style-type:none"}
+                        = link_to image_tag("#{photo.photo.small}"), "#{photo.photo}", :rel => "sexylightbox[group1]"
+                    - else
+                      %li{:style => "display:none"}
+                        = link_to image_tag("#{photo.photo.small}"), "#{photo.photo}", :rel => "sexylightbox[group1]"
           %td
             = t('product.name') << ':' << product.name
             %br
@@ -26,10 +33,6 @@
 
 
 %script
-  window.addEvent('domready', function(){SexyLightbox = new SexyLightBox({color:'white', dir: '../../assets/images'});})
-%div#top
-  %div.img_container
-    %ul
-      %li
-        = link_to image_tag("small_php_mysql.jpg"), "php_mysql.jpg", :rel => "sexylightbox[group1]"
+  window.addEvent('domready', function(){SexyLightbox = new SexyLightBox({color:'black', dir: '../../assets'});})
+
     
