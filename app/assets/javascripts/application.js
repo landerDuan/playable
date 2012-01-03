@@ -17,10 +17,4 @@
 //= require rails.validations
 //= require nested_form
 //= require bootstrap.config
-//= require datetime.js
-//= require mootools-yui-compressed.js
-//= require abc.js
-
-$(function() {
-  $('#topbar').dropdown();
-})
+//= require public

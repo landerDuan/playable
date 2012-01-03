@@ -30,7 +30,11 @@ Role.blueprint do
 end
 
 Page.blueprint do
-  # Attributes here
+  code      { "code_1" }
+  name_zh   { Faker::NameCN.name }
+  name_en   { Faker::Name.name }
+  name_jp   { object.name_zh }
+  position  { [:top, :bottom, :top_and_bottom].sample }
 end
 
 Post.blueprint do

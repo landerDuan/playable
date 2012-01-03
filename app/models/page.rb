@@ -1,4 +1,18 @@
 class Page < ActiveRecord::Base
+  
+  validates :name_zh, :name_en, :name_jp, :code, :presence => true
+  validates :code, :uniqueness => true
+  validates :priority, :numericality => { :integer_only => true }
+  
+  symbolize :position, :in => [:top, :bottom, :top_and_bottom], :methods => true
+  
+  scope :top, where('position <> ?', 'bottom')
+  scope :bottom, where('position <> ?', 'top')
+  
+  def to_param
+    "#{code}"
+  end
+  
 end
 # == Schema Information
 #

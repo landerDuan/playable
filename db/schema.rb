@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(:version => 20111213092020) do
     t.text     "content_zh"
     t.text     "content_en"
     t.text     "content_jp"
-    t.string   "priority"
+    t.integer  "priority",   :default => 0
     t.string   "position"
     t.datetime "created_at"
     t.datetime "updated_at"

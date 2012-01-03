@@ -1,12 +1,14 @@
-= simple_form_for @page, :url => url do |f|
+= simple_form_for resource, :url => url do |f|
+  = f.input :code, :input_html => { :disabled => true }
+  
   = f.input :name_zh
   = f.input :name_en
   = f.input :name_jp
-  = f.input :code
+  = f.input :priority, :input_html => { :class => 'small' }
+  = f.input :position, :as => :radio, :collection => resource_class.get_position_values
+  
   = f.input :content_zh, :input_html => { :id => 'kindeditor_input' }
-  = f.input :content_en, :input_html => { :id => 'kindeditor_input' }
-  = f.input :content_jp, :input_html => { :id => 'kindeditor_input' }
-  = f.input :priority
-  = f.input :position
+  = f.input :content_en, :input_html => { :id => 'kindeditor_input_s' }
+  
   .actions
     = f.button :submit, t('admin.actions.add'), :class => 'btn middle success'

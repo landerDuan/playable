@@ -8,10 +8,11 @@
           = link_to t('layout.home'), root_path
         = main_nav :products do
           = link_to t('layout.products'), products_path
-        = main_nav :jobs do
-          = link_to t('layout.jobs'), pages_path('job')
-        = main_nav :contacts do
-          = link_to t('layout.about_us'), pages_path('about')
+        = main_nav :blog do
+          = link_to t('layout.blog'), blog_path
+        - @top_pages.each do |page|
+          = main_nav page.code.to_sym do
+            = link_to page.name_zh, page_path(page)
 
       %ul.nav.secondary-nav
         - unless user_signed_in?
@@ -38,6 +39,6 @@
           %li.dropdown
             = link_to t('layout.langue'), '#', :class => 'dropdown-toggle'
             %ul.dropdown-menu
-              %li= link_to t('layout.english'), :controller => controller.controller_name, :action => controller.action_name,:locale => 'en'
-              %li= link_to t('layout.japanese'), :controller => controller.controller_name, :action => controller.action_name,:locale => 'jp'
-              %li= link_to t('layout.chinese'), :controller => controller.controller_name, :action => controller.action_name,:locale => 'zh'
+              %li= link_to t('layout.english'), '#'
+              %li= link_to t('layout.japanese'), '#'
+              %li= link_to t('layout.chinese'), '#'

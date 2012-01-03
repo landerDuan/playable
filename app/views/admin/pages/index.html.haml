@@ -2,42 +2,27 @@
   %h1
     = t('activerecord.models.' + resource_class.name.downcase)
     %small= t('admin.info.' + resource_class.name.downcase)
-.well
-  = link_to tt(resource_class.to_s), new_resource_url, :class => 'btn large primary'
 .row
   .span16
     %table#sortTableExample.zebra-striped
       %thead
         %tr
           %th.blue= ta Page, :name_zh
-          %th.blue= ta Page, :name_en
-          %th.blue= ta Page, :name_jp
           %th.blue= ta Page, :code
-          %th.blue= ta Page, :content_zh
-          %th.blue= ta Page, :content_en
-          %th.blue= ta Page, :content_jp
           %th.blue= ta Page, :priority
           %th.blue= ta Page, :position
-          %th.blue= ta Page, :created_at
           %th.yellow= t('admin.actions.default')
       %tbody
         - if collection.blank?
           %tr
             %td &nbsp;
-            %td{:colspan => 6}= t('admin.meta.empty_data')
+            %td{:colspan => 5}= t('admin.meta.empty_data')
         - else
           - collection.each do |resource|
             %tr
-              %td= truncate(resource.name_zh, :length => 30)
-              %td= truncate(resource.name_en, :length => 30)
-              %td= truncate(resource.name_jp, :length => 30)
-              %td= truncate(resource.code, :length => 30)
-              %td= truncate(resource.content_zh, :length => 30)
-              %td= truncate(resource.content_en, :length => 30)
-              %td= truncate(resource.content_jp, :length => 30)
-              %td= truncate(resource.priority, :length => 30)
-              %td= truncate(resource.position, :length => 30)
-              %td= resource.created_at.to_date
+              %td= resource.name_zh
+              %td= resource.code
+              %td= resource.priority
+              %td= resource.position_text
               %td
                 = link_to t('admin.actions.edit'), edit_resource_path(resource), :class => 'btn'
-                = link_to t('admin.actions.delete'), resource_path(resource), :method => :delete, :confirm => t('admin.meta.confirm'), :class => 'btn danger'

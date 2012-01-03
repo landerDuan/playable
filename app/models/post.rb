@@ -1,13 +1,13 @@
 class Post < ActiveRecord::Base
 
-	acts_as_taggable
-	scope :by_join_date, order("created_at DESC")
+  acts_as_taggable
+  scope :by_join_date, order("created_at DESC")
 
-	# validates :name, :presence => true, :uniqueness => true
+  # validates :name, :presence => true, :uniqueness => true
 
-	has_many :comments
-	belongs_to :category
-	belongs_to :user
+  has_many :comments
+  belongs_to :category
+  belongs_to :user
 end
 
 # == Schema Information

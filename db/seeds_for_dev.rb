@@ -5,7 +5,9 @@ p '> clean up temp data...'
 DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.clean
 
-FileUtils.rm_rf(File.join(Rails.root, 'public', 'uploads'))
+FileUtils.rm_rf(File.join(Rails.root, 'public', 'uploads/*'))
+
+require Rails.root.join('db/data/mandatory_seed')
 
 p "> create admin user..."
 User.make!(:admin, :email => 'admin@playab.net')

@@ -3,6 +3,7 @@ zh:
     home: 首页
     products: 案例展示
     jobs: 职位招聘
+    blog: 博客
     about_us: 关于我们
     messages: 消息
     blog_notifier: 博客留言 (%{count})
@@ -16,13 +17,13 @@ zh:
     checkin: 签到\签出
     add_report: 日报
     add_post: 博客
-    langue: 语言
-    english: 英文
-    japanese: 日文
-    chinese: 中文
   sidebar:
     settings: 帐号设置
     password_settings: 密码修改
+  language:
+    english: 英文
+    japanese: 日文
+    chinese: 中文
   event:
     check_in: 上班签到
     check_out: 下班签出

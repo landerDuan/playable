@@ -8,7 +8,7 @@ class CreatePages < ActiveRecord::Migration
       t.text    :content_zh
       t.text    :content_en
       t.text    :content_jp
-      t.string  :priority
+      t.integer :priority, :default => 0
       t.string  :position
 
       t.timestamps

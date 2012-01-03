@@ -49,11 +49,6 @@ zh:
         checkout: 签出
         search_as_name: 按用户名查询
         search_as_date: 按日期查询
-      group:
-        name: 组名称
-        code: 组代码
-        description: 说明
-        roles: 所拥权限
       role:
         name: 权限名称
         code: 权限代码
@@ -69,6 +64,11 @@ zh:
         priority: 排序
         position: 位置
         created_at: 日期
+        enums:
+          position:
+            top: 顶部
+            bottom: 底部
+            top_and_bottom: 全局
       post:
         auth: 作者
         title:  标题
