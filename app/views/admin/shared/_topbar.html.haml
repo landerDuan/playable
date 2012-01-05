@@ -21,7 +21,8 @@
             %ul.dropdown-menu
               %li= link_to t('admin.label.posts_manager'), admin_posts_path
               %li= link_to t('admin.label.categories'), admin_categories_path
-
+          = main_nav :ads do
+            = link_to t('admin.label.ads'), admin_ads_path
 
       %ul.nav.secondary-nav
         %li.dropdown

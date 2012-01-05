@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111213092020) do
+ActiveRecord::Schema.define(:version => 20120105081033) do
+
+  create_table "ad_photos", :force => true do |t|
+    t.integer  "ad_id"
+    t.string   "photo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ads", :force => true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.string   "photo"
+    t.string   "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "assets", :force => true do |t|
     t.string   "asset"

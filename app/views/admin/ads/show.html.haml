@@ -1,0 +1,23 @@
+.page-header
+  %h1
+    = t('activerecord.models.' + resource_class.name.downcase)
+    %small= t('admin.info.' + resource_class.name.downcase)
+.well
+  = link_to t('admin.actions.back'), collection_path, :class => 'btn large primary'
+  = link_to t('admin.actions.edit'), edit_resource_path(resource), :class => 'btn large info'
+  
+.row
+  .span16
+    %table.zebra-striped
+      %tbody
+        %tr
+          %td= ta Ad, :title
+          %td= resource.title
+        %tr
+          %td= ta Ad, :url
+          %td= resource.url
+        %tr
+          %td= ta Ad, :photos
+          %td
+            - resource.photos.each do |photo|
+              = image_tag("#{photo.photo.small}")
