@@ -8,6 +8,7 @@
     = f.input :phone
     = f.input :birthdate, :as => :date, :start_year => Date.today.year - 90, :end_year => Date.today.year - 12, :order => [:year, :month, :day], :input_html => { :class => 'small' }
     = f.input :gender, :as => :radio, :collection => User.get_gender_values
+    = f.input :position
     = f.input :bio, :input_html => { :class => 'xxlarge', :rows => 5 }
 
     .actions

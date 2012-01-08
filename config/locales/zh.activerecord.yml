@@ -24,6 +24,7 @@ zh:
         groups: 所属组
         gender: 性别
         phone: 电话
+        position: 职位
         enums:
           gender:
             male: 男

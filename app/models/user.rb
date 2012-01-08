@@ -21,7 +21,8 @@ class User < ActiveRecord::Base
                   :email,
                   :password,
                   :password_confirmation,
-                  :remember_me
+                  :remember_me,
+                  :position
 
   has_many :events
   has_many :reports
