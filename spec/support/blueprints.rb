@@ -40,7 +40,6 @@ Event.blueprint do
   checkout_at     { Time.zone.now.change(:hour => 18) }
   description     { Faker::LoremCN.paragraph }
   feedback        { Faker::LoremCN.paragraph }
-  type_identifier { Faker::LoremCN.word }
 end
 
 Role.blueprint do

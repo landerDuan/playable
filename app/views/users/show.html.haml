@@ -1,1 +1,9 @@
 = render 'layouts/sidebar/dashboard'
+
+.content
+  .title
+    .header
+      %span= t('profile.my_posts', :count => current_user.posts_count)
+    .action
+      = link_to '添加博客文章', '#'
+  %ul.posts

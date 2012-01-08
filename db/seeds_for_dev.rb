@@ -14,13 +14,18 @@ User.make!(:admin, :email => 'admin@playab.net')
 p "admin user was created."
 
 p "> create blog posts"
-30.times { Post.make!(:user => User.without_admin.sample, :category => Category.all.sample) }
-
-p "> create post comments"
-10.times { Comment.make!(:post => Post.all.sample) }
+30.times do
+  post = Post.make!(:user => User.without_admin.sample, :category => Category.all.sample)
+  Comment.make!(:post => post)
+end
 
 p "> create events..."
-10.times { Event.make!(:user => User.all.sample) }
+7.times do |t|
+  time = (t+1).days.ago
+  User.without_admin.each do |u|
+    Event.make!(:user => u, :checkin_at => time.change(:hour => 9), :checkout_at => time.change(:hour => 18))
+  end
+end
 
 p "> create product..."
 10.times { Product.make! }
