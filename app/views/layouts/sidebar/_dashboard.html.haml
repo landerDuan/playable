@@ -1,0 +1,18 @@
+.sidebar
+  .box
+    .user_info
+      .avatar= gravatar_tag resource.email, :size => 60
+      %h3.name= link_to resource.name, profile_path
+      %p= resource.position
+    
+    .mood
+      .date
+        %span.week= I18n.localize(Time.zone.now, :format => :week)
+        %span.day= Time.zone.now.day
+      .time
+        %span= I18n.localize(Time.zone.now, :format => :time)
+        
+    .check
+      = link_to '签到', checkin_path, :class => "btn success", :method => :put
+      = link_to '下班', checkout_path, :class => "btn success", :method => :put
+    

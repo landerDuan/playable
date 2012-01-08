@@ -14,13 +14,13 @@ Playable::Application.routes.draw do
     root :to => 'home#index'
   end
 
-  match '/blog'       => 'posts#index', :via => :get, :as => :blog
+  match '/blog'       => 'posts#index',     :via => :get, :as => :blog
 
-  match 'checkin'     => 'events#check_in',   :via => :get, :as => :checkin
-  match 'checkout'    => 'events#check_out',  :via => :get, :as => :checkout
+  match 'my/checkin'  => 'users#checkin',   :via => :put, :as => :checkin
+  match 'my/checkout' => 'users#checkout',  :via => :put, :as => :checkout
 
-  match 'settings'    => 'users#edit',  :via => :get, :as => :settings
-  match 'my/profile'  => 'users#show',  :via => :get, :as => :profile
+  match 'settings'    => 'users#edit',      :via => :get, :as => :settings
+  match 'my/profile'  => 'users#show',      :via => :get, :as => :profile
 
 
   namespace :admin do

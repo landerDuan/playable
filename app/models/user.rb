@@ -37,6 +37,18 @@ class User < ActiveRecord::Base
   symbolize :gender, :in => [:male, :female], :methods => true, :allow_nil => true
   
   scope :without_admin, where('is_admin <> true')
+  
+  def checkin
+    events.create(:checkin_at => Time.zone.now)
+  end
+  
+  def checkout
+    events.last.update_attribute(:checkout_at, Time.zone.now) if events.present?
+  end
+  
+  def already_checked_in?
+    events.last.checkin_at > Time.zone.now.change(:hour => 6) if events.present?
+  end
 
   def confirmation_required?
     false

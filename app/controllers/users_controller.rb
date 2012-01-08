@@ -1,17 +1,19 @@
-class UsersController < ApplicationController
-  inherit_resources
-  def edit
-    @user = User.find(current_user[:id])
-  end
-
-  def update
-    p @user = User.find(current_user[:id])
-    p params[:user]
-    if @user.update_attributes(params[:user])
-      redirect_to settings_path()
+class UsersController < InheritedResources::Base
+  
+  def checkin
+    if current_user.checkin
+      redirect_to :back, :notice => t('messages.successfully_checked_in')
     else
-
-      render settings_path()
+      redirect_to :back, :notice => t('messages.already_check_in')
+    end
+  end
+  
+  def checkout
+    result = current_user.checkout
+    
+    respond_to do |format|
+      format.json { render :json => result }
+      format.html { redirect_to :back }
     end
   end
 

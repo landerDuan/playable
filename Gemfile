@@ -23,8 +23,9 @@ gem 'mini_magick'
 gem 'rails_kindeditor',           :git => 'git://github.com/jerryshen/rails_kindeditor.git'
 
 # core support gems
-gem 'i18n-js',  '~> 1.0.2'
-gem 'stringex', '~> 1.3.0'
+gem 'i18n-js',      '~> 1.0.2'
+gem 'stringex',     '~> 1.3.0'
+gem 'gravatarify',  '~> 3.0.0'
 
 
 # Gems used only for assets and not required
@@ -68,5 +69,3 @@ group :test do
   gem 'turn',       :require => false
   gem 'simplecov',  :require => false
 end
-
-gem 'gravatarify', '~> 3.0.0'
