@@ -17,6 +17,7 @@ body {
 .container-fluid > .content {
     margin-left: -23px;
     margin-right: 250px;
+    background-color: white;
 }
 
 .container-fluid > .sidebar {
@@ -26,17 +27,40 @@ body {
     background-color: #E7F6F9;
 }
 
-.sidebar .box h5 {
-    font-size: 14px;
-     font-weight: 400;
-     height: 15px;
-     line-height: 15px;
-     margin: 20px 0 1px;
-     padding: 6px 15px;
+.content .page-header {
+  padding: 10px;
+  margin: 0 10px 0 10px;
 }
+
+.content .row {
+  padding: 20px;
+  margin-left: 0;
+}
+
+.sidebar .box {
+  padding: 20px 0 10px 0;
+}
+
+.sidebar ul li a {
+  font-size: 14px;
+  font-weight: bold;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
 
 .sidebar .box ul {
   list-style: none;
+  margin: 0 0 5px 0px;
+  text-align: center;
+}
+
+.sidebar .box li a.selected {
+  background-color: #79C5E9;
+  color: white;
 }
 
 .topbar-inner, .topbar .fill {
@@ -79,7 +103,20 @@ ul.nav.main_menu a {
 
 
 form input, form textarea, form select, input[type="checkbox"], input[type="radio"] {
-  margin-left: 50px;
+  margin-left: 20px;
+}
+
+form select.tiny {
+  width: 50px
+}
+
+form label abbr {
+  color: red;
+}
+
+form .actions {
+  background: none;
+  border-top: none;
 }
 
 form .clearfix span.error {

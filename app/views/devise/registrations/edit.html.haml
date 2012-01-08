@@ -1,0 +1,18 @@
+= render 'layouts/sidebar/profile'
+
+.content
+  .page-header
+    %h3
+      密码修改
+      %small (*为必填项)
+  
+  .row
+    = simple_form_for resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put } do |f|
+      .fieldset
+        = f.input :current_password
+        = f.input :password
+        = f.input :password_confirmation
+
+        .actions
+          = f.button :submit, :class => 'btn middle success'
+          = button_tag 'Reset', :type => 'reset', :class => 'btn'

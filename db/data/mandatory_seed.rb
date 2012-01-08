@@ -6,7 +6,7 @@ p "> create statics pages..."
   { :code => 'jobs',    :position => :top_and_bottom, :name_zh => '职位招聘', :name_en => 'Jobs' },
   { :code => 'privacy', :position => :bottom, :name_zh => '隐私政策', :name_en => 'Privacy & Policy' }
 ].each do |page|
-  Page.make!(
+  Page.create(
     :code     => page[:code],
     :position => page[:position],
     :name_zh  => page[:name_zh],

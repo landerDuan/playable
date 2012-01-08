@@ -25,6 +25,9 @@ class User < ActiveRecord::Base
                   :password,
                   :password_confirmation,
                   :remember_me
+                  
+  validates :username,  :presence   => true,
+                        :uniqueness => true
 
   has_many :events
   has_many :reports
