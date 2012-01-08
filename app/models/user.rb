@@ -39,7 +39,15 @@ class User < ActiveRecord::Base
   scope :without_admin, where('is_admin <> true')
   
   def checkin
-    events.create(:checkin_at => Time.zone.now)
+    if already_checked_in?
+      return
+    else
+      if !events.last.checkout_at.present?
+        @last_checkout_time = Time.zone.parse(events.last.checkin_at).change(:hour => 18)
+        events.last.update_attribute(:checkout_at, @last_checkout_time)
+      end
+      events.create(:checkin_at => Time.zone.now)
+    end
   end
   
   def checkout

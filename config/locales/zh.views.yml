@@ -35,5 +35,6 @@ zh:
   messages:
     successfully_checked_in: '您已经成功签到'
     already_checked_in: '您不能重复签到'
+    successfully_checked_out: '您已经成功签出'
   profile:
     my_posts: 我的博客文章 (%{count})
