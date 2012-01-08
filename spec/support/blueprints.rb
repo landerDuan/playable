@@ -35,6 +35,12 @@ Page.blueprint do
 end
 
 Event.blueprint do
+  user            { User.make! }
+  checkin_at      { Time.zone.now.change(:hour => 9) }
+  checkout_at     { Time.zone.now.change(:hour => 18) }
+  description     { Faker::LoremCN.paragraph }
+  feedback        { Faker::LoremCN.paragraph }
+  type_identifier { Faker::LoremCN.word }
 end
 
 Role.blueprint do
@@ -50,14 +56,17 @@ Post.blueprint do
 end
 
 Comment.blueprint do
-  post      { Post.make! }
-  name      { Faker::LoremCN.sentence }
-  content   { Faker::LoremCN.paragraph(5) }
-  email     { Faker::Internet.email }
+  post    { Post.make! }
+  name    { Faker::LoremCN.sentence }
+  content { Faker::LoremCN.paragraph(5) }
+  email   { Faker::Internet.email }
 end
 
 Product.blueprint do
-  # Attributes here
+  name        { Faker::LoremCN.sentence }
+  url         { Faker::Lorem.sentence.to_url }
+  description { Faker::LoremCN.paragraph }
+  priority    { rand(5) }
 end
 
 ProductPhoto.blueprint do

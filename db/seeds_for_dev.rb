@@ -18,3 +18,9 @@ p "> create blog posts"
 
 p "> create post comments"
 10.times { Comment.make!(:post => Post.all.sample) }
+
+p "> create events..."
+10.times { Event.make!(:user => User.all.sample) }
+
+p "> create product..."
+10.times { Product.make! }
