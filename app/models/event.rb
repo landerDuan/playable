@@ -1,5 +1,13 @@
 class Event < ActiveRecord::Base
   belongs_to :user, :counter_cache => true
+  
+  before_validation :validate_checking
+  
+  def validate_checking
+    p "errors?"
+    errors.add(:checkin_at, I18n.t('messages.already_checked_in')) if user.already_checked_in?
+    p "#{errors.full_messages}"
+  end
 
   def self.check_in(user_id)
     @new_event = Event.new(:user_id => user_id, :checkin_at => Time.now)

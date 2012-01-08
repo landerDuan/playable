@@ -32,3 +32,6 @@ zh:
     name: 项目名称
     url: 网址
     description: 描述
+  messages:
+    successfully_checked_in: '您已经成功签到'
+    already_checked_in: '您不能重复签到'

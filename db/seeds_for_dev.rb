@@ -15,3 +15,6 @@ p "admin user was created."
 
 p "> create blog posts"
 30.times { Post.make!(:user => User.without_admin.sample, :category => Category.all.sample) }
+
+p "> create post comments"
+10.times { Comment.make!(:post => Post.all.sample) }
