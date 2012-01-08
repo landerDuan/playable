@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, :counter_cache => true
 
   def self.check_in(user_id)
     @new_event = Event.new(:user_id => user_id, :checkin_at => Time.now)

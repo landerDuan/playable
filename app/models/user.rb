@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
           :validatable,
           :confirmable,
           :token_authenticatable
+          
+  
+  attr_readonly :events_count, :reports_count, :posts_count
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username,
@@ -46,8 +49,12 @@ end
 #  phone                  :string(255)
 #  birthdate              :datetime
 #  gender                 :string(255)
+#  position               :string(255)
 #  bio                    :text
 #  is_admin               :boolean         default(FALSE)
+#  events_count           :integer         default(0)
+#  reports_count          :integer         default(0)
+#  posts_count            :integer         default(0)
 #  email                  :string(255)     default(""), not null
 #  encrypted_password     :string(128)     default(""), not null
 #  reset_password_token   :string(255)

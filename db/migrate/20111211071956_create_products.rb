@@ -4,7 +4,8 @@ class CreateProducts < ActiveRecord::Migration
       t.string  :name
       t.string  :url
       t.text    :description
-      t.integer :priority, :default => 0
+      t.integer :priority,      :default => 0
+      t.integer :photos_count,  :default => 0
 
       t.timestamps
     end

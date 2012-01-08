@@ -10,3 +10,4 @@ class Kindeditor::Asset < ActiveRecord::Base
   end
   
 end
+

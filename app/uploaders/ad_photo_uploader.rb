@@ -22,16 +22,16 @@ class AdPhotoUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  process :resize_to_fill => [600, 400]
+  process :resize_to_fill => [940, 200]
 
   # Create different versions of your uploaded files:
-  version :small do
-    process :resize_to_fill => [150, 100]
-  end
-  
-  version :medium do
-    process :resize_to_fill => [300, 200]
-  end
+  # version :small do
+  #   process :resize_to_fill => [150, 100]
+  # end
+  # 
+  # version :medium do
+  #   process :resize_to_fill => [300, 200]
+  # end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

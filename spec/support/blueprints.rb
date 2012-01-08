@@ -56,7 +56,3 @@ end
 ProductPhoto.blueprint do
   # Attributes here
 end
-
-AdPhoto.blueprint do
-  # Attributes here
-end
