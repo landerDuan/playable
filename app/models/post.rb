@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   attr_readonly :comments_count
 
   # validates :name, :presence => true, :uniqueness => true
-  validates :title,  :presence   => true
+  validates :title, :permalink, :content, :category_id,  :presence   => true
 
   has_many :comments
   

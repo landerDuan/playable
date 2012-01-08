@@ -1,4 +1,5 @@
 class UsersController < InheritedResources::Base
+  before_filter :authenticate_user!
   
   def checkin
     if current_user.checkin
