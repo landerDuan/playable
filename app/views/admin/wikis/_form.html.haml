@@ -1,0 +1,8 @@
+= simple_form_for resource, :url => url, :validate => true do |f|
+  .fieldset
+    = f.input :name
+    = f.input :url
+    = f.input :priority
+    
+    .actions
+      = f.button :submit, t('admin.actions.add'), :class => 'btn middle success'
