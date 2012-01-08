@@ -11,7 +11,7 @@ class Post < ActiveRecord::Base
   belongs_to :category, :counter_cache => true
   belongs_to :user,     :counter_cache => true
   
-  scope :by_join_date, order('created_at DESC')
+  scope :default_order, order('create_at DESC')
 end
 
 # == Schema Information

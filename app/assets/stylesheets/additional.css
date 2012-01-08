@@ -49,6 +49,7 @@ body {
   text-align: center;
   width: 100%;
   display: block;
+  margin-bottom: 5px;
 }
 form .clearfix:before, form .clearfix:after {
   display: inline-table;
