@@ -1,28 +1,35 @@
 .container-fluid {
   .content {
-   .title {
-        background: none repeat scroll 0 0 #F2F2F2;
-        border-top: 1px solid #E2E2E2;
-        height: 29px;
-        line-height: 29px;
-        overflow: hidden;
-        padding: 0 5px 0 10px;
-        
-        .header { float: left; }
-        .action { float: right; }
+    .title {
+      background: none repeat scroll 0 0 #F2F2F2;
+      border-top: 1px solid #E2E2E2;
+      height: 29px;
+      line-height: 29px;
+      overflow: hidden;
+      padding: 0 5px 0 10px;
+
+      .header { float: left; }
+      .action { float: right; }
     }
-    ul.posts {
-      
+    table {
+      margin: 10px;
+      width: 693px;
+    }
+    .notifier {
+      padding: 10px;
+      .alert-message {
+        margin-bottom: 10px;
+      }
     }
   }
-  
+
   .sidebar {
-    
+
     .user_info {
       clear: both;
       height: 65px;
       margin-bottom: 10px;
-      
+
       .avatar {
         padding-left: 20px;
         float: left;
@@ -40,61 +47,61 @@
         padding: 10px;
       }
     }
-    
+
     .check {
       padding: 0 60px 0 60px;
     }
-    
+
     .mood {
-        background: url("weather_bg.png") no-repeat scroll right 0 #F5F5F5;
-        border: 1px solid #BABABA;
-        border-radius: 3px 3px 3px 3px;
-        box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-        height: 45px;
-        position: relative;
-        margin: 0 15px 20px;
-        clear: both;
-        
-        .time {
-          float: right;
-          height: 43px;
-          width: 155px;
-          
-          span {
-            display: block;
-            text-align: center;
-            line-height: 43px;
-            font-size: 20px;
-          }
+      background: url("weather_bg.png") no-repeat scroll right 0 #F5F5F5;
+      border: 1px solid #BABABA;
+      border-radius: 3px 3px 3px 3px;
+      box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      height: 45px;
+      position: relative;
+      margin: 0 15px 20px;
+      clear: both;
+
+      .time {
+        float: right;
+        height: 43px;
+        width: 155px;
+
+        span {
+          display: block;
+          text-align: center;
+          line-height: 43px;
+          font-size: 20px;
         }
-        
-        .date {
-          background: url("weather_enter_bg.png") no-repeat scroll 0 0 transparent;
-          float: left;
-          height: 43px;
-          margin: -1px 0 0 -1px;
-          padding: 4px 4px 0 0;
-          width: 50px;
-          span {
-              display: block;
-              text-align: center;
-          }
-          
-          .week {
-              color: #FFFFFF;
-              font-family: mingliu;
-              font-size: 11px;
-              line-height: 10px;
-              padding: 2px 0 4px;
-              text-shadow: -1px -1px 0 #5DABE8;
-          }
-          .day {
-              color: #FFFFFF;
-              font-size: 24px;
-              text-shadow: -1px -1px 0 #5DABE8;
-          }
+      }
+
+      .date {
+        background: url("weather_enter_bg.png") no-repeat scroll 0 0 transparent;
+        float: left;
+        height: 43px;
+        margin: -1px 0 0 -1px;
+        padding: 4px 4px 0 0;
+        width: 50px;
+        span {
+          display: block;
+          text-align: center;
         }
+
+        .week {
+          color: #FFFFFF;
+          font-family: mingliu;
+          font-size: 11px;
+          line-height: 10px;
+          padding: 2px 0 4px;
+          text-shadow: -1px -1px 0 #5DABE8;
+        }
+        .day {
+          color: #FFFFFF;
+          font-size: 24px;
+          text-shadow: -1px -1px 0 #5DABE8;
+        }
+      }
     }
   }
 
