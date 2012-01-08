@@ -11,7 +11,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120105072608) do
+
+ActiveRecord::Schema.define(:version => 20120103062644) do
 
   create_table "ads", :force => true do |t|
     t.string   "title"
@@ -33,9 +34,14 @@ ActiveRecord::Schema.define(:version => 20120105072608) do
   create_table "categories", :force => true do |t|
     t.integer  "code"
     t.string   "name"
+    t.integer  "posts_count", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "categories", ["code"], :name => "index_categories_on_code"
+  add_index "categories", ["name"], :name => "index_categories_on_name"
+  add_index "categories", ["posts_count"], :name => "index_categories_on_posts_count"
 
   create_table "comments", :force => true do |t|
     t.integer  "post_id"
@@ -74,24 +80,6 @@ ActiveRecord::Schema.define(:version => 20120105072608) do
   add_index "groups_roles", ["group_id"], :name => "index_groups_roles_on_group_id"
   add_index "groups_roles", ["role_id"], :name => "index_groups_roles_on_role_id"
 
-  create_table "marks", :force => true do |t|
-    t.integer  "user_id"
-    t.datetime "checkin_at"
-    t.datetime "checkout_at"
-    t.text     "description"
-    t.text     "feedback"
-    t.string   "type_identifier"
-    t.string   "state"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "marks", ["checkin_at"], :name => "index_marks_on_checkin_at"
-  add_index "marks", ["checkout_at"], :name => "index_marks_on_checkout_at"
-  add_index "marks", ["state"], :name => "index_marks_on_state"
-  add_index "marks", ["type_identifier"], :name => "index_marks_on_type_identifier"
-  add_index "marks", ["user_id"], :name => "index_marks_on_user_id"
-
   create_table "pages", :force => true do |t|
     t.string   "name_zh"
     t.string   "name_en"
@@ -117,10 +105,12 @@ ActiveRecord::Schema.define(:version => 20120105072608) do
     t.text     "content"
     t.boolean  "is_top"
     t.integer  "category_id"
+    t.integer  "comments_count", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "posts", ["category_id", "title"], :name => "index_posts_on_category_id_and_title"
   add_index "posts", ["category_id"], :name => "index_posts_on_category_id"
   add_index "posts", ["is_top"], :name => "index_posts_on_is_top"
   add_index "posts", ["title"], :name => "index_posts_on_title"
@@ -139,7 +129,8 @@ ActiveRecord::Schema.define(:version => 20120105072608) do
     t.string   "name"
     t.string   "url"
     t.text     "description"
-    t.integer  "priority",    :default => 0
+    t.integer  "priority",     :default => 0
+    t.integer  "photos_count", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -153,11 +144,12 @@ ActiveRecord::Schema.define(:version => 20120105072608) do
     t.text     "goal"
     t.text     "content"
     t.integer  "score"
+    t.datetime "current_date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "current_date"
   end
 
+  add_index "reports", ["current_date"], :name => "index_reports_on_current_date"
   add_index "reports", ["user_id"], :name => "index_reports_on_user_id"
 
   create_table "roles", :force => true do |t|
@@ -193,8 +185,12 @@ ActiveRecord::Schema.define(:version => 20120105072608) do
     t.string   "phone"
     t.datetime "birthdate"
     t.string   "gender"
+    t.string   "position"
     t.text     "bio"
     t.boolean  "is_admin",                              :default => false
+    t.integer  "events_count",                          :default => 0
+    t.integer  "reports_count",                         :default => 0
+    t.integer  "posts_count",                           :default => 0
     t.string   "email",                                 :default => "",    :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "",    :null => false
     t.string   "reset_password_token"

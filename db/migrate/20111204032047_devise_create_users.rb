@@ -6,10 +6,15 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string    :phone
       t.datetime  :birthdate
       t.string    :gender
+      t.string    :position
       t.text      :bio
-      t.boolean   :is_admin, :default => false
+      t.boolean   :is_admin,      :default => false
       
-      t.database_authenticatable :null => false
+      t.integer   :events_count,  :default => 0
+      t.integer   :reports_count, :default => 0
+      t.integer   :posts_count,   :default => 0
+      
+      t.database_authenticatable  :null => false
       t.recoverable
       t.rememberable
       t.trackable

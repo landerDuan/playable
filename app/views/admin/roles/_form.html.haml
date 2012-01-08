@@ -1,4 +1,4 @@
-= simple_form_for @role, :defaults => { :class => '.form-stacked' }, :url => url  do |f| 
+= simple_form_for resource, :url => url, :validate => true  do |f| 
   %fieldset
     = f.input :name
     = f.input :code

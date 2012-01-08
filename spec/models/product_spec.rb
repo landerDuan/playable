@@ -7,12 +7,13 @@ end
 #
 # Table name: products
 #
-#  id          :integer         not null, primary key
-#  name        :string(255)
-#  url         :string(255)
-#  description :text
-#  priority    :integer         default(0)
-#  created_at  :datetime
-#  updated_at  :datetime
+#  id           :integer         not null, primary key
+#  name         :string(255)
+#  url          :string(255)
+#  description  :text
+#  priority     :integer         default(0)
+#  photos_count :integer         default(0)
+#  created_at   :datetime
+#  updated_at   :datetime
 #
 

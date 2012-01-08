@@ -7,10 +7,11 @@ end
 #
 # Table name: categories
 #
-#  id         :integer         not null, primary key
-#  code       :integer
-#  name       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id          :integer         not null, primary key
+#  code        :integer
+#  name        :string(255)
+#  posts_count :integer         default(0)
+#  created_at  :datetime
+#  updated_at  :datetime
 #
 

@@ -15,7 +15,7 @@ end
 #  content_zh :text
 #  content_en :text
 #  content_jp :text
-#  priority   :string(255)
+#  priority   :integer         default(0)
 #  position   :string(255)
 #  created_at :datetime
 #  updated_at :datetime

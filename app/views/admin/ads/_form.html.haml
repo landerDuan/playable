@@ -1,0 +1,9 @@
+= simple_form_for resource, :url => url, :validate => true do |f|
+  .fieldset
+    = f.input :title
+    = f.input :url
+    = f.input :position, :as => :radio, :collection => Ad.get_position_values
+    = f.input :photo, :as => :file
+    
+    .actions
+      = f.button :submit, t('admin.actions.add'), :class => 'btn middle success'

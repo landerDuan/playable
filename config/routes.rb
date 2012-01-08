@@ -46,6 +46,7 @@ Playable::Application.routes.draw do
       resources :comments
     end
     resources :pages,:products,:categories
+    resources :ads
   end
 
 end

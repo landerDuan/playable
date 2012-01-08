@@ -5,15 +5,15 @@
 .well
   = link_to tt(resource_class.to_s), new_resource_url, :class => 'btn large primary'
   = paginate collection
+
 .row
   .span16
     %table#sortTableExample.zebra-striped
       %thead
         %tr
-          %th.blue= ta Group, :name
-          %th.blue= ta Group, :code
-          %th.blue= ta Group, :description
-          %th.blue= ta Group, :roles
+          %th.blue= ta Ad, :title
+          %th.blue= ta Ad, :url
+          %th.blue= ta Ad, :position
           %th.yellow= t('admin.actions.default')
       %tbody
         - if collection.blank?
@@ -23,11 +23,11 @@
         - else
           - collection.each do |resource|
             %tr
-              %td= resource.id.to_s+'.'+resource.name
-              %td= resource.code
-              %td= resource.description
-              %td= resource.roles.map(&:name).join(',')
+              %td= resource.title
+              %td= truncate(resource.url, :length => 20)
+              %td= resource.position
               %td
+                = link_to t('admin.actions.show'), resource_path(resource), :class => 'btn'
                 = link_to t('admin.actions.edit'), edit_resource_path(resource), :class => 'btn'
                 = link_to t('admin.actions.delete'), resource_path(resource), :method => :delete, :confirm => t('admin.meta.confirm'), :class => 'btn danger'
     = paginate collection

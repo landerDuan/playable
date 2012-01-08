@@ -1,9 +1,0 @@
-= simple_form_for resource, :url => url  do |f| 
-  %fieldset
-    = f.input :name
-    = f.input :code
-    = f.input :role_ids, :as => :check_boxes, :collection => Role.all(:order => 'name')
-    = f.input :description, :input_html => { :class => 'xxlarge', :rows => 5 }
-    .actions
-      = f.button :submit, t('admin.actions.submit'), :class => 'btn middle success'
-      = button_tag 'Reset', :type => 'reset', :class => 'btn'

@@ -11,6 +11,7 @@ zh:
       product: 案例
       category: 分类管理
       comment: 回复管理
+      ad: 广告管理
     attributes:
       user:
         username: 登陆名
@@ -98,3 +99,11 @@ zh:
         content: 内容
         created_at: 日期
         post: 博客标题
+      ad:
+        title:  标题
+        url:  链接地址
+        position: 显示位置
+        enums:
+          position:
+            home: 首页
+            product: 案例

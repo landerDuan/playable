@@ -7,6 +7,7 @@ class CreatePosts < ActiveRecord::Migration
       t.text    :content
       t.boolean :is_top
       t.integer :category_id
+      t.integer :comments_count, :default => 0
 
       t.timestamps
     end
@@ -15,5 +16,7 @@ class CreatePosts < ActiveRecord::Migration
     add_index :posts, :title
     add_index :posts, :category_id
     add_index :posts, :is_top
+    
+    add_index :posts, [:category_id, :title]
   end
 end
