@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/jerryshen/rails_kindeditor.git
-  revision: dedf7baf7418360682742e8e383a352510bf68ca
+  revision: 8d6071fbf54edc8ec61a5d6874b541d0fe987022
   specs:
     rails_kindeditor (0.1.1)
       carrierwave

@@ -4,14 +4,14 @@ class Post < ActiveRecord::Base
   attr_readonly :comments_count
 
   # validates :name, :presence => true, :uniqueness => true
-  validates :title,  :presence   => true
+  validates :title, :permalink, :content, :category_id,  :presence   => true
 
   has_many :comments
   
   belongs_to :category, :counter_cache => true
   belongs_to :user,     :counter_cache => true
   
-  scope :by_join_date, order('created_at DESC')
+  scope :default_order, order('create_at DESC')
 end
 
 # == Schema Information

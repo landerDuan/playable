@@ -7,11 +7,12 @@ zh:
       group: 组
       role: 权限
       page: 静态页面
-      post: 博客管理
+      post: 博客
       product: 案例
-      category: 分类管理
-      comment: 回复管理
-      ad: 广告管理
+      category: 分类
+      comment: 回复
+      ad: 广告
+      wiki: Wiki
     attributes:
       user:
         username: 登陆名
@@ -109,3 +110,7 @@ zh:
           position:
             home: 首页
             product: 案例
+      wiki:
+        name:  名称
+        url:  链接地址
+        priority: 排序

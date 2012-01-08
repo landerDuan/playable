@@ -1,9 +1,10 @@
 = simple_form_for resource, :url => url  do |f|
   .fieldset
-    = f.input :title
-    = f.input :content, :input_html => { :id => 'kindeditor_input' }
-    = f.input :permalink
+    = f.input :title, :input_html => { :class => 'xlarge' }
+    = f.input :permalink, :input_html => { :class => 'xlarge' }
     = f.input :category_id, :as => :select, :collection => Category.all.collect { |x| [x.name, x.id] }, :prompt => false
-    = f.input :tag_list
+    = f.input :content, :label => false, :input_html => { :id => 'kindeditor_input' }
+    = f.input :tag_list, :input_html => { :class => 'xlarge' }
+    
     .actions
       = f.button :submit, :class => 'btn middle success'

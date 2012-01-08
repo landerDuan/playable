@@ -1,11 +1,11 @@
 class Category < ActiveRecord::Base
-  
-  attr_readonly :posts_count
-  
-  validates :code, :name, :presence => true, :uniqueness => true
-  
+
+	attr_readonly :posts_count
+
+	validates :code, :name, :presence => true, :uniqueness => true
+
 	has_many :posts
-	
+
 end
 # == Schema Information
 #

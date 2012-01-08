@@ -3,7 +3,29 @@
 .content
   .title
     .header
+      %span 我的提醒
+  = render 'notifiers'
+      
+  .title
+    .header
+      %span 一周日报
+    .action
+      = link_to '写日报', '#'
+      = link_to '更多', '#'
+  = render 'weekly_reports'
+  
+  .title
+    .header
+      %span 本周考勤
+    .action
+      = link_to '更多', '#'
+  = render 'weekly_check'
+  
+  .title
+    .header
       %span= t('profile.my_posts', :count => current_user.posts_count)
     .action
       = link_to '添加博客文章', '#'
   %ul.posts
+    - current_user.posts.each do |post|
+      %li= link_to post.title, '#'

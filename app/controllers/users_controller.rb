@@ -1,4 +1,6 @@
 class UsersController < InheritedResources::Base
+  before_filter :authenticate_user!
+  before_filter :get_related_resources, :only => :show
   
   def checkin
     if current_user.checkin
@@ -27,5 +29,9 @@ class UsersController < InheritedResources::Base
     else
       current_user
     end
+  end
+  
+  def get_related_resources
+    @recent_posts = resource.posts.default_order.limit(10)
   end
 end
