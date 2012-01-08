@@ -4,6 +4,7 @@ Playable::Application.routes.draw do
   resources :users
   resources :events
   resources :reports
+  resources :posts
 
   scope '(:locale)',:locale=>/zh|en|jp/ do
     resources :products
