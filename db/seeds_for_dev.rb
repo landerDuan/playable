@@ -12,3 +12,6 @@ require Rails.root.join('db/data/mandatory_seed')
 p "> create admin user..."
 User.make!(:admin, :email => 'admin@playab.net')
 p "admin user was created."
+
+p "> create blog posts"
+30.times { Post.make!(:user => User.without_admin.sample, :category => Category.all.sample) }

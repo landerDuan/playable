@@ -1,13 +1,12 @@
 require 'machinist/active_record'
 
 User.blueprint do
-  username  { "username_#{sn}" }
-  name      { Faker::Name.name }
-  email     { Faker::Internet.email }
-  password  { "password" }
-  password_confirmation { object.password }
-  bio       { Faker::Lorem.paragraph }
-  confirmed_at { Time.zone.now }
+  username      { "username_#{sn}" }
+  name          { Faker::Name.name }
+  email         { Faker::Internet.email }
+  password      { "password" }
+  bio           { Faker::Lorem.paragraph }
+  confirmed_at  { Time.zone.now }
 end
 
 User.blueprint(:admin) do
@@ -22,11 +21,9 @@ Report.blueprint do
   score   { rand(10) }
 end
 
-Event.blueprint do
-end
-
-Role.blueprint do
-  # Attributes here
+Category.blueprint do
+  name  { "category_#{sn}" }
+  code  { object.name }
 end
 
 Page.blueprint do
@@ -37,15 +34,22 @@ Page.blueprint do
   position  { [:top, :bottom, :top_and_bottom].sample }
 end
 
-Post.blueprint do
+Event.blueprint do
+end
+
+Role.blueprint do
   # Attributes here
+end
+
+Post.blueprint do
+  title     { Faker::LoremCN.sentence }
+  permalink { Faker::Lorem.sentence.to_url }
+  content   { Faker::LoremCN.paragraph(5) }
+  category  { Category.make! }
+  user      { User.make! }
 end
 
 Comment.blueprint do
-  # Attributes here
-end
-
-Category.blueprint do
   # Attributes here
 end
 

@@ -35,6 +35,8 @@ class User < ActiveRecord::Base
   has_many :posts
   
   symbolize :gender, :in => [:male, :female], :methods => true, :allow_nil => true
+  
+  scope :without_admin, where('is_admin <> true')
 
   def confirmation_required?
     false

@@ -1,5 +1,21 @@
 # encoding: utf-8
 
+p "> create users..."
+[
+  { :username => 'duanlipei', :name => 'asdfas', :position => 'CEO',   :email => 'duan@playab.net' },
+  { :username => 'sunchenxu', :name => '孙晨旭', :position => 'STAFF', :email => 'suncx@playab.net' },
+  { :username => 'lipeng',    :name => '李鹏',  :position => 'STAFF', :email => 'li@playab.net' }
+].each do |user|
+  User.create(
+    :username     => user[:username],
+    :name         => user[:name],
+    :position     => user[:position],
+    :email        => user[:email],
+    :password     => 'password',
+    :confirmed_at => Time.zone.now
+  )
+end
+
 p "> create statics pages..."
 [
   { :code => 'about',   :position => :top_and_bottom, :name_zh => '关于我们', :name_en => 'About' },
@@ -15,17 +31,11 @@ p "> create statics pages..."
   )
 end
 
-p "> create user..."
+p "> create categories..."
 [
-  { :username => 'duanlipei', :name => '段力佩', :position => 'CEO',   :email => 'duan@playab.net',   :password => '111111'},
-  { :username => 'sunchenxu', :name => '孙晨旭', :position => 'STAFF', :email => 'suncx@playab.net',  :password => '111111'},
-  { :username => 'lipeng',    :name => '李鹏',  :position => 'STAFF',   :email => 'li@playab.net',    :password => '111111'}
-].each do |user|
-  User.create(
-    :username   => user[:username],
-    :name       => user[:name],
-    :position   => user[:position],
-    :email      => user[:email],
-    :password   => user[:encrypted_password]
-  )
+  { :name => '公司新闻', :code => 'news' },
+  { :name => '团队故事', :code => 'team' },
+  { :name => '技术讨论', :code => 'technology' }
+].each do |cat|
+  Category.create(:name => cat[:name], :code => cat[:code])
 end
