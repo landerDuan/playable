@@ -14,3 +14,18 @@ p "> create statics pages..."
     :name_jp  => page[:name_zh]
   )
 end
+
+p "> create user..."
+[
+  { :username => 'duanlipei', :name => '段力佩', :position => 'CEO',   :email => 'duan@playab.net',   :password => '111111'},
+  { :username => 'sunchenxu', :name => '孙晨旭', :position => 'STAFF', :email => 'suncx@playab.net',  :password => '111111'},
+  { :username => 'lipeng',    :name => '李鹏',  :position => 'STAFF',   :email => 'li@playab.net',    :password => '111111'}
+].each do |user|
+  User.create(
+    :username   => user[:username],
+    :name       => user[:name],
+    :position   => user[:position],
+    :email      => user[:email],
+    :password   => user[:encrypted_password]
+  )
+end
