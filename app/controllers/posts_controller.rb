@@ -1,5 +1,5 @@
 class PostsController < InheritedResources::Base
-	include_kindeditor
+	include_kindeditor :only => [:new, :edit]
   before_filter :authenticate_user!, :only => [:new, :create, :edit, :update]
   
   protected
