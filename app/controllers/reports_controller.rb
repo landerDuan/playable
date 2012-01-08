@@ -1,11 +1,9 @@
-class ReportsController < ApplicationController
-  main_nav_highlight :reports
-
-  def index
-  	@reports = current_user.reports
+class ReportsController < InheritedResources::Base
+  
+  protected
+  
+  def begin_of_association_chain
+    current_user
   end
-
-  def edit
-  	@report = current_user.reports.find(params[:id])
-  end
+  
 end
