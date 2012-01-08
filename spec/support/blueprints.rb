@@ -50,7 +50,10 @@ Post.blueprint do
 end
 
 Comment.blueprint do
-  # Attributes here
+  post      { Post.make! }
+  name      { Faker::LoremCN.sentence }
+  content   { Faker::LoremCN.paragraph(5) }
+  email     { Faker::Internet.email }
 end
 
 Product.blueprint do
