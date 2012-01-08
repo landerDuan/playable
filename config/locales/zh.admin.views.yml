@@ -15,6 +15,7 @@ zh:
       products: '案例'
       comments: '回复管理'
       ads: '广告管理'
+      wikis: 'Wiki管理'
     info:
       user: 'users and administrators'
       report: 'reports of users'
@@ -23,6 +24,7 @@ zh:
       page: '静态页面'
       product: '案例'
       ad: '广告'
+      wiki: 'wikis of my company'
     meta:
       confirm: '你确定吗?'
       select_notifier: '请选择一个选项...'

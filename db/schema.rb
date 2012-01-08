@@ -11,8 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
-ActiveRecord::Schema.define(:version => 20120103062644) do
+ActiveRecord::Schema.define(:version => 20120108085614) do
 
   create_table "ads", :force => true do |t|
     t.string   "title"
@@ -208,7 +207,6 @@ ActiveRecord::Schema.define(:version => 20120103062644) do
     t.string   "authentication_token"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "position"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
@@ -217,5 +215,16 @@ ActiveRecord::Schema.define(:version => 20120103062644) do
   add_index "users", ["is_admin"], :name => "index_users_on_is_admin"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
+
+  create_table "wikis", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.integer  "priority",   :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "wikis", ["name"], :name => "index_wikis_on_name"
+  add_index "wikis", ["priority"], :name => "index_wikis_on_priority"
 
 end
