@@ -1,9 +1,9 @@
 .sidebar
   .box
     .user_info
-      .avatar= gravatar_tag resource.email, :size => 60
-      %h3.name= link_to resource.name, profile_path
-      %p= resource.position
+      .avatar= gravatar_tag current_user.email, :size => 60
+      %h3.name= link_to current_user.name, profile_path
+      %p= current_user.position
     
     .mood
       .date
@@ -15,3 +15,8 @@
     .check
       = link_to '签到', checkin_path, :class => "btn success", :method => :put
       = link_to '下班', checkout_path, :class => "btn success", :method => :put
+      
+  .box
+    %ul.dashboard
+      %li= menu_link_to '添加博客', new_post_path
+      %li= menu_link_to '添加日报', '#'
