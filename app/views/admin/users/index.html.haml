@@ -10,6 +10,7 @@
     %table#sortTableExample.zebra-striped
       %thead
         %tr
+          %th
           %th.blue= ta User, :email
           %th.blue= ta User, :username
           %th.blue= ta User, :create_at
@@ -22,6 +23,7 @@
         - else
           - collection.each do |resource|
             %tr
+              %td= gravatar_tag resource.email, :size => 20
               %td= resource.email
               %td= resource.username
               %td= resource.created_at.strftime("%Y-%m-%d %H:%M")
