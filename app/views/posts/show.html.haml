@@ -1,0 +1,15 @@
+.page-header  
+.row
+  .span16
+    %table.zebra-striped
+      %tbody
+        %tr
+          %td
+            = gravatar_tag resource.user.email, :size => 40
+            = resource.title
+        %tr
+          %td= resource.content.html_safe
+        %tr
+          %td= resource.tags.map(&:name).join(',')
+       
+

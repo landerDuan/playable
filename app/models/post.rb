@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   attr_readonly :comments_count
 
   # validates :name, :presence => true, :uniqueness => true
+  validates :title,  :presence   => true
 
   has_many :comments
   

@@ -81,6 +81,8 @@ zh:
         created_at: 创建日期
         add: 添加
         comments: 回复条数
+        category_id: 分类
+        tag_list: 标签
       product:
         name: 名称
         photo: 图片

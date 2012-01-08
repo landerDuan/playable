@@ -1,1 +1,9 @@
 = render 'layouts/sidebar/dashboard'
+.content
+  .page-header
+    %h3
+      = t('layout.add_post')
+      %small (*为必填项)
+   
+  .row
+    = render 'form', :url => collection_path
