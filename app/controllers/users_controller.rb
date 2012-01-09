@@ -6,7 +6,7 @@ class UsersController < InheritedResources::Base
     if current_user.checkin
       redirect_to :back, :notice => t('messages.successfully_checked_in')
     else
-      redirect_to :back, :notice => t('messages.already_check_in')
+      redirect_to :back, :notice => t('messages.already_checked_in')
     end
   end
   
@@ -15,7 +15,7 @@ class UsersController < InheritedResources::Base
     
     respond_to do |format|
       format.json { render :json => result }
-      format.html { redirect_to :back }
+      format.html { redirect_to :back, :notice => t('messages.successfully_checked_out') }
     end
   end
 

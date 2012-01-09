@@ -13,7 +13,11 @@
         %span= I18n.localize(Time.zone.now, :format => :time)
         
     .check
-      = link_to '签到', checkin_path, :class => "btn success", :method => :put
+      - if current_user.already_checked_in?
+        %span.btn.success.disabled
+          签到
+      - else
+        = link_to '签到', checkin_path, :class => "btn success", :method => :put
       = link_to '下班', checkout_path, :class => "btn success", :method => :put
       
   .box
