@@ -21,6 +21,8 @@ class UsersController < InheritedResources::Base
 
   def show
     @notifiers = current_user.get_user_notifiers
+    @week_reports = current_user.reports.get_week_report
+    @week_events = current_user.events.get_week_events
   end
 
   protected

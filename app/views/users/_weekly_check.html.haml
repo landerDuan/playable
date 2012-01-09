@@ -5,23 +5,8 @@
       %th 上班时间
       %th 下班时间
   %tbody
-    %tr
-      %td 星期一
-      %td= link_to 'xxx', '#', 'data-placement' => 'below', :rel => 'popover', 'data-content' => 'xxxxx', 'data-original-title' => 'asdfasdfasdf', :class => 'should_popover'
-      %td xxx
-    %tr
-      %td 星期二
-      %td xxx
-      %td xxx
-    %tr
-      %td 星期三
-      %td xxx
-      %td xxx
-    %tr
-      %td 星期四
-      %td xxx
-      %td xxx
-    %tr
-      %td 星期五
-      %td xxx
-      %td xxx
+    - @week_events.each do |event|
+      %tr
+        %td= I18n.localize(event.created_at, :format => :week)
+        %td= event.checkin_at.strftime("%Y-%m-%d %H:%M:%S") 
+        %td= event.checkout_at.strftime("%Y-%m-%d %H:%M:%S") if event.checkin_at.blank?
