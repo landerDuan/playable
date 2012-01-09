@@ -19,6 +19,11 @@ class UsersController < InheritedResources::Base
     end
   end
 
+  def show
+    @week_reports = current_user.reports.get_week_report
+    @week_events = current_user.events.get_week_events
+  end
+
   protected
   
   def resource

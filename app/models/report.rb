@@ -1,5 +1,7 @@
 class Report < ActiveRecord::Base
   belongs_to :user, :counter_cache => true
+
+  scope :get_week_report, where("created_at >= '#{Time.now.beginning_of_week}' and created_at <= '#{Time.now.end_of_week}'")
 end
 # == Schema Information
 #

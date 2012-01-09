@@ -2,6 +2,8 @@ class Event < ActiveRecord::Base
   belongs_to :user, :counter_cache => true
   
   before_validation :validate_checking
+
+  scope :get_week_events, where("checkin_at >= '#{Time.now.beginning_of_week}' and checkin_at <= '#{Time.now.end_of_week}'")
   
   def validate_checking
     p "errors?"
