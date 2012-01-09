@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
       return
     else
       if !events.last.checkout_at.present?
-        @last_checkout_time = Time.zone.parse(events.last.checkin_at).change(:hour => 18)
+        @last_checkout_time = Time.zone.parse(events.last.checkin_at.to_s).change(:hour => 18)
         events.last.update_attribute(:checkout_at, @last_checkout_time)
       end
       events.create(:checkin_at => Time.zone.now)
@@ -62,7 +62,29 @@ class User < ActiveRecord::Base
     false
   end
 
+  def get_user_notifiers
+    @notifiers = {'should_checkout' => false, 'should_checkin' => false, 'should_write_report' => false}
+    
+    if events.present?
+      if !events.last.checkout_at.present?
+        @notifiers['should_checkout'] = true
+      end
+      if !already_checked_in?
+        @notifiers['should_checkin'] = true
+      end
+    else
+      @notifiers['should_checkin'] = true
+    end
+
+    if !reports.present? || reports.last.created_at < Time.zone.now.change(:hour => 6)
+      @notifiers['should_write_report'] = true
+    end
+
+    return @notifiers
+  end
+
 end
+
 
 # == Schema Information
 #

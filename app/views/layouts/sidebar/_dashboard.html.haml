@@ -10,7 +10,7 @@
         %span.week= I18n.localize(Time.zone.now, :format => :week)
         %span.day= Time.zone.now.day
       .time
-        %span= I18n.localize(Time.zone.now, :format => :time)
+        %span#timespan
         
     .check
       - if current_user.already_checked_in?

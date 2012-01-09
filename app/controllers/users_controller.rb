@@ -19,6 +19,10 @@ class UsersController < InheritedResources::Base
     end
   end
 
+  def show
+    @notifiers = current_user.get_user_notifiers
+  end
+
   protected
   
   def resource
