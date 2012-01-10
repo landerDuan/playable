@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
     if already_checked_in?
       return
     else
-      if !events.last.checkout_at.present?
+      if events.present? && !events.last.checkout_at.present?
         @last_checkout_time = Time.zone.parse(events.last.checkin_at.to_s).change(:hour => 18)
         events.last.update_attribute(:checkout_at, @last_checkout_time)
       end
