@@ -3,6 +3,7 @@ class Event < ActiveRecord::Base
   
   #before_validation :validate_checking
 
+  default_scope order("id ASC")
   scope :get_week_events, where("checkin_at >= '#{Time.now.beginning_of_week}' and checkin_at <= '#{Time.now.end_of_week}'")
 
   # before_validation :validate_checking
