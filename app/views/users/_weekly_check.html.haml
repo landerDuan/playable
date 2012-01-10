@@ -9,4 +9,4 @@
       %tr
         %td= I18n.localize(event.created_at, :format => :week)
         %td= event.checkin_at.strftime("%Y-%m-%d %H:%M:%S") 
-        %td= event.checkout_at.strftime("%Y-%m-%d %H:%M:%S") if event.checkin_at.blank?
+        %td= event.checkout_at.strftime("%Y-%m-%d %H:%M:%S") if event.checkout_at.present?
