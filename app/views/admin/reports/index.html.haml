@@ -31,7 +31,7 @@
               %td= link_to resource.user.username, admin_user_reports_path(resource.user)
               %td= truncate(resource.plan, :length => 30)
               %td= truncate(resource.goal, :length => 30)
-              %td= resource.current_date.to_date
+              %td= resource.created_at.to_date
               %td
                 = link_to t('admin.actions.edit'), edit_resource_path(resource), :class => 'btn'
                 = link_to t('admin.actions.delete'), resource_path(resource), :method => :delete, :confirm => t('admin.meta.confirm'), :class => 'btn danger'
