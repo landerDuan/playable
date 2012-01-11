@@ -5,8 +5,12 @@
       %th 计划
       %th 实际情况
   %tbody
-    - @week_reports.each do |report|
+    - if @week_reports.blank?
       %tr
-        %td= I18n.localize(report.created_at, :format => :week)
-        %td= link_to truncate(report.plan, :length => 10), '#', 'data-placement' => 'below', :rel => 'popover', 'data-content' => report.plan, 'data-original-title' => report.goal, :class => 'should_popover'
-        %td= report.content
+        %td{:colspan => 3}= t('admin.meta.empty_data')
+    -else
+      - @week_reports.each do |report|
+        %tr
+          %td= I18n.localize(report.created_at, :format => :week)
+          %td= link_to truncate(report.plan, :length => 10), '#', 'data-placement' => 'below', :rel => 'popover', 'data-content' => report.plan, 'data-original-title' => report.goal, :class => 'should_popover'
+          %td= report.content

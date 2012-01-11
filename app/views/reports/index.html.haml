@@ -12,12 +12,12 @@
         %th.blue= ta Report, :current_date
         %th.yellow= t('admin.actions.default')
     %tbody
-      - if @reports.blank?
+      - if collection.blank?
         %tr
           %td &nbsp;
           %td{:colspan => 6}= t('admin.meta.empty_data')
       - else
-        - @reports.each do |resource|
+        - collection.each do |resource|
           %tr
             %td= resource.user.name
             %td= truncate(resource.plan, :length => 30)

@@ -10,5 +10,9 @@ class ReportsController < InheritedResources::Base
   def begin_of_association_chain
     current_user
   end
+
+  def collection
+    @reports ||= current_user.reports.get_week_report.page(params[:page])
+  end
   
-end
+__END__

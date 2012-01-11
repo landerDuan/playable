@@ -5,8 +5,12 @@
       %th 上班时间
       %th 下班时间
   %tbody
-    - @week_events.each do |event|
+    - if @week_events.blank?
       %tr
-        %td= I18n.localize(event.created_at, :format => :week)
-        %td= event.checkin_at.strftime("%Y-%m-%d %H:%M:%S") 
-        %td= event.checkout_at.strftime("%Y-%m-%d %H:%M:%S") if event.checkout_at.present?
+        %td{:colspan => 3}= t('admin.meta.empty_data')
+    -else
+      - @week_events.each do |event|
+        %tr
+          %td= I18n.localize(event.created_at, :format => :week)
+          %td= event.checkin_at.strftime("%Y-%m-%d %H:%M:%S") 
+          %td= event.checkout_at.strftime("%Y-%m-%d %H:%M:%S") if event.checkout_at.present?
