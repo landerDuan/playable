@@ -4,6 +4,21 @@
       form .ke-container {
         margin-left: 80px;
       }
+      
+      ul.members {
+        list-style: none;
+        
+        li {
+          float: left;
+          padding: 15px;
+          display: block;
+          text-align: center;
+          
+          span {
+            display: block;
+          }
+        }
+      }
     }
     
     .title {

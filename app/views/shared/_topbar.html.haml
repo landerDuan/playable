@@ -8,6 +8,8 @@
           = link_to t('layout.home'), root_path
         = main_nav :products do
           = link_to t('layout.products'), products_path
+        = main_nav :members do
+          = link_to '团队成员', users_path
         = main_nav :blog do
           = link_to t('layout.blog'), blog_path
         - @top_pages.each do |page|
@@ -19,12 +21,6 @@
           %li= link_to t('layout.sign_in'), new_user_session_path
         - else
           %li= link_to current_user.name, profile_path
-          %li.dropdown
-            = link_to t('layout.workspace'), '#', :class => 'dropdown-toggle'
-            %ul.dropdown-menu
-              %li= link_to t('layout.checkin'), events_path
-              %li= link_to t('layout.add_report'), reports_path
-              %li= link_to t('layout.add_post'), '#'
               
           %li.dropdown
             = link_to t('layout.account'), '#', :class => 'dropdown-toggle'

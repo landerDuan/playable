@@ -11,14 +11,15 @@
       %span 一周日报
     .action
       = link_to '写日报', new_report_path
-      = link_to '更多', reports_path
+      |
+      = link_to '详细', reports_path
   = render 'weekly_reports'
   
   .title
     .header
       %span 本周考勤
     .action
-      = link_to '更多', events_path
+      = link_to '详细', events_path
   = render 'weekly_check'
   
   .title
