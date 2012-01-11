@@ -69,5 +69,6 @@ Product.blueprint do
 end
 
 ProductPhoto.blueprint do
-  # Attributes here
+  product  { Product.make! } 
+  photo    { File.open(Rails.root.join('app/assets/images/example/1.gif')) }
 end

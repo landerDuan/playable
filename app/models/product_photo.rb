@@ -1,7 +1,7 @@
 class ProductPhoto < ActiveRecord::Base
   mount_uploader :photo, ProductPhotoUploader
   
-  belongs_to :product, :counter_cache => true
+  belongs_to :product, :counter_cache => 'photos_count'
   
 end
 # == Schema Information
@@ -14,4 +14,3 @@ end
 #  created_at :datetime
 #  updated_at :datetime
 #
-
