@@ -27,11 +27,8 @@ p "> create events..."
   end
 end
 
-# p "> create product..."
-# 10.times { Product.make! }
-
-p "> create product..."
-3.times do |t|
+p "> create products..."
+10.times do
 	product = Product.make!
-	ProductPhoto.make!(:product => product)
+	3.times { ProductPhoto.make!(:product => product) }
 end

@@ -69,6 +69,6 @@ Product.blueprint do
 end
 
 ProductPhoto.blueprint do
-  product  { Product.make! } 
-  photo    { File.open(Rails.root.join('app/assets/images/example/1.gif')) }
+  product   { Product.make! }
+  photo     { Pathname.glob(Rails.root.join("app/assets/images/example/*")).sample.open }
 end
