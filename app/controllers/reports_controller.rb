@@ -1,5 +1,6 @@
 class ReportsController < InheritedResources::Base
-
+  include_kindeditor
+  
   def show
     redirect_to profile_path
   end

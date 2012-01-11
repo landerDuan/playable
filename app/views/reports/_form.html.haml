@@ -1,6 +1,6 @@
 = simple_form_for resource, :url => url do |f|
-  = f.input :plan, :as => :string
-  = f.input :goal, :as => :string
-  = f.input :content, :input_html => { :style => 'width:200px;height:120px' }
+  = f.input :plan, :input_html => { :id => 'kindeditor_input' }
+  = f.input :goal, :input_html => { :id => 'kindeditor_input_s' }
+  = f.input :content, :input_html => { :id => 'kindeditor_input_s' }
   .actions
     = f.button :submit, t('admin.actions.add'), :class => 'btn middle success'
