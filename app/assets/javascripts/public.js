@@ -3,6 +3,28 @@ $(function() {
   $('#topbar').dropdown();
   $('.should_popover').popover();
   $(".alert-message").alert();
+  
+  if ($("#ads_slideshow").length) {
+    return $("#ads_slideshow").carouFredSel({
+      circular: true,
+      infinite: true,
+      auto: 5000,
+      width: 900,
+      height: 280,
+      items: {
+        visible: 1,
+        width: 900,
+        height: 280
+      },
+      scroll: {
+        items: 1,
+        fx: "fade",
+        duration: 500
+      },
+      pagination: "#ads_pagination"
+    });
+  }
+  
 })
 
 function getNowTime(objD)
