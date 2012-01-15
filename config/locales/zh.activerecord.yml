@@ -40,7 +40,7 @@ zh:
         search: 搜索
       event:
         data: 日期
-        user_name: 用户名
+        user_id: 用户名
         checkin_at: 上班时间
         checkout_at: 下班时间
         real_work_time: 实际工作时间

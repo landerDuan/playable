@@ -1,11 +1,15 @@
 .container-fluid {
+  min-width: 900px;
+  
   .content {
+    border: 1px solid #E6E5E5;
+    @include border-radius(1px);
+    @include box-shadow(0 -1px 5px rgba(0, 0, 0, 0.1));
+    
     .row {
       form .ke-container {
         margin-left: 80px;
       }
-      
-    
     }
     
     .title {
@@ -32,6 +36,9 @@
   }
 
   .sidebar {
+    border: 1px solid #E6E5E5;
+    @include border-radius(1px);
+    @include box-shadow(0 -1px 5px rgba(0, 0, 0, 0.1));
 
     .user_info {
       clear: both;

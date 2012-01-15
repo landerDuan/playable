@@ -17,4 +17,5 @@
 //= require rails.validations
 //= require nested_form
 //= require bootstrap.config
+//= require_directory ./lib
 //= require public
