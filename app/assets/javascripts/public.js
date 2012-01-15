@@ -2,7 +2,8 @@ $(function() {
   showTime();
   $('#topbar').dropdown();
   $('.should_popover').popover();
-  $(".alert-message").alert();
+  $('.alert-message').alert();
+  $('#ca-container').contentcarousel();
   
   if ($("#ads_slideshow").length) {
     return $("#ads_slideshow").carouFredSel({
@@ -23,7 +24,7 @@ $(function() {
       },
       pagination: "#ads_pagination"
     });
-  }
+  };
   
 })
 
