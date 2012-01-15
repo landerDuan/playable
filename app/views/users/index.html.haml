@@ -3,13 +3,9 @@
     %h3 团队成员
   
   .row
-    %ul.members
-      - collection.each do |resource|
-        %li
-          = link_to gravatar_tag(current_user.email,  :size => 120, :class => 'large-bird'), '#',
-                                                    :class => 'should_popover',
-                                                    'data-content' => 'hellp',
-                                                    'data-original-title' => 'hahaha',
-                                                    'data-placement' => 'above',
-                                                    'rel' => 'popover'
+    - collection.each do |resource|
+      .well.popover-well.gallery
+        .avatar
+          = gravatar_tag current_user.email,  :size => 120, :class => 'large-bird'
+        .details
           %span= resource.name

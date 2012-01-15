@@ -19,12 +19,6 @@ class UsersController < InheritedResources::Base
     end
   end
 
-  def show
-    @notifiers = current_user.get_user_notifiers
-    @week_reports = current_user.reports.get_week_report
-    @week_events = current_user.events.get_week_events
-  end
-
   protected
   
   def resource
@@ -38,6 +32,9 @@ class UsersController < InheritedResources::Base
   end
   
   def get_related_resources
+    @notifiers = resource.notifiers
+    @weekly_reports = resource.reports.current_week
+    @weekly_events = resource.events.current_week
     @recent_posts = resource.posts.default_order.limit(10)
   end
 end

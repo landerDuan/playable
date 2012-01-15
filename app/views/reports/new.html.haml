@@ -1,3 +1,10 @@
 = render 'layouts/sidebar/dashboard'
 
-= render 'form', :url => reports_path()
+.content
+  .page-header
+    %h3
+      = t('layout.add_report')
+      %small (*为必填项)
+   
+  .row
+    = render 'form', :url => collection_path

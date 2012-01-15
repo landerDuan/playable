@@ -13,7 +13,7 @@
         %span#timespan
         
     .check
-      - if current_user.already_checked_in?
+      - if current_user.has_checked_in?
         %span.btn.success.disabled
           签到
       - else

@@ -15,4 +15,4 @@ class ReportsController < InheritedResources::Base
     @reports ||= current_user.reports.get_week_report.page(params[:page])
   end
   
-__END__
+end

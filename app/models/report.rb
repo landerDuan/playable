@@ -1,8 +1,11 @@
 class Report < ActiveRecord::Base
   belongs_to :user, :counter_cache => true
-
-  scope :get_week_report, where("created_at >= '#{Time.now.beginning_of_week}' and created_at <= '#{Time.now.end_of_week}'")
+  
+  scope :default_order, order('created_at DESC')
+  scope :current_week,  where('created_at >= ?', Time.zone.now.beginning_of_week)
+  scope :on_today,      where('created_at > ?', Time.zone.now.change(:hour => 0))
 end
+
 # == Schema Information
 #
 # Table name: reports

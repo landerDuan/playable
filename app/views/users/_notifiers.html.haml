@@ -1,16 +1,18 @@
 .notifier
-  - if @notifiers['should_checkin']
+  - if @notifiers.has_key?(:should_checkin)
     .alert-message.xwarning
       = link_to 'x', '#', :class => 'close'
       %p
         %strong 你还没有签到呢, 亲!
-  - if @notifiers['should_checkout']
-    .alert-message.xwarning
-      = link_to 'x', '#', :class => 'close'
-      %p
-        %strong 你还没有下班呢, 亲!
-  - if @notifiers['should_write_report']
+
+  - if @notifiers.has_key?(:should_report)
     .alert-message.warning
       = link_to 'x', '#', :class => 'close'
       %p
         %strong 你还没有写日报呢, 亲!
+        
+  - if @notifiers.has_key?(:should_checkout)
+    .alert-message.xwarning
+      = link_to 'x', '#', :class => 'close'
+      %p
+        %strong 你还没有下班呢, 亲!

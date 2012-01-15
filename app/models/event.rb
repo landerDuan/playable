@@ -1,20 +1,8 @@
 class Event < ActiveRecord::Base
   belongs_to :user, :counter_cache => true
-  
-  #before_validation :validate_checking
 
-  default_scope order("id ASC")
-  scope :get_week_events, where("checkin_at >= '#{Time.now.beginning_of_week}' and checkin_at <= '#{Time.now.end_of_week}'")
-
-  # before_validation :validate_checking
-  
-  # def validate_checking
-  #     if user.already_checked_in?
-  #     p "errors?"*10
-  #     errors.add(:checkin_at, I18n.t('messages.already_checked_in'))  
-  #     #p "#{errors.full_messages}"
-  #     end
-  # end
+  default_scope order('created_at DESC')
+  scope :current_week,  where('created_at >= ?', Time.zone.now.beginning_of_week)
 
 end
 # == Schema Information

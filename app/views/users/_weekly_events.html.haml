@@ -1,0 +1,16 @@
+%table.bordered-table.zebra-striped
+  %thead
+    %tr
+      %th{ :style => 'width: 120px;' } 日期
+      %th 上班时间
+      %th 下班时间
+  %tbody
+    - if @weekly_events.blank?
+      %tr
+        %td{:colspan => 3}= t('admin.meta.empty_data')
+    -else
+      - @weekly_events.each do |event|
+        %tr
+          %td= l event.created_at, :format => :week
+          %td= l event.checkin_at, :format => :long
+          %td= l event.checkout_at, :format => :long if event.checkout_at

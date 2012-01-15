@@ -54,33 +54,30 @@ class User < ActiveRecord::Base
     events.last.update_attribute(:checkout_at, Time.zone.now) if events.present?
   end
   
-  def already_checked_in?
+  def has_checked_in?
     events.last.checkin_at > Time.zone.now.change(:hour => 6) if events.present?
   end
-
+  
+  def has_checked_out?
+    events.present? && events.last.checkout_at
+  end
+  
+  def has_reported?
+    reports.on_today.present?
+  end
+  
+  def notifiers
+    notifiers = {}
+    notifiers.merge!(:should_checkin => true) unless has_checked_in?
+    notifiers.merge!(:should_report => true) unless has_reported?
+    notifiers.merge!(:should_checkout => true) if has_checked_in? && !has_checked_out?
+    
+    notifiers
+  end
+  
+  # Devise overrides
   def confirmation_required?
     false
-  end
-
-  def get_user_notifiers
-    @notifiers = {'should_checkout' => false, 'should_checkin' => false, 'should_write_report' => false}
-    
-    if events.present?
-      if !events.last.checkout_at.present?
-        @notifiers['should_checkout'] = true
-      end
-      if !already_checked_in?
-        @notifiers['should_checkin'] = true
-      end
-    else
-      @notifiers['should_checkin'] = true
-    end
-
-    if !reports.present? || reports.last.created_at < Time.zone.now.change(:hour => 6)
-      @notifiers['should_write_report'] = true
-    end
-
-    return @notifiers
   end
 
 end

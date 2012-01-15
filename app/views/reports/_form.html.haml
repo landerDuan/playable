@@ -1,7 +1,7 @@
 = simple_form_for resource, :url => url do |f|
   .fieldset
-    = f.input :plan, :label => false, :input_html => { :id => 'kindeditor_input' }
-    = f.input :goal, :label => false, :input_html => { :id => 'kindeditor_input' }
-    = f.input :content, :label => false, :input_html => { :id => 'kindeditor_input' }
+    = f.input :plan, :input_html => { :class => 'xlarge', :rows => 5 }
+    = f.input :goal, :input_html => { :class => 'xlarge', :rows => 5 }
+    = f.input :content, :input_html => { :class => 'xlarge', :rows => 5 }
     .actions
       = f.button :submit, t('admin.actions.add'), :class => 'btn middle success'
