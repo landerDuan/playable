@@ -1,6 +1,9 @@
-class PagesController < ApplicationController
-  inherit_resources
-  main_nav_highlight :pages
+class PagesController < InheritedResources::Base
+  
+  def show
+    @main_nav = resource.code.to_sym
+    show!
+  end
 
   protected
 
