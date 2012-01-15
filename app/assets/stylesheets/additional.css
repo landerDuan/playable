@@ -6,9 +6,12 @@ html {
     height: 100%;
     width: 100%;
 }
+
 body {
-  background: none;
+    background-color: #FEFEFE;
+    background-image: url("bg.png");
 }
+
 .topbar {
   margin-bottom: 10px;
   position: static;
