@@ -63,6 +63,7 @@ zh:
       long: "%Y年%b%d日 %H:%M"
       week: "%A"
       time: "%H:%M:%S"
+      time_with_wday: "%Y/%m/%d (%A)"
     am: "上午"
     pm: "下午"
 
