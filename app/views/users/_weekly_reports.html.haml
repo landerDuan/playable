@@ -12,5 +12,5 @@
       - @weekly_reports.each do |report|
         %tr
           %td= l report.created_at, :format => :week
-          %td= popover_link_to truncate(report.plan, :length => 10), '#', { :content => report.plan, :title => report.goal }
+          %td= popover_link_to truncate(report.plan, :length => 10), '#', { :'data-content' => report.plan, :'data-original-title' => report.goal }
           %td= report.content
