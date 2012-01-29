@@ -10,6 +10,7 @@
     = f.input :gender, :as => :radio, :collection => User.get_gender_values
     = f.input :position
     = f.input :bio, :input_html => { :class => 'xxlarge', :rows => 5 }
+    = f.association :roles, :as => :check_boxes, :collection => Role.all.collect { |x| [x.name, x.id] }
 
     .actions
       = f.button :submit, t('admin.actions.add'), :class => 'btn middle success'
