@@ -2,7 +2,7 @@
 
 .content
   - @events.each do |week, events|
-    %table#sortTableExample.zebra-striped
+    %table.zebra-striped
       %thead
         %tr
           %th.blue= '一年中的第' << week.strftime("%U").to_i.to_s << '周'
