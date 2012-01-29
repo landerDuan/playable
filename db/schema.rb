@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120108085614) do
+ActiveRecord::Schema.define(:version => 20120129082938) do
 
   create_table "ads", :force => true do |t|
     t.string   "title"
@@ -70,6 +70,19 @@ ActiveRecord::Schema.define(:version => 20120108085614) do
   add_index "events", ["state"], :name => "index_events_on_state"
   add_index "events", ["type_identifier"], :name => "index_events_on_type_identifier"
   add_index "events", ["user_id"], :name => "index_events_on_user_id"
+
+  create_table "group_users", :force => true do |t|
+    t.integer  "group_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groups", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "groups_roles", :id => false, :force => true do |t|
     t.integer "group_id"
@@ -150,6 +163,13 @@ ActiveRecord::Schema.define(:version => 20120108085614) do
 
   add_index "reports", ["current_date"], :name => "index_reports_on_current_date"
   add_index "reports", ["user_id"], :name => "index_reports_on_user_id"
+
+  create_table "role_users", :force => true do |t|
+    t.integer  "role_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"

@@ -4,6 +4,7 @@
       %th{ :style => 'width: 120px;' } 日期
       %th 计划
       %th 实际情况
+      %th 操作
   %tbody
     - if @weekly_reports.blank?
       %tr
@@ -14,3 +15,4 @@
           %td= l report.created_at, :format => :week
           %td= popover_link_to truncate(report.plan, :length => 10), '#', { :'data-content' => report.plan, :'data-original-title' => report.goal }
           %td= report.content
+          %td= link_to '修改',edit_report_path(report)

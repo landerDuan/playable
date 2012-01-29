@@ -12,7 +12,7 @@ class ReportsController < InheritedResources::Base
   end
 
   def collection
-    @reports ||= current_user.reports.get_week_report.page(params[:page])
+    @reports ||= current_user.reports.group_by{ |x| x.created_at.beginning_of_week }
   end
   
 end
