@@ -16,31 +16,7 @@
     
 %br
 
-/ = simple_form_for @event, :url => admin_events_path, :method => :get  do |f| 
-/   = ta Event, :search_as_name
-/   = f.select :user_id, User.all.map { |r| [r.username, r.id] }
-/   = ta Event, :search_as_date
-/   = f.input :checkin_at
-/   %div
-/     = f.button :submit, t('admin.actions.search')
 = render  "search"
-
-
-= simple_form_for @search, :url => admin_events_path  do |f| 
-  = link_to '<==', '#', :id => 'pre_number', :onclick => "alert('hahahaa')"
-  = f.input :test_member, :input_html => {:value => 10}
-  = link_to '==>', '#', :id => 'next_number'
-  
-:javascript
-  $(function() {
-    $('#next_number').click(
-      function() {
-        var oldNumber = $("#search_test_member").val();
-        $("#search_test_member").val(parseInt(oldNumber) + 1);
-        $("#search_test_member").show();
-      }
-    )
-  })
 
 .row
   .span16

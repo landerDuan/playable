@@ -39,3 +39,14 @@ p "> create categories..."
 ].each do |cat|
   Category.create(:name => cat[:name], :code => cat[:code])
 end
+
+p "> create role..."
+[
+  { :name => '签到使用权限', :code => 'use_checkin'},
+  { :name => '签到管理权限', :code => 'manage_checkin'},
+  { :name => '日报使用权限', :code => 'use_report'},
+  { :name => '日报管理权限', :code => 'manage_report'},
+  { :name => '用户管理权限', :code => 'manage_users'}
+].each do |role|
+  Role.create(:name => role[:name], :code => role[:code])
+end

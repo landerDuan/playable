@@ -71,19 +71,6 @@ ActiveRecord::Schema.define(:version => 20120129082938) do
   add_index "events", ["type_identifier"], :name => "index_events_on_type_identifier"
   add_index "events", ["user_id"], :name => "index_events_on_user_id"
 
-  create_table "group_users", :force => true do |t|
-    t.integer  "group_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "groups", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "groups_roles", :id => false, :force => true do |t|
     t.integer "group_id"
     t.integer "role_id"
@@ -159,6 +146,7 @@ ActiveRecord::Schema.define(:version => 20120129082938) do
     t.datetime "current_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "mark_content"
   end
 
   add_index "reports", ["current_date"], :name => "index_reports_on_current_date"

@@ -32,3 +32,11 @@ p "> create products..."
 	product = Product.make!
 	3.times { ProductPhoto.make!(:product => product) }
 end
+
+p "> create reports..."
+30.times do |t|
+  time = (t+1).days.ago
+  User.without_admin.each do |u|
+    Report.make!(:user => u)
+  end
+end
