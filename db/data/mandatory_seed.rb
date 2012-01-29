@@ -42,11 +42,13 @@ end
 
 p "> create role..."
 [
-  { :name => '签到使用权限', :code => 'use_checkin'},
-  { :name => '签到管理权限', :code => 'manage_checkin'},
-  { :name => '日报使用权限', :code => 'use_report'},
-  { :name => '日报管理权限', :code => 'manage_report'},
-  { :name => '用户管理权限', :code => 'manage_users'}
+  { :name => '签到使用权限', :code => 'checkin_user'},
+  { :name => '签到管理权限', :code => 'checkin_admin'},
+  { :name => '日报使用权限', :code => 'event_user'},
+  { :name => '日报管理权限', :code => 'event_admin'},
+  { :name => '博客使用权限', :code => 'blog_user'},
+  { :name => '博客管理权限', :code => 'blog_admin'},
+  { :name => '用户管理权限', :code => 'user_admin'}
 ].each do |role|
   Role.create(:name => role[:name], :code => role[:code])
 end
