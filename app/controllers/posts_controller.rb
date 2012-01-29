@@ -1,4 +1,5 @@
 class PostsController < InheritedResources::Base
+  main_nav_highlight :blog
 	include_kindeditor :only => [:new, :edit]
   before_filter :authenticate_user!, :only => [:new, :create, :edit, :update]
   

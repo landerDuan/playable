@@ -1,0 +1,12 @@
+#portfolio
+  .header
+    %h4 Portfolio
+  #ca-container.ca-container
+    .ca-wrapper.home
+      - 5.times do |time|
+        .ca-item
+          .ca-item-main
+            .view.second-effect
+              = image_tag("example/case#{time+1}.png")
+              .mask
+                %a.info{:href => "item.html", :title => "View Project"} View Project
