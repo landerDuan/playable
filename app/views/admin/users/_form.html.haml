@@ -2,8 +2,8 @@
   .fieldset
     = f.input :email
     = f.input :username
-    = f.input :password
-    = f.input :password_confirmaiton
+    / = f.input :password
+    / = f.input :password_confirmaiton
     = f.input :name
     = f.input :phone
     = f.input :birthdate, :as => :date, :start_year => Date.today.year - 90, :end_year => Date.today.year - 12, :order => [:year, :month, :day], :input_html => { :class => 'small' }

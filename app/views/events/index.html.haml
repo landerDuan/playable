@@ -1,6 +1,8 @@
 = render 'layouts/sidebar/dashboard'
 
 .content
+  - if current_user.has_event_admin?
+    = render 'search'
   - @events.each do |week, events|
     %table.zebra-striped
       %thead

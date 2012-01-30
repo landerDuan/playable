@@ -24,7 +24,9 @@ class User < ActiveRecord::Base
                   :email,
                   :password,
                   :password_confirmation,
-                  :remember_me
+                  :remember_me,
+                  :position,
+                  :role_ids
                   
   validates :username,  :presence   => true,
                         :uniqueness => true
@@ -65,6 +67,10 @@ class User < ActiveRecord::Base
   
   def has_reported?
     reports.on_today.present?
+  end
+
+  def has_event_admin?
+    roles.where(:code => 'checkin_admin').present?
   end
   
   def notifiers

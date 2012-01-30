@@ -1,0 +1,5 @@
+.well
+  = simple_form_for @search , :url => collection_path, :method => :get do |f|
+    = f.input :user_id_equals, :as => :select, :collection => User.without_admin.collect { |x| [x.username, x.id] }
+    
+    = f.button :submit, t('activerecord.attributes.report.search'), :class => 'btn middle success'
