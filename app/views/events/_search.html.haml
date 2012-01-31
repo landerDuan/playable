@@ -1,5 +1,6 @@
 .well
-  = simple_form_for @search , :url => collection_path, :method => :get do |f|
-    = f.input :user_id_equals, :as => :select, :collection => User.without_admin.collect { |x| [x.username, x.id] }
-    
-    = f.button :submit, t('activerecord.attributes.report.search'), :class => 'btn middle success'
+  - User.without_admin.each do |user|
+    - if @user_id == user.id
+      = user.name
+    -else
+      = link_to user.name, events_path(:user_id => user.id, :month => params[:month])

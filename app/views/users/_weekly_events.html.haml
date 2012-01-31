@@ -6,8 +6,8 @@
         %th 姓名
         %th 上班时间
         %th 下班时间
-    - User.without_admin.each do |user|
-      %tbody
+    %tbody
+      - User.without_admin.each do |user|
         - if user.events.current_week.blank?
           %tr
             %td{:colspan => 3}= t('admin.meta.empty_data')

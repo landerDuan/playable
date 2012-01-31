@@ -10,8 +10,9 @@
     .header
       %span 一周日报
     .action
-      = link_to '写日报', new_report_path
-      |
+      - if !current_user.has_reported?
+        = link_to '写日报', new_report_path
+        |
       = link_to '详细', reports_path
   = render 'weekly_reports'
   

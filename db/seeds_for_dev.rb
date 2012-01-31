@@ -20,10 +20,12 @@ p "> create blog posts"
 end
 
 p "> create events..."
-7.times do |t|
-  time = (t+1).days.ago
+start_data = 90.days.ago
+90.times do |t|
+  #time = (t+1).days.ago
+  time = start_data+t.day
   User.without_admin.each do |u|
-    Event.make!(:user => u, :checkin_at => time.change(:hour => 9), :checkout_at => time.change(:hour => 18))
+    Event.make!(:user => u, :checkin_at => time.change(:hour => 9), :checkout_at => time.change(:hour => 18), :created_at => time)
   end
 end
 
@@ -34,9 +36,11 @@ p "> create products..."
 end
 
 p "> create reports..."
-30.times do |t|
-  time = (t+1).days.ago
+start_data = 90.days.ago
+90.times do |t|
+  #time = (t+1).days.ago
+  time = start_data+t.day
   User.without_admin.each do |u|
-    Report.make!(:user => u)
+    Report.make!(:user => u, :created_at => time)
   end
 end

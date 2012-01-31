@@ -3,25 +3,28 @@
 .content
   - if current_user.has_event_admin?
     = render 'search'
-  - @events.each do |week, events|
-    %table.zebra-striped
-      %thead
+
+  = link_to '上一月', events_path(:user_id => @user_id, :month => "#{@date - 1.month}"), :class => 'btn'
+  = link_to '本月', events_path(:user_id => @user_id, :month => "#{Time.zone.now.beginning_of_month}"), :class => 'btn'
+  = link_to '下一月', events_path(:user_id => @user_id, :month => "#{@date + 1.month}"), :class => 'btn'
+  %table.zebra-striped
+    %thead
+      %tr
+        %th.blue= '一年中的第' << @date.strftime("%m").to_i.to_s << '月'
+        %th.blue= ta Event, :user_id
+        %th.blue= ta Event, :checkin_at
+        %th.blue= ta Event, :checkout_at
+        %th.blue= ta Event, :real_work_time
+    %tbody
+      - if @events.blank?
         %tr
-          %th.blue= '一年中的第' << week.strftime("%m").to_i.to_s << '月'
-          %th.blue= ta Event, :user_id
-          %th.blue= ta Event, :checkin_at
-          %th.blue= ta Event, :checkout_at
-          %th.blue= ta Event, :real_work_time
-      %tbody
-        - if events.blank?
+          %td &nbsp;
+          %td{:colspan => 8}= t('admin.meta.empty_data')
+      - else
+        - @events.each do |resource|
           %tr
-            %td &nbsp;
-            %td{:colspan => 8}= t('admin.meta.empty_data')
-        - else
-          - events.each do |resource|
-            %tr
-              %td= l resource.checkin_at, :format => :time_with_wday
-              %td= resource.user.username
-              %td= l resource.checkin_at, :format => :time
-              %td= l resource.checkout_at, :format => :time if resource.checkout_at
-              %td= distance_of_time_in_words(resource.checkin_at, resource.checkout_at, :include_seconds => true) if resource.checkout_at
+            %td= l resource.checkin_at, :format => :time_with_wday
+            %td= resource.user.name
+            %td= l resource.checkin_at, :format => :time
+            %td= l resource.checkout_at, :format => :time if resource.checkout_at
+            %td= distance_of_time_in_words(resource.checkin_at, resource.checkout_at, :include_seconds => true) if resource.checkout_at
