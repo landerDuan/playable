@@ -1,15 +1,15 @@
 = render 'layouts/sidebar/dashboard'
 
 .content
-  - @reports.each do |week, reports|
+  - @reports.each do |month, reports|
     %table#sortTableExample.zebra-striped
       %thead
         %tr
-          %th.blue= '一年中的第' << week.strftime("%U").to_i.to_s << '周'
+          %th.blue= '一年中的第' << month.strftime("%m").to_i.to_s << '月'
           %th.blue= ta Report, :user
           %th.blue= ta Report, :plan
           %th.blue= ta Report, :goal
-          %th.blue= ta Report, :current_date
+          / %th.blue= ta Report, :current_date
           %th.yellow= t('admin.actions.default')
       %tbody
         - if reports.blank?
@@ -19,10 +19,10 @@
         - else
           - reports.each do |resource|
             %tr
-              %td= l resource.checkin_at, :format => :time_with_wday
+              %td= l resource.created_at, :format => :time_with_wday
               %td= resource.user.name
               %td= truncate(resource.plan, :length => 30)
               %td= truncate(resource.goal, :length => 30)
-              %td= resource.current_date.to_date
+              / %td= resource.current_date.to_date
               %td
                 = link_to t('admin.actions.edit'), edit_report_path(resource), :class => 'btn'

@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
   scope :without_admin, where('is_admin <> true')
   
   def checkin
-    if already_checked_in?
+    if has_checked_in?
       return
     else
       if events.present? && !events.last.checkout_at.present?

@@ -1,9 +1,9 @@
 class Event < ActiveRecord::Base
   belongs_to :user, :counter_cache => true
 
-  default_scope order('created_at DESC')
-  scope :current_week,  where('created_at >= ?', Time.zone.now.beginning_of_week)
-
+  #default_scope order('created_at DESC')
+  scope :current_week, where('created_at >= ?', Time.zone.now.beginning_of_week)
+  scope :detail_order, order('created_at DESC')
 end
 # == Schema Information
 #

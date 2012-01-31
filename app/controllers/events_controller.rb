@@ -5,15 +5,17 @@ class EventsController < ApplicationController
   protected
   
   def collection
-  	if current_user.has_event_admin?
+    if current_user.has_event_admin?
   		if params[:search].blank?
-  			@search = User.without_admin.first.events.search(params[:search])
+  			@search = User.without_admin.first.events.detail_order.search(params[:search])
   		else
-  			@search = Event.search(params[:search])
+  			@search = Event.detail_order.search(params[:search])
   		end
     else
-      @search = current_user.events.search(params[:search])
+      @search = current_user.events.detail_order.search(params[:search])
     end
-	@events = @search.group_by{ |x| x.created_at.beginning_of_week }
+
+    @events = @search.group_by{ |x| x.created_at.beginning_of_week }
   end
+  
 end

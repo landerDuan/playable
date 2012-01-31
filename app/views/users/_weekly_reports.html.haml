@@ -12,7 +12,7 @@
     -else
       - @weekly_reports.each do |report|
         %tr
-          %td= l report.created_at, :format => :week
+          %td= l report.created_at, :format => :time_with_wday
           %td= popover_link_to truncate(report.plan, :length => 10), '#', { :'data-content' => report.plan, :'data-original-title' => report.goal }
-          %td= report.content
+          %td= popover_link_to truncate(report.content, :length => 10), '#', {:'data-original-title' => report.content }
           %td= link_to '修改',edit_report_path(report)
