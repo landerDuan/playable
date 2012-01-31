@@ -14,6 +14,6 @@ class EventsController < ApplicationController
     else
       @search = current_user.events.search(params[:search])
     end
-	@events = @search.group_by{ |x| x.created_at.beginning_of_week }
+	@events = @search.group_by{ |x| x.created_at.beginning_of_month }
   end
 end

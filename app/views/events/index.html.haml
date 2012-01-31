@@ -7,7 +7,7 @@
     %table.zebra-striped
       %thead
         %tr
-          %th.blue= '一年中的第' << week.strftime("%U").to_i.to_s << '周'
+          %th.blue= '一年中的第' << week.strftime("%m").to_i.to_s << '月'
           %th.blue= ta Event, :user_id
           %th.blue= ta Event, :checkin_at
           %th.blue= ta Event, :checkout_at
