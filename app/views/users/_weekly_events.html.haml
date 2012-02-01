@@ -1,37 +1,16 @@
-- if current_user.has_event_admin?
-  %table.bordered-table.zebra-striped
-    %thead
+%table.bordered-table.zebra-striped
+  %thead
+    %tr
+      %th{ :style => 'width: 120px;' } 日期
+      %th 上班时间
+      %th 下班时间
+  %tbody
+    - if @weekly_events.blank?
       %tr
-        %th{ :style => 'width: 120px;' } 日期
-        %th 姓名
-        %th 上班时间
-        %th 下班时间
-    %tbody
-      - User.without_admin.each do |user|
-        - if user.events.current_week.blank?
-          %tr
-            %td{:colspan => 3}= t('admin.meta.empty_data')
-        -else
-          - user.events.today_event.each do |event|
-            %tr
-              %td= l event.created_at, :format=>:time_with_wday
-              %td= event.user.name
-              %td= l event.checkin_at, :format => :long
-              %td= l event.checkout_at, :format => :long if event.checkout_at
--else
-  %table.bordered-table.zebra-striped
-    %thead
-      %tr
-        %th{ :style => 'width: 120px;' } 日期
-        %th 上班时间
-        %th 下班时间
-    %tbody
-      - if @weekly_events.blank?
+        %td{:colspan => 3}= t('admin.meta.empty_data')
+    -else
+      - @weekly_events.each do |event|
         %tr
-          %td{:colspan => 3}= t('admin.meta.empty_data')
-      -else
-        - @weekly_events.each do |event|
-          %tr
-            %td= l event.created_at, :format=>:time_with_wday
-            %td= l event.checkin_at, :format => :long
-            %td= l event.checkout_at, :format => :long if event.checkout_at
+          %td= l event.created_at, :format=>:time_with_wday
+          %td= l event.checkin_at, :format => :long
+          %td= l event.checkout_at, :format => :long if event.checkout_at

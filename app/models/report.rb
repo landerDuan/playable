@@ -14,11 +14,11 @@ end
 #  id           :integer         not null, primary key
 #  user_id      :integer
 #  plan         :text
-#  goal         :text
 #  content      :text
 #  score        :integer
+#  comment      :string(255)
+#  current_date :datetime
 #  created_at   :datetime
 #  updated_at   :datetime
-#  current_date :datetime
 #
 

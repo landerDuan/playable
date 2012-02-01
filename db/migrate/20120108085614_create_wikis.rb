@@ -3,7 +3,7 @@ class CreateWikis < ActiveRecord::Migration
     create_table :wikis do |t|
       t.string :name
       t.string :url
-      t.integer :priority,      :default => 0
+      t.integer :priority, :default => 0
 
       t.timestamps
     end

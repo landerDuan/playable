@@ -31,15 +31,25 @@ class User < ActiveRecord::Base
   validates :username,  :presence   => true,
                         :uniqueness => true
 
-  has_many :events
-  has_many :reports
-  has_many :posts
-  has_many :role_users
-  has_many :roles, :through => :role_users
+  with_options dependent: :destroy do |user|
+    user.has_many :events
+    user.has_many :reports
+    user.has_many :posts
+  end
+  
+  has_and_belongs_to_many :roles
   
   symbolize :gender, :in => [:male, :female], :methods => true, :allow_nil => true
   
   scope :without_admin, where('is_admin <> true')
+  
+  def report_on_current_day
+    # TODO get the report on current day by current user
+  end
+  
+  def event_on_current_day
+    # TODO get the event on current day by current user
+  end
   
   def checkin
     if has_checked_in?
@@ -68,13 +78,21 @@ class User < ActiveRecord::Base
   def has_reported?
     reports.on_today.present?
   end
-
-  def has_event_admin?
-    roles.where(:code => 'checkin_admin').present?
+  
+  def has_role?(role)
+    roles.map(&:code).include?(role)
   end
   
-  def is_report_admin?
-    roles.where(:code => 'report_admin').present?
+  def can_manage_events?
+    has_role?('event_admin')
+  end
+  
+  def can_manage_reports?
+    has_role?('report_admin')
+  end
+  
+  def is_admin?
+    !!is_admin || has_role?('administrator')
   end
 
   def notifiers

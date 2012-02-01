@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120129082938) do
+ActiveRecord::Schema.define(:version => 20120108085614) do
 
   create_table "ads", :force => true do |t|
     t.string   "title"
@@ -70,14 +70,6 @@ ActiveRecord::Schema.define(:version => 20120129082938) do
   add_index "events", ["state"], :name => "index_events_on_state"
   add_index "events", ["type_identifier"], :name => "index_events_on_type_identifier"
   add_index "events", ["user_id"], :name => "index_events_on_user_id"
-
-  create_table "groups_roles", :id => false, :force => true do |t|
-    t.integer "group_id"
-    t.integer "role_id"
-  end
-
-  add_index "groups_roles", ["group_id"], :name => "index_groups_roles_on_group_id"
-  add_index "groups_roles", ["role_id"], :name => "index_groups_roles_on_role_id"
 
   create_table "pages", :force => true do |t|
     t.string   "name_zh"
@@ -140,24 +132,16 @@ ActiveRecord::Schema.define(:version => 20120129082938) do
   create_table "reports", :force => true do |t|
     t.integer  "user_id"
     t.text     "plan"
-    t.text     "goal"
     t.text     "content"
     t.integer  "score"
+    t.string   "comment"
     t.datetime "current_date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "mark_content"
   end
 
   add_index "reports", ["current_date"], :name => "index_reports_on_current_date"
   add_index "reports", ["user_id"], :name => "index_reports_on_user_id"
-
-  create_table "role_users", :force => true do |t|
-    t.integer  "role_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -168,6 +152,14 @@ ActiveRecord::Schema.define(:version => 20120129082938) do
   end
 
   add_index "roles", ["code"], :name => "index_roles_on_code"
+
+  create_table "roles_users", :id => false, :force => true do |t|
+    t.integer "role_id"
+    t.integer "user_id"
+  end
+
+  add_index "roles_users", ["role_id"], :name => "index_roles_users_on_role_id"
+  add_index "roles_users", ["user_id"], :name => "index_roles_users_on_user_id"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

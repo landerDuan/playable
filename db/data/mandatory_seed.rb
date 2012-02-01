@@ -1,12 +1,24 @@
 # encoding: utf-8
 
+p "> create role..."
+[
+  { :name => '签到使用',  :code => 'checkin_user'},
+  { :name => '签到管理',  :code => 'checkin_admin'},
+  { :name => '日报使用',  :code => 'report_user'},
+  { :name => '日报管理',  :code => 'report_admin'},
+  { :name => '博客使用',  :code => 'blog_user'},
+  { :name => '超级管理员', :code => 'administrator' }
+].each do |role|
+  Role.create(:name => role[:name], :code => role[:code])
+end
+
 p "> create users..."
 [
-  { :username => 'duanlipei', :name => 'asdfas', :position => 'CEO',   :email => 'duan@playab.net' },
-  { :username => 'sunchenxu', :name => '孙晨旭', :position => 'STAFF', :email => 'suncx@playab.net' },
-  { :username => 'lipeng',    :name => '李鹏',  :position => 'STAFF', :email => 'li@playab.net' }
+  { :username => 'duanlipei', :name => '段力佩', :position => 'CEO',   :email => 'duan@playab.net',  :roles => ['administrator'] },
+  { :username => 'sunchenxu', :name => '孙晨旭', :position => 'STAFF', :email => 'suncx@playab.net', :roles => ['checkin_user', 'report_user', 'blog_user'] },
+  { :username => 'lipeng',    :name => '李鹏',  :position => 'STAFF', :email => 'li@playab.net',    :roles => ['checkin_user', 'report_user', 'blog_user'] }
 ].each do |user|
-  User.create(
+  u = User.create(
     :username     => user[:username],
     :name         => user[:name],
     :position     => user[:position],
@@ -14,7 +26,13 @@ p "> create users..."
     :password     => 'password',
     :confirmed_at => Time.zone.now
   )
+  
+  Role.find_all_by_code(user[:roles]).each do |role|
+    u.roles << role
+  end
+  u.save!
 end
+
 
 p "> create statics pages..."
 [
@@ -38,17 +56,4 @@ p "> create categories..."
   { :name => '技术讨论', :code => 'technology' }
 ].each do |cat|
   Category.create(:name => cat[:name], :code => cat[:code])
-end
-
-p "> create role..."
-[
-  { :name => '签到使用权限', :code => 'checkin_user'},
-  { :name => '签到管理权限', :code => 'checkin_admin'},
-  { :name => '日报使用权限', :code => 'report_user'},
-  { :name => '日报管理权限', :code => 'report_admin'},
-  { :name => '博客使用权限', :code => 'blog_user'},
-  { :name => '博客管理权限', :code => 'blog_admin'},
-  { :name => '用户管理权限', :code => 'user_admin'}
-].each do |role|
-  Role.create(:name => role[:name], :code => role[:code])
 end

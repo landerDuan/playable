@@ -34,8 +34,18 @@ class UsersController < InheritedResources::Base
   
   def get_related_resources
     @notifiers = resource.notifiers
-    @weekly_reports = resource.reports.current_week
-    @weekly_events = resource.events.current_week
     @recent_posts = resource.posts.default_order.limit(10)
+    
+    @reports = if resource.can_manage_reports?
+      User.all.map(&:report_on_current_day)
+    else
+      resource.reports.current_week
+    end
+    
+    @events = if resource.can_manage_events?
+      User.all.map(&:event_on_current_day)
+    else
+      resource.events.current_week
+    end
   end
 end

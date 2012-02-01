@@ -13,7 +13,6 @@ gem 'kaminari',                   '~> 0.12.4'
 gem 'acts-as-taggable-on',        '~> 2.1.1'
 gem 'squeel',                     '~> 0.8.9'
 gem 'client_side_validations',    '~> 3.1.0'
-gem 'declarative_authorization',  '~> 0.5.4'
 gem 'nested_form',                :git => 'git://github.com/ryanb/nested_form.git'
 gem "symbolize",                  '~> 4.0.4', :require => "symbolize/active_record"
 gem 'rails_config'
