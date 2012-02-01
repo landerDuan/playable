@@ -38,4 +38,8 @@ zh:
     successfully_checked_out: '您已经成功签出'
     no_permission: '您不是管理员'
   profile:
-    my_posts: 我的博客文章 (%{count})
+    my_posts: 我的博客文章 (%{count}
+  detail:
+    next_month: 下一月
+    pre_month:  上一月
+    current_month: 本月

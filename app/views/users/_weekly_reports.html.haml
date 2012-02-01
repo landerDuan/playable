@@ -1,18 +1,41 @@
-%table.bordered-table.zebra-striped
-  %thead
-    %tr
-      %th{ :style => 'width: 120px;' } 日期
-      %th 计划
-      %th 实际情况
-      %th 操作
-  %tbody
-    - if @weekly_reports.blank?
-      %tr
-        %td{:colspan => 3}= t('admin.meta.empty_data')
-    -else
-      - @weekly_reports.each do |report|
+- if current_user.is_report_admin?
+  - User.without_admin.each do |user|
+    %table.bordered-table.zebra-striped
+      %thead
         %tr
-          %td= l report.created_at, :format => :time_with_wday
-          %td= popover_link_to truncate(report.plan, :length => 10), '#', { :'data-content' => report.plan, :'data-original-title' => report.goal }
-          %td= popover_link_to truncate(report.content, :length => 10), '#', {:'data-original-title' => report.content }
-          %td= link_to '修改',edit_report_path(report)
+          %th{ :style => 'width: 120px;' } 日期
+          %th 姓名
+          %th 计划
+          %th 实际情况
+          %th 操作
+      %tbody
+        - if user.reports.current_week.blank?
+          %tr
+            %td{:colspan => 3}= t('admin.meta.empty_data')
+        -else
+          - user.reports.current_week.each do |report|
+            %tr
+              %td= l report.created_at, :format => :time_with_wday
+              %td= report.user.name
+              %td= popover_link_to truncate(report.plan, :length => 10), '#', { :'data-content' => report.plan, :'data-original-title' => report.goal }
+              %td= popover_link_to truncate(report.content, :length => 10), '#', {:'data-original-title' => report.content }
+              %td= link_to '修改', edit_report_path(report)
+- else
+  %table.bordered-table.zebra-striped
+    %thead
+      %tr
+        %th{ :style => 'width: 120px;' } 日期
+        %th 计划
+        %th 实际情况
+        %th 操作
+    %tbody
+      - if @weekly_reports.blank?
+        %tr
+          %td{:colspan => 3}= t('admin.meta.empty_data')
+      -else
+        - @weekly_reports.each do |report|
+          %tr
+            %td= l report.created_at, :format => :time_with_wday
+            %td= popover_link_to truncate(report.plan, :length => 10), '#', { :'data-content' => report.plan, :'data-original-title' => report.goal }
+            %td= popover_link_to truncate(report.content, :length => 10), '#', {:'data-original-title' => report.content }
+            %td= link_to '修改',edit_report_path(report)

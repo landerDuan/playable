@@ -8,34 +8,32 @@ class ReportsController < InheritedResources::Base
   protected
   
   def begin_of_association_chain
-    current_user
+    if !current_user.is_report_admin?
+      current_user
+    end
   end
 
   def collection
-
-    if current_user.has_event_admin?
-    
+    @flag = params[:flag].to_i
+    if params.key?(:flag)
+      start_data = @flag.month.ago.beginning_of_month
+      end_data = @flag.month.ago.end_of_month
     else
-      @reports ||= current_user.reports.group_by{ |x| x.created_at.beginning_of_month }
+      start_data = Time.zone.now.beginning_of_month
+      end_data = Time.zone.now.end_of_month
+    end
+
+    if current_user.is_report_admin?
+      @user_id = params[:user_id] ? params[:user_id] : User.without_admin.first.id
+      @user_id = @user_id.to_i
+      selected_user = User.find(@user_id)
+      
+      @reports ||= selected_user.reports.detail_order.where('created_at >= ? AND created_at < ?', start_data, end_data).group_by{ |x| x.created_at.beginning_of_month }
+    else
+      @user_id = current_user.id
+      @reports ||= current_user.reports.detail_order.where('created_at >= ? AND created_at < ?', start_data, end_data).group_by{ |x| x.created_at.beginning_of_month }
     end
     
   end
   
 end
-
-
-
-
-
-# def collection
-#     if current_user.has_event_admin?
-#       if params[:search].blank?
-#         @search = User.without_admin.first.events.search(params[:search])
-#       else
-#         @search = Event.search(params[:search])
-#       end
-#     else
-#       @search = current_user.events.search(params[:search])
-#     end
-#   @events = @search.group_by{ |x| x.created_at.beginning_of_week }
-# end

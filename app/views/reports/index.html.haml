@@ -1,16 +1,29 @@
 = render 'layouts/sidebar/dashboard'
 
 .content
+
+  - if current_user.is_report_admin?
+    - User.without_admin.each do |user|
+      - if user.id == @user_id
+        = user.name
+      - else
+        = link_to user.name, reports_path(:user_id => user.id, :flag => @flag)
+    %br
+  = link_to t('detail.pre_month'), reports_path(:flag => @flag+1, :user_id => @user_id), :class => 'btn'
+  = link_to t('detail.current_month'), reports_path(:flag => 0, :user_id => @user_id), :class => 'btn'
+  = link_to t('detail.next_month'), reports_path(:flag => @flag-1, :user_id => @user_id), :class => 'btn'
+
   - @reports.each do |month, reports|
     %table#sortTableExample.zebra-striped
       %thead
         %tr
-          %th.blue= '一年中的第' << month.strftime("%m").to_i.to_s << '月'
+          %th.blue= l month, :format => '%Y年%b'
           %th.blue= ta Report, :user
           %th.blue= ta Report, :plan
           %th.blue= ta Report, :goal
           / %th.blue= ta Report, :current_date
           %th.yellow= t('admin.actions.default')
+          / %th 评分
       %tbody
         - if reports.blank?
           %tr
@@ -21,8 +34,9 @@
             %tr
               %td= l resource.created_at, :format => :time_with_wday
               %td= resource.user.name
-              %td= truncate(resource.plan, :length => 30)
-              %td= truncate(resource.goal, :length => 30)
+              %td= popover_link_to truncate(resource.plan, :length => 30), '#', { :'data-content' => resource.plan, :'data-original-title' => resource.goal }
+              %td= popover_link_to truncate(resource.goal, :length => 30), '#', { :'data-original-title' => resource.goal }
+              
               / %td= resource.current_date.to_date
-              %td
-                = link_to t('admin.actions.edit'), edit_report_path(resource), :class => 'btn'
+              %td= link_to t('admin.actions.edit'), edit_report_path(resource)
+              / %td= link_to '评分',edit_report_path(resource)  

@@ -73,6 +73,10 @@ class User < ActiveRecord::Base
     roles.where(:code => 'checkin_admin').present?
   end
   
+  def is_report_admin?
+    roles.where(:code => 'report_admin').present?
+  end
+
   def notifiers
     notifiers = {}
     notifiers.merge!(:should_checkin => true) unless has_checked_in?
