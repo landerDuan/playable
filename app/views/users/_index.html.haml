@@ -1,9 +1,8 @@
 .row
-  - 3.times do
-    - collection.each do |resource|
-      .well.popover-well.gallery
-        .avatar
-          = gravatar_tag resource.email,  :size => 120, :class => 'large-bird'
-        .details
-          %span.name= resource.name
-          %span.position= resource.position
+  - collection.each do |resource|
+    .well.popover-well.gallery
+      .avatar
+        = gravatar_tag resource.email,  :size => 120, :class => 'large-bird'
+      .details
+        %span.name= resource.name
+        %span.position= resource.position

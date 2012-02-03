@@ -1,7 +1,6 @@
 Playable::Application.routes.draw do
   devise_for :users
-
-  resources :users
+  
   resources :events
   resources :reports
   resources :posts

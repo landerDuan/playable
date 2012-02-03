@@ -27,7 +27,7 @@
               %li= link_to t('layout.password_settings'), edit_user_registration_path
               %li= link_to t('layout.blog_notifier', :count => 0), '#'
               %li.divider
-              %li= link_to t('layout.sign_out'), destroy_user_session_path, :mehtod => :delete
+              %li= link_to t('layout.sign_out'), destroy_user_session_path, :method => :delete
           
           %li.dropdown
             = link_to t('layout.langue'), '#', :class => 'dropdown-toggle'
