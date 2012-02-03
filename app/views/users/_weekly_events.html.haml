@@ -5,11 +5,11 @@
       %th 上班时间
       %th 下班时间
   %tbody
-    - if @weekly_events.blank?
+    - if @events.blank?
       %tr
         %td{:colspan => 3}= t('admin.meta.empty_data')
     -else
-      - @weekly_events.each do |event|
+      - @events.each do |event|
         %tr
           %td= l event.created_at, :format=>:time_with_wday
           %td= l event.checkin_at, :format => :long

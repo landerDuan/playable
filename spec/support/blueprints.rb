@@ -16,9 +16,7 @@ end
 Report.blueprint do
   user    { User.make! }
   plan    { Faker::Lorem.paragraph }
-  goal    { Faker::Lorem.paragraph }
   content { Faker::Lorem.paragraph }
-  score   { rand(10) }
 end
 
 Category.blueprint do
@@ -71,15 +69,4 @@ end
 ProductPhoto.blueprint do
   product   { Product.make! }
   photo     { Pathname.glob(Rails.root.join("app/assets/images/example/*")).sample.open }
-end
-# Group.blueprint do
-#   # Attributes here
-# end
-
-# GroupUser.blueprint do
-#   # Attributes here
-# end
-
-RoleUser.blueprint do
-  # Attributes here
 end

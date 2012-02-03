@@ -37,13 +37,13 @@ class UsersController < InheritedResources::Base
     @recent_posts = resource.posts.default_order.limit(10)
     
     @reports = if resource.can_manage_reports?
-      User.all.map(&:report_on_current_day)
+      User.without_admin.map(&:report_on_current_day).flatten
     else
       resource.reports.current_week
     end
     
     @events = if resource.can_manage_events?
-      User.all.map(&:event_on_current_day)
+      User.without_admin.map(&:event_on_current_day).flatten
     else
       resource.events.current_week
     end

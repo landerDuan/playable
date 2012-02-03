@@ -2,7 +2,6 @@
   = f.input :user_id,:as => :hidden,:input_html => { :value => current_user.id }
   = f.input :current_date, :as => :date, :start_year => Date.today.year ,:end_year => Date.today.year + 5, :discard_day => false,:order => [:year, :month, :day],:input_html => { :style => 'width:80px' }
   = f.input :plan, :input_html => { :style => 'width:200px;height:20px' }
-  = f.input :goal, :input_html => { :style => 'width:200px;height:80px' }
   = f.input :content, :input_html => { :style => 'width:200px;height:120px' }
   = f.input :score
   .actions

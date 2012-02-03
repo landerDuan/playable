@@ -8,7 +8,7 @@ class ReportsController < InheritedResources::Base
   protected
   
   def begin_of_association_chain
-    if !current_user.is_report_admin?
+    if !current_user.can_manage_reports?
       current_user
     end
   end
@@ -23,7 +23,7 @@ class ReportsController < InheritedResources::Base
       end_data = Time.zone.now.end_of_month
     end
 
-    if current_user.is_report_admin?
+    if current_user.can_manage_reports?
       @user_id = params[:user_id] ? params[:user_id] : User.without_admin.first.id
       @user_id = @user_id.to_i
       selected_user = User.find(@user_id)

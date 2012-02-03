@@ -15,7 +15,6 @@
         %tr
           %th.blue= ta Report, :user
           %th.blue= ta Report, :plan
-          %th.blue= ta Report, :goal
           %th.blue= ta Report, :current_date
           %th.yellow= t('admin.actions.default')
       %tbody
@@ -28,7 +27,6 @@
             %tr
               %td= link_to resource.user.username, admin_user_reports_path(resource.user)
               %td= truncate(resource.plan, :length => 30)
-              %td= truncate(resource.goal, :length => 30)
               %td= resource.created_at.to_date
               %td
                 = link_to t('admin.actions.edit'), edit_resource_path(resource), :class => 'btn'

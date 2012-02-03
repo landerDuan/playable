@@ -44,11 +44,11 @@ class User < ActiveRecord::Base
   scope :without_admin, where('is_admin <> true')
   
   def report_on_current_day
-    # TODO get the report on current day by current user
+    reports.where("created_at >= ?", Time.zone.now.beginning_of_day)
   end
   
   def event_on_current_day
-    # TODO get the event on current day by current user
+    events.where("checkin_at >= ?", Time.zone.now.beginning_of_day)
   end
   
   def checkin
@@ -84,11 +84,11 @@ class User < ActiveRecord::Base
   end
   
   def can_manage_events?
-    has_role?('event_admin')
+    has_role?('event_admin') || is_admin?
   end
   
   def can_manage_reports?
-    has_role?('report_admin')
+    has_role?('report_admin') || is_admin?
   end
   
   def is_admin?
