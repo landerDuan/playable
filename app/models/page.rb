@@ -9,6 +9,14 @@ class Page < ActiveRecord::Base
   scope :top, where('position <> ?', 'bottom')
   scope :bottom, where('position <> ?', 'top')
   
+  def page_title
+    send("name_#{I18n.locale}")
+  end
+  
+  def page_content
+    send("content_#{I18n.locale}")
+  end
+  
   def to_param
     "#{code}"
   end
