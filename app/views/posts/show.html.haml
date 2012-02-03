@@ -1,15 +1,33 @@
-.page-header  
-.row
-  .span16
-    %table.zebra-striped
-      %tbody
-        %tr
-          %td
-            = gravatar_tag resource.user.email, :size => 40
-            = resource.title
-        %tr
-          %td= resource.content.html_safe
-        %tr
-          %td= resource.tags.map(&:name).join(',')
-       
+= render 'layouts/sidebar/blog'
 
+.content
+  .page-header
+    %h3= link_to 'Playab Blog: Technology, Design, Business', blog_path
+  
+  #posts
+    .post_summary.row
+      %h3.blog_title= link_to resource.title, post_path(resource)
+      %p.meta
+        %span.author
+          By
+          = link_to resource.user.try(:name), '#' 
+        %span.date= l resource.created_at, :format => :long
+        %span.tags
+          - resource.tags.each do |tag|
+            = link_to tag.name, '#'
+      .body= raw resource.content
+    
+    #disqus_thread
+      
+      
+:javascript
+  var disqus_shortname = 'playable';
+  var disqus_developer = 1;
+
+  var disqus_url = "http://playab.net/#{request.fullpath}";
+
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
