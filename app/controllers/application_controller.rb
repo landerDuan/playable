@@ -42,4 +42,10 @@ class ApplicationController < ActionController::Base
     @top_pages = Page.top
     @bottom_pages = Page.bottom
   end
+  
+  protected
+  
+  def hide_topbar
+    @hide_topbar = true
+  end
 end
