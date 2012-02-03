@@ -1,17 +1,22 @@
-.page-header  
-.row
-  .span16
-    %table.zebra-striped
-      %tbody
-        - if collection.blank?
-          %tr
-            %td &nbsp;
-            %td{:colspan => 9}= t('admin.meta.empty_data')
-        - else
-          - collection.each do |resource|
-            %tr
-              %td
-                = gravatar_tag resource.user.email, :size => 20
-                = link_to resource.title << '(' << resource.tags.map(&:name).join(',') << ')', post_path(resource)
-              %td
-                = resource.created_at.strftime("%Y-%m-%d %H:%M:%S")
+= render 'layouts/sidebar/blog'
+
+.content
+  .page-header
+    %h3 Playab Blog: Technology, Design, Business
+  
+  #posts
+    - if collection.blank?
+      = t('admin.meta.empty_data')
+    - else
+      - collection.each_with_index do |resource, index|
+        .post_summary{ :class => (index == 0) ? 'post_feature' : 'row' }
+          %h3.blog_title= link_to resource.title, post_path(resource)
+          %p.meta
+            %span.author
+              By
+              = link_to resource.user.try(:name), '#' 
+            %span.date= l resource.created_at, :format => :long
+            %span.tags
+              - resource.tags.each do |tag|
+                = link_to tag.name, '#'
+          .body= raw resource.content
