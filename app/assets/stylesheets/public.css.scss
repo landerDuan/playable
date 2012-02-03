@@ -6,11 +6,59 @@
     @include border-radius(1px);
     @include box-shadow(0 -1px 5px rgba(0, 0, 0, 0.1));
     
+    &.portfolio {
+      margin-right: 0;
+      
+      ul.case_study_block {
+        list-style: none;
+        margin: 10px;
+        padding: 0;
+        
+        li {
+          padding: 10px;
+          margin-bottom: 10px;
+          border: 2px solid #E1E1E1;
+          @include border-radius(1px);
+          @include box-shadow(0 -1px 5px rgba(0, 0, 0, 0.1));
+          
+          .main {
+            float: left;
+            width: 600px;
+            
+            .title {
+              font-size: 16px;
+              color: #005D9C;
+              &:hover { color: black; cursor: pointer; }
+            }
+            
+            .entry {
+              padding: 10px;
+            }
+          }
+          .aside {
+            float: right;
+          }
+        }
+      }
+    }
+    
     .row {
       a { color: #005D9C; text-decoration: none; }
       form .ke-container {
         margin-left: 80px;
       }
+    }
+    
+    .gallery {
+      .details {
+        span {
+          display: block;
+          text-align: center;
+          &.name { color: #005D9C; }
+        }
+      }
+      
+      &.well { padding: 12px; }
     }
     
     .post_feature {

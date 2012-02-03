@@ -1,38 +1,14 @@
-.page-header
-  %h1 
-    = t('layout.products')
-
-  %table
-    - if @products.blank?
-      %tr
-        %td &nbsp;
-        %td{:colspan => 9}= t('product.empty_data')
-    - else
-      - @products.each do |product| 
-        %tr
-          %td 
-            %div#top
-              %div.img_container
-                %ul
-                  - product.photos.each do |photo|
-                    - if photo == product.photos.first
-                      %li{:style => "list-style-type:none"}
-                        = link_to image_tag("#{photo.photo.small}"), "#{photo.photo}", :rel => "sexylightbox[group1]"
-                    - else
-                      %li{:style => "display:none"}
-                        = link_to image_tag("#{photo.photo.small}"), "#{photo.photo}", :rel => "sexylightbox[group1]"
-          %td
-            = t('product.name') << ':' << product.name
-            %br
-            = t('product.description') << ':' << product.description
-            %br
-            = t('product.url') << ':' << product.url
-            
-
-
-
-
-%script
-  window.addEvent('domready', function(){SexyLightbox = new SexyLightBox({color:'black', dir: '../../assets'});})
-
+.content.portfolio
+  .page-header
+    %h3= t('layout.products')
+    
+  %ul.case_study_block
+    - collection.each do |resource|
+      %li.row
+        .main
+          .title= resource.name
+          .entry= resource.description
+        .aside
+          .gallery
+            = image_tag(resource.photos.first.photo.medium)
     

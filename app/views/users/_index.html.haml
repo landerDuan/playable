@@ -1,11 +1,9 @@
-.content
-  .page-header
-    %h3 团队成员
-  
-  .row
+.row
+  - 3.times do
     - collection.each do |resource|
       .well.popover-well.gallery
         .avatar
           = gravatar_tag resource.email,  :size => 120, :class => 'large-bird'
         .details
-          %span= resource.name
+          %span.name= resource.name
+          %span.position= resource.position

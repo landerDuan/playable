@@ -1,8 +1,10 @@
-class ProductsController < ApplicationController
+class ProductsController < InheritedResources::Base
   main_nav_highlight :products
-
-  def index
-  	p @products = Product.all
+  
+  protected
+  
+  def collection
+    @products ||= end_of_association_chain.default_order
   end
 
 end

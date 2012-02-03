@@ -5,3 +5,10 @@
     %h3= resource.page_title
   
   .body= resource.page_content
+  
+.content
+  .page-header
+    %h3 公司成员
+    
+  - if resource.code == 'about'
+    = render 'users/index', :collection => @users

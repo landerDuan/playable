@@ -8,8 +8,6 @@
           = link_to t('layout.home'), root_path
         = main_nav :products do
           = link_to t('layout.products'), products_path
-        = main_nav :members do
-          = link_to '团队成员', users_path
         = main_nav :blog do
           = link_to t('layout.blog'), blog_path
         - @top_pages.each do |page|
