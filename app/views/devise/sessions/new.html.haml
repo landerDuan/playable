@@ -1,9 +1,14 @@
-.row
-  .span16
-    = simple_form_for resource, :as => resource_name, :url => session_path(resource_name) do |f|
-      = f.input :email, :required => false, :autofocus => true
-      = f.input :password, :required => false
-      = f.input :remember_me, :as => :boolean if devise_mapping.rememberable?
+.row.sign
+  .span8
+    #login
+      %h3 公司内部系统用户登录
+      = simple_form_for resource, :as => resource_name, :url => session_path(resource_name) do |f|
+        = f.input :email, :required => false, :autofocus => true
+        = f.input :password, :required => false
+        = f.input :remember_me, :as => :boolean if devise_mapping.rememberable?
       
-      .actions
-        = f.button :submit, "Sign in", :class => 'btn'
+        .actions
+          = f.button :submit, "登录", :class => 'btn primary'
+          = button_tag '重置', :type => 'reset', :class => 'btn'
+          
+          = link_to '忘记密码?', new_user_password_path, :class => 'btn'

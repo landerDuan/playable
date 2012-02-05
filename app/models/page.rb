@@ -17,6 +17,10 @@ class Page < ActiveRecord::Base
     send("content_#{I18n.locale}")
   end
   
+  def about_page?
+    code == 'about'
+  end
+  
   def to_param
     "#{code}"
   end

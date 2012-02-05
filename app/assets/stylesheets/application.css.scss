@@ -12,5 +12,9 @@
 @import "compass/css3/box-shadow";
 @import "compass/css3/text-shadow";
 
-@import "public.css.scss";
-@import "home.css.scss";
+@import "lib/jquery.fancybox";
+@import "lib/jquery.jGrowl";
+
+@import "public";
+@import "home";
+@import "sign";

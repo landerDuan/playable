@@ -2,7 +2,7 @@ class PagesController < InheritedResources::Base
   
   def show
     @main_nav = resource.code.to_sym
-    @users = User.without_admin if resource.code == 'about'
+    @users = User.without_admin if resource.about_page?
     show!
   end
 

@@ -82,7 +82,8 @@ form .clearfix:before, form .clearfix:after {
 }
 
 ul.nav.main_menu a {
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .topbar div > ul .menu-dropdown, .nav .menu-dropdown, .topbar div > ul .dropdown-menu, .nav .dropdown-menu {

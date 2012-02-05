@@ -14,6 +14,9 @@
           - @top_pages.each do |page|
             = main_nav page.code.to_sym do
               = link_to page.name_zh, page_path(page)
+              
+          = link_to '', '#share_popup', id: :share_action
+          = render 'shared/share_popup'
 
         %ul.nav.secondary-nav
           - unless user_signed_in?

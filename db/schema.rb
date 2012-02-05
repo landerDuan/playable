@@ -42,17 +42,6 @@ ActiveRecord::Schema.define(:version => 20120108085614) do
   add_index "categories", ["name"], :name => "index_categories_on_name"
   add_index "categories", ["posts_count"], :name => "index_categories_on_posts_count"
 
-  create_table "comments", :force => true do |t|
-    t.integer  "post_id"
-    t.string   "name"
-    t.string   "email"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
-
   create_table "events", :force => true do |t|
     t.integer  "user_id"
     t.datetime "checkin_at"

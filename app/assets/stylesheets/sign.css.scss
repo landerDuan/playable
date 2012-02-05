@@ -1,0 +1,19 @@
+.sign {
+  .span8 {
+    padding: 50px 200px 0 200px;
+
+    #login {
+      background: none repeat scroll 0 0 rgba(166, 156, 141, 0.12);
+      border-bottom: 1px solid #FFFFFF;
+      @include border-radius(2px);
+      @include box-shadow(0 1px 1px rgba(166, 156, 141, 0.3) inset);
+      margin: 30px 0;
+      padding: 25px 30px;
+      
+      h3 {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

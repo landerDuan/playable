@@ -20,7 +20,6 @@ RSpec.configure do |config|
   end
 
   config.before(:each) do
-    Resque.stub(:enqueue)
     DatabaseCleaner.start
   end
 

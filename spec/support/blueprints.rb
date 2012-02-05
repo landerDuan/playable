@@ -16,7 +16,6 @@ end
 Report.blueprint do
   user    { User.make! }
   plan    { Faker::Lorem.paragraph }
-  goal    { Faker::Lorem.paragraph }
   content { Faker::Lorem.paragraph }
   score   { rand(10) }
 end
@@ -39,11 +38,11 @@ Event.blueprint do
   checkin_at      { Time.zone.now.change(:hour => 9) }
   checkout_at     { Time.zone.now.change(:hour => 18) }
   description     { Faker::LoremCN.paragraph }
-  feedback        { Faker::LoremCN.paragraph }
 end
 
 Role.blueprint do
-  # Attributes here
+  name  { "name_#{sn}" }
+  code  { "code_#{sn}" } 
 end
 
 Post.blueprint do
@@ -52,13 +51,6 @@ Post.blueprint do
   content   { Faker::LoremCN.paragraph(5) }
   category  { Category.make! }
   user      { User.make! }
-end
-
-Comment.blueprint do
-  post    { Post.make! }
-  name    { Faker::LoremCN.sentence }
-  content { Faker::LoremCN.paragraph(5) }
-  email   { Faker::Internet.email }
 end
 
 Product.blueprint do
@@ -71,15 +63,4 @@ end
 ProductPhoto.blueprint do
   product   { Product.make! }
   photo     { Pathname.glob(Rails.root.join("app/assets/images/example/*")).sample.open }
-end
-# Group.blueprint do
-#   # Attributes here
-# end
-
-# GroupUser.blueprint do
-#   # Attributes here
-# end
-
-RoleUser.blueprint do
-  # Attributes here
 end

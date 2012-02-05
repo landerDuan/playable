@@ -2,7 +2,7 @@ class Product < ActiveRecord::Base
 
   attr_readonly :photos_count
 
-  has_many :photos, :class_name => 'ProductPhoto'
+  has_many :photos, :class_name => 'ProductPhoto', :dependent => :destroy
 
   accepts_nested_attributes_for :photos, :allow_destroy => true, :reject_if => :all_blank
   

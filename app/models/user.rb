@@ -29,7 +29,11 @@ class User < ActiveRecord::Base
                   :role_ids
                   
   validates :username,  :presence   => true,
-                        :uniqueness => true
+                        :uniqueness => { :case_sensitive => false },
+                        :length     => { :within => 4..20 },
+                        :format     => { :with => /^[A-Za-z0-9_]+$/ }
+  validates :name,      :presence   => true,
+                        :length     => { :within => 4..30 }
 
   with_options dependent: :destroy do |user|
     user.has_many :events
@@ -43,28 +47,29 @@ class User < ActiveRecord::Base
   
   scope :without_admin, where('is_admin <> true')
   
+  before_save :email_nomarlisation
+  
   def report_on_current_day
-    # TODO get the report on current day by current user
+    reports.where('created_at > ?', Time.zone.now.change(:hour => 0)).last
   end
   
   def event_on_current_day
-    # TODO get the event on current day by current user
+    events.where('created_at > ?', Time.zone.now.change(:hour => 0)).last
   end
   
-  def checkin
-    if has_checked_in?
-      return
-    else
-      if events.present? && !events.last.checkout_at.present?
-        @last_checkout_time = Time.zone.parse(events.last.checkin_at.to_s).change(:hour => 18)
-        events.last.update_attribute(:checkout_at, @last_checkout_time)
-      end
-      events.create(:checkin_at => Time.zone.now)
-    end
+  def checkin(checkin_time = Time.zone.now)
+    return if has_checked_in?
+    auto_checkout if events.present? && !!events.last.checkout_at
+    
+    events.create(:checkin_at => checkin_time)
   end
   
-  def checkout
-    events.last.update_attribute(:checkout_at, Time.zone.now) if events.present?
+  def auto_checkout
+    events.last.checkout(events.last.checkin_at.change(:hour => 18))
+  end
+  
+  def checkout(checkout_time = Time.zone.now)
+    events.last.update_attribute(:checkout_at, checkout_time) if events.present?
   end
   
   def has_checked_in?
@@ -107,6 +112,12 @@ class User < ActiveRecord::Base
   # Devise overrides
   def confirmation_required?
     false
+  end
+  
+  private
+
+  def email_nomarlisation
+    self.email = email.strip.downcase
   end
 
 end

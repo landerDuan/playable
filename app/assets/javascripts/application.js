@@ -19,3 +19,4 @@
 //= require bootstrap.config
 //= require_directory ./lib
 //= require public
+//= require profile

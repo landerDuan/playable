@@ -33,7 +33,6 @@ p "> create users..."
   u.save!
 end
 
-
 p "> create statics pages..."
 [
   { :code => 'about',   :position => :top_and_bottom, :name_zh => '关于我们', :name_en => 'About' },
@@ -47,7 +46,7 @@ p "> create statics pages..."
     :name_en  => page[:name_en],
     :name_jp  => page[:name_zh]
   )
-end
+end 
 
 p "> create categories..."
 [

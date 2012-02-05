@@ -1,4 +1,3 @@
-- flash.each do |type, message|
-  %div{:class => "alert-message #{type}", "data-alert" => "close"}
-    %a.close{:href => "#"} ×
-    %p= message
+- if message = (notice || alert)
+  :javascript
+    $.jGrowl("#{ escape_javascript(message) }");
