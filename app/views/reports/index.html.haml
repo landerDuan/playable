@@ -2,7 +2,7 @@
 
 .content
 
-  - if current_user.is_report_admin?
+  - if current_user.can_manage_reports?
     - User.without_admin.each do |user|
       - if user.id == @user_id
         = user.name
@@ -20,10 +20,11 @@
           %th.blue= l month, :format => '%Y年%b'
           %th.blue= ta Report, :user
           %th.blue= ta Report, :plan
-          %th.blue= ta Report, :goal
-          / %th.blue= ta Report, :current_date
+          %th.blue= ta Report, :content
+          %th.blue= ta Report, :comment
+          %th.blue= ta Report, :score
           %th.yellow= t('admin.actions.default')
-          / %th 评分
+
       %tbody
         - if reports.blank?
           %tr
@@ -34,9 +35,11 @@
             %tr
               %td= l resource.created_at, :format => :time_with_wday
               %td= resource.user.name
-              %td= popover_link_to truncate(resource.plan, :length => 30), '#', { :'data-content' => resource.plan, :'data-original-title' => resource.goal }
-              %td= popover_link_to truncate(resource.goal, :length => 30), '#', { :'data-original-title' => resource.goal }
-              
-              / %td= resource.current_date.to_date
-              %td= link_to t('admin.actions.edit'), edit_report_path(resource)
-              / %td= link_to '评分',edit_report_path(resource)  
+              %td= popover_link_to truncate(resource.plan, :length => 30), '#', { :'data-content' => resource.content, :'data-original-title' => resource.plan }
+              %td= popover_link_to truncate(resource.content, :length => 10), '#', {:'data-original-title' => resource.content }
+              %td= popover_link_to truncate(resource.comment, :length => 10), '#', {:'data-original-title' => resource.comment }
+              %td= resource.score
+              - if current_user.can_manage_reports?
+                %td= link_to '修改/评分',edit_report_path(resource)
+              - else 
+                %td= link_to '修改',edit_report_path(resource)

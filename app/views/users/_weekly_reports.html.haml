@@ -4,15 +4,22 @@
       %th{ :style => 'width: 120px;' } 日期
       %th 计划
       %th 实际情况
+      %th 反馈
+      %th 评分
       %th 操作
   %tbody
-    - if @weekly_reports.blank?
+    - if @reports.blank?
       %tr
         %td{:colspan => 3}= t('admin.meta.empty_data')
-    -else
-      - @weekly_reports.each do |report|
+    - else
+      - @reports.each do |report|
         %tr
           %td= l report.created_at, :format => :time_with_wday
-          %td= popover_link_to truncate(report.plan, :length => 10), '#', { :'data-content' => report.plan, :'data-original-title' => report.goal }
+          %td= popover_link_to truncate(report.plan, :length => 10), '#', { :'data-content' => report.content, :'data-original-title' => report.plan }
           %td= popover_link_to truncate(report.content, :length => 10), '#', {:'data-original-title' => report.content }
-          %td= link_to '修改',edit_report_path(report)
+          %td= popover_link_to truncate(report.comment, :length => 10), '#', {:'data-original-title' => report.comment }
+          %td= report.score
+          - if current_user.can_manage_reports?
+            %td= link_to '修改/评分',edit_report_path(report)
+          - else 
+            %td= link_to '修改',edit_report_path(report)

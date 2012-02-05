@@ -17,7 +17,6 @@ Report.blueprint do
   user    { User.make! }
   plan    { Faker::Lorem.paragraph }
   content { Faker::Lorem.paragraph }
-  score   { rand(10) }
 end
 
 Category.blueprint do

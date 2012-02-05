@@ -33,9 +33,10 @@ zh:
             female: 女
       report:
         user: 用户名
-        plan: 任务
-        goal: 目标
+        plan: 计划
         content: 实际情况
+        score: 评分
+        comment: 反馈
         current_date: 日期
         search: 搜索
       event:

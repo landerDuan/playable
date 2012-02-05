@@ -89,11 +89,11 @@ class User < ActiveRecord::Base
   end
   
   def can_manage_events?
-    has_role?('event_admin')
+    has_role?('event_admin') || is_admin?
   end
   
   def can_manage_reports?
-    has_role?('report_admin')
+    has_role?('report_admin') || is_admin?
   end
   
   def is_admin?

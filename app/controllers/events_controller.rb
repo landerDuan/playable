@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   protected
   
   def collection
-  	if current_user.has_event_admin?
+  	if current_user.can_manage_events?
   		if params[:user_id].blank?
   			@events_all = User.without_admin.first.events
         @user_id = User.without_admin.first.id
