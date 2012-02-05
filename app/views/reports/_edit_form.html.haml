@@ -2,6 +2,7 @@
   .fieldset
     = f.input :plan, :input_html => { :class => 'xlarge', :rows => 5 }
     = f.input :content, :input_html => { :class => 'xlarge', :rows => 5 }
+    
     - if current_user.can_manage_reports?
       = f.input :comment, :input_html => { :class => 'xlarge', :rows => 5 }
       = f.input :score, :as => :select, :collection => [0,1,2,3,4,5].collect{ |x| [x, x] }, :selected => 3

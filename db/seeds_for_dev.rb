@@ -12,7 +12,6 @@ require Rails.root.join('db/data/mandatory_seed')
 p "> create blog posts"
 30.times do
   post = Post.make!(:user => User.without_admin.sample, :category => Category.all.sample)
-  Comment.make!(:post => post)
 end
 
 p "> create events..."

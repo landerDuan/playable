@@ -1,4 +1,4 @@
-= simple_form_for resource, :url => url do |f|
+= simple_form_for resource, :url => url, :html => { :id => resource.new_record? ? 'new_report' : 'edit_report' } do |f|
   .fieldset
     = f.input :plan, :input_html => { :class => 'xlarge', :rows => 5 }
     = f.input :content, :input_html => { :class => 'xlarge', :rows => 5 }

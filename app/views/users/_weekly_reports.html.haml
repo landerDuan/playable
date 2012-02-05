@@ -19,7 +19,8 @@
           %td= popover_link_to truncate(report.content, :length => 10), '#', {:'data-original-title' => report.content }
           %td= popover_link_to truncate(report.comment, :length => 10), '#', {:'data-original-title' => report.comment }
           %td= report.score
+          
           - if current_user.can_manage_reports?
-            %td= link_to '修改/评分',edit_report_path(report)
+            %td= link_to '修改/评分', edit_report_path(report), :class => 'confirm_link'
           - else 
             %td= link_to '修改',edit_report_path(report)

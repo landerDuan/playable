@@ -1,17 +1,18 @@
 require 'spec_helper'
 
 describe Category do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { Category.make! }
+  
+  let(:attr1) do
+    {
+      :name => 'category 1',
+      :code => 'category 1'
+    }
+  end
+  
+  it 'should be created' do
+    category = Category.new(attr1)
+    
+    category.valid?.should be_true
+  end
 end
-# == Schema Information
-#
-# Table name: categories
-#
-#  id          :integer         not null, primary key
-#  code        :integer
-#  name        :string(255)
-#  posts_count :integer         default(0)
-#  created_at  :datetime
-#  updated_at  :datetime
-#
-

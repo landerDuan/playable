@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
+  layout proc { |controller| controller.request.xhr? ? nil : 'application' }
+  
   before_filter :initialize_basic_data
   
   rescue_from CanCan::AccessDenied do |exception|

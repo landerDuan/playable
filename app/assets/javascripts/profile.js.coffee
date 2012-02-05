@@ -5,7 +5,7 @@ $.jGrowl.defaults.life = 6500
 $.jGrowl.defaults.sticky = false
 
 # Popup
-share_link = share_popup = ""
+share_link = share_popup = confirm_link = ""
 
 ajaxTransitions =
   beforeSend: () ->
@@ -14,11 +14,12 @@ ajaxTransitions =
     $.fancybox.hideActivity()
     $.fancybox.resize()
     
-ajaxOptionsNewFeedback = () ->
+ajaxOptionsEditReport = (url) ->
   ajaxOptions =
     type:       'POST'
     dataType:   'JSON'
-    url:        '/feedbacks.json'
+    url:        url + '.json'
+    data: '_method=PUT'
     success: (data) ->
       $.jGrowl(data.msg)
       $.fancybox.close()
@@ -54,8 +55,8 @@ fancyboxOptions =
 
 initializeEventHandlers = () ->
   
-  # Add feedback event for jobs
-  feedback_link.click (e) ->
+  # Add report manage event for admin
+  confirm_link.click (e) ->
     e.preventDefault()
     setRemoteContent($(this).attr('href'), null, null, activatePopup)
   
@@ -63,16 +64,11 @@ initializeEventHandlers = () ->
   share_popup.on 'click', 'button#close_button', () ->
     $.fancybox.close()
 
-  # submit handler for the new FEEDBACK form
-  share_popup.on 'submit', 'form#new_feedback', (e) ->
+  # submit handler for the editing report form
+  share_popup.on 'submit', 'form#edit_report', (e) ->
     e.preventDefault()
-    $(this).ajaxSubmit ajaxOptionsNewFeedback()
-  
-  share_popup.on 'submit', 'form#new_note', (e) ->
-    e.preventDefault()
-    url = $(this).attr('action') + '.json'
-    console.log url
-    $(this).ajaxSubmit ajaxOptionsNewNote(url)
+    url = $(this).attr('action')
+    $(this).ajaxSubmit ajaxOptionsEditReport(url)
     
 
 activatePopup = () -> share_link.trigger('click')
@@ -97,6 +93,7 @@ setRemoteContent = (url, data, options, callback) ->
 $ ->
   share_link          = $('a#share_action')
   share_popup         = $('#share_popup')
+  confirm_link        = $('a.confirm_link')
   
   # Initialize fancybox
   share_link.fancybox(fancyboxOptions)

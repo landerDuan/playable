@@ -1,6 +1,13 @@
 class ReportsController < InheritedResources::Base
   include_kindeditor
   
+  def update
+    update! do |format|
+      format.html { redirect_to :back }
+      format.json { render :json => { :success => true, :msg => 'ok' }, :status => 200 }
+    end
+  end
+  
   def show
     redirect_to profile_path
   end
