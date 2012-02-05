@@ -4,6 +4,7 @@ log/*.log
 tmp/
 .sass-cache/
 config/database.yml
+config/settings.yml
 public/assets
 .DS_Store
 public/uploads

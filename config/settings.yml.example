@@ -6,3 +6,10 @@ introduce_zh: XXXXXXXXX
 introduce_jp: VVVVVVVVV
 what_we_do_zh: AAAAAAAAAAAA
 what_we_do_jp: BBBBBBBBBBBB
+
+
+mail:
+  address:    your email server address here
+  domain:     your domain here
+  user_name:  your username here
+  password:   your password here

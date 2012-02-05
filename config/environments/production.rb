@@ -25,7 +25,7 @@ Playable::Application.configure do
 
   # Specifies the header that your server uses for sending files
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
-  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
+  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
@@ -58,5 +58,23 @@ Playable::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
   
-  config.action_mailer.default_url_options = { :host => 'playable.com' }
+  config.action_mailer.default_url_options = { :host => 'playab.net' }
+  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => 'utf-8'
+  config.action_mailer.smtp_settings = {
+    :address        =>    Settins.mail.address,
+    :port           =>    25,
+    :domain         =>    Settings.mail.domain,
+    :user_name      =>    Settings.mail.user_name,
+    :password       =>    Settings.mail.password,
+    :authentication =>    :login
+  }
+  
+  config.middleware.use ExceptionNotifier,
+    :email_prefix => "[playab] ",
+    :sender_address => %{"Notifier" <red@playab.net>},
+    :exception_recipients => %w{dev@playab.net}
 end

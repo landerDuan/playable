@@ -30,10 +30,10 @@ class User < ActiveRecord::Base
                   
   validates :username,  :presence   => true,
                         :uniqueness => { :case_sensitive => false },
-                        :length     => { :within => 4..20 },
+                        :length     => { :within => 2..20 },
                         :format     => { :with => /^[A-Za-z0-9_]+$/ }
   validates :name,      :presence   => true,
-                        :length     => { :within => 4..30 }
+                        :length     => { :within => 2..30 }
 
   with_options dependent: :destroy do |user|
     user.has_many :events

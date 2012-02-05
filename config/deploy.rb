@@ -34,6 +34,7 @@ task :precompile, :roles => :web do
   run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile"
 end
 
+
 namespace :deploy do
   task :restart do
     run "touch #{current_path}/tmp/restart.txt"
