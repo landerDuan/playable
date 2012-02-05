@@ -48,6 +48,7 @@ gem 'therubyracer', :require => 'v8'
 
 group :development do
   gem 'capistrano'
+  gem 'capistrano_colors'
   gem 'thin'
   gem 'annotate', '~> 2.4.1.beta1'
 end

@@ -15,7 +15,7 @@ set :branch, "master"
 set :deploy_to, "/home/playable/apps/#{application}"
 set :user, "playable"
 set :use_sudo, false
-server "playab.net", :app, :web, :db, :primary => true
+server "106.187.52.21", :app, :web, :db, :primary => true
 set :deploy_via, :copy
 
 set :keep_releases, 3
@@ -34,6 +34,13 @@ task :precompile, :roles => :web do
   run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile"
 end
 
+namespace :deploy do
+  task :restart do
+    run "touch #{current_path}/tmp/restart.txt"
+  end
+end
+
 after "deploy:update_code", :trust_rvmrc
 after 'deploy:update_code', :configure
 after "deploy:update_code", :precompile
+after 'deploy:restart',     'deploy:cleanup'
