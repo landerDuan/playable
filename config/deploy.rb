@@ -22,6 +22,7 @@ set :keep_releases, 3
 
 task :configure, :roles => :web do
   run "ln -s #{shared_path}/config/database.yml #{current_release}/config/database.yml"
+  run "ln -s #{shared_path}/config/settings.yml #{current_release}/config/settings.yml"
   
   run "cd #{current_release}; bundle install --without development test"
 end

@@ -1,12 +1,12 @@
-company_name: playable
-company_address: 上海市长宁区威宁路天山星城13栋103室
-company_phone: 12345678
-company_web: www.playab.net
-introduce_zh: XXXXXXXXX
-introduce_jp: VVVVVVVVV
-what_we_do_zh: AAAAAAAAAAAA
-what_we_do_jp: BBBBBBBBBBBB
-
+company:
+  name: Playable
+  address: 上海市长宁区威宁路天山星城13栋103室
+  phone: 12345678
+  domain: www.playab.net
+  introduce:
+    zh: example
+    jp: example
+    en: example
 
 mail:
   address:    your email server address here
