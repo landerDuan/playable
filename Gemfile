@@ -47,6 +47,7 @@ gem 'execjs'
 gem 'therubyracer', :require => 'v8'
 
 group :development do
+  gem 'capistrano'
   gem 'thin'
   gem 'annotate', '~> 2.4.1.beta1'
 end
