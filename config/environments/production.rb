@@ -65,11 +65,11 @@ Playable::Application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => 'utf-8'
   config.action_mailer.smtp_settings = {
-    :address        =>    Settings.mail.address,
+    :address        =>    'smtp.exmail.qq.com',
     :port           =>    25,
-    :domain         =>    Settings.mail.domain,
-    :user_name      =>    Settings.mail.user_name,
-    :password       =>    Settings.mail.password,
+    :domain         =>    'playab.net',
+    :user_name      =>    'red@playab.net',
+    :password       =>    'playab123!@#',
     :authentication =>    :login
   }
   
