@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
   end
   
   def checkin(checkin_time = Time.zone.now)
-    return if has_checked_in?
+    return if has_checked_in? || !is_office_ip?
     auto_checkout if events.present? && !!events.last.checkout_at
     
     events.create(:checkin_at => checkin_time)
@@ -69,6 +69,7 @@ class User < ActiveRecord::Base
   end
   
   def checkout(checkout_time = Time.zone.now)
+    return if !is_office_ip?
     events.last.update_attribute(:checkout_at, checkout_time) if events.present?
   end
   
@@ -98,6 +99,10 @@ class User < ActiveRecord::Base
   
   def is_admin?
     !!is_admin || has_role?('administrator')
+  end
+
+  def is_office_ip?
+    !!request.remote_ip.match(Settings.company.office_ip)
   end
 
   def notifiers

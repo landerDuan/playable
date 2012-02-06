@@ -5,7 +5,13 @@
     border: 1px solid #E6E5E5;
     @include border-radius(1px);
     @include box-shadow(0 -1px 5px rgba(0, 0, 0, 0.1));
-
+    
+    #posts {
+      .clearfix {
+        padding: 20px;
+      }
+    }
+    
     &.portfolio {
       margin-right: 0;
 
@@ -76,8 +82,7 @@
     }
 
     .post_summary {
-      border-bottom: 3px solid #E1E1E1;
-      margin-bottom: 15px;
+      border-bottom: 1px solid #E1E1E1;
 
       .body {
         color: #444444;
@@ -127,7 +132,7 @@
     }
     table {
       margin: 10px;
-      width: 693px;
+      width: 740px;
     }
     .notifier {
       padding: 10px;
@@ -141,10 +146,10 @@
     border: 1px solid #E6E5E5;
     @include border-radius(1px);
     @include box-shadow(0 -1px 5px rgba(0, 0, 0, 0.1));
-
+    
     .box {
       padding: 10px;
-      &.profile {
+      &.profile, &.pages {
         padding: 20px 0 20px 0;
         ul { margin-left: 0; }
         a {
@@ -196,7 +201,7 @@
     }
 
     .check {
-      padding: 0 50px 0 50px;
+      padding: 0 25px 0 25px;
     }
 
     .mood {
@@ -213,7 +218,7 @@
       .time {
         float: right;
         height: 43px;
-        width: 135px;
+        width: 85px;
 
         span {
           display: block;
@@ -254,4 +259,25 @@
     &.blog { background-color: white; }
   }
 
+}
+
+#share_popup_content {
+  .page-header {
+    background-color: #4A91B9;
+    
+    h3 {
+      color: white;
+      margin-left: 10px;
+    }
+  }
+  
+  form {
+    padding: 20px;
+    
+    label { width: 55px; }
+    .actions {
+      padding: 0 0 0 50px;
+      margin-bottom: 0px;
+    }
+  }
 }

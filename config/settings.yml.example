@@ -1,8 +1,9 @@
 company:
   name: Playable
-  address: 上海市长宁区威宁路天山星城13栋103室
+  address: 上海市长宁区威宁路358弄13号103室
   phone: 12345678
   domain: www.playab.net
+  office_ip: 1*.*.*.*
   introduce:
     zh: example
     jp: example

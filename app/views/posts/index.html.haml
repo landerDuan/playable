@@ -9,7 +9,7 @@
       = t('admin.meta.empty_data')
     - else
       - collection.each_with_index do |resource, index|
-        .post_summary{ :class => (index == 0) ? 'post_feature' : 'row' }
+        .post_summary{ :class => (index == 0) ? 'post_feature' : 'clearfix' }
           %h3.blog_title= link_to resource.title, post_path(resource)
           %p.meta
             %span.author

@@ -1,5 +1,5 @@
 .sidebar
-  .box
+  .box.pages
     %ul
       - Page.scoped.each do |page|
         %li= link_to page.page_title, page_path(page), :title => page.page_title
