@@ -35,9 +35,9 @@
             %tr
               %td= l resource.created_at, :format => :time_with_wday
               %td= resource.user.name
-              %td= popover_link_to truncate(resource.plan, :length => 30), '#', { :'data-content' => resource.content, :'data-original-title' => resource.plan }
-              %td= popover_link_to truncate(resource.content, :length => 10), '#', {:'data-original-title' => resource.content }
-              %td= popover_link_to truncate(resource.comment, :length => 10), '#', {:'data-original-title' => resource.comment }
+              %td= popover_link_to truncate(resource.plan, :length => 30), 'javascript:void(0);', { :'data-content' => resource.content, :'data-original-title' => resource.plan }
+              %td= popover_link_to truncate(resource.content, :length => 10), 'javascript:void(0);', {:'data-original-title' => resource.content }
+              %td= popover_link_to truncate(resource.comment, :length => 10), 'javascript:void(0);', {:'data-original-title' => resource.comment }
               %td= resource.score
               - if current_user.can_manage_reports?
                 %td= link_to '修改/评分',edit_report_path(resource)

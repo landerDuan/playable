@@ -6,9 +6,8 @@
   
   .body= resource.page_content
   
-.content
-  .page-header
-    %h3 公司成员
-    
-  - if resource.code == 'about'
-    = render 'users/index', :collection => @users
+- if resource.about_page?
+  .content
+    .page-header
+      %h3 公司成员
+      = render 'users/index', :collection => @users

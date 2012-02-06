@@ -1,7 +1,9 @@
 %table.bordered-table.zebra-striped
   %thead
     %tr
-      %th{ :style => 'width: 120px;' } 日期
+      - if current_user.can_manage_events?
+        %th 成员
+      %th 日期
       %th 上班时间
       %th 下班时间
   %tbody
@@ -11,6 +13,8 @@
     -else
       - @events.each do |event|
         %tr
+          - if current_user.can_manage_events?
+            %td= event.user.try(:name)
           %td= l event.created_at, :format=>:time_with_wday
           %td= l event.checkin_at, :format => :long
           %td= l event.checkout_at, :format => :long if event.checkout_at

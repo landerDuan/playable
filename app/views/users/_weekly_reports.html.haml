@@ -1,7 +1,9 @@
 %table.bordered-table.zebra-striped
   %thead
     %tr
-      %th{ :style => 'width: 120px;' } 日期
+      - if current_user.can_manage_reports?
+        %th 成员
+      %th 日期
       %th 计划
       %th 实际情况
       %th 反馈
@@ -14,10 +16,15 @@
     - else
       - @reports.each do |report|
         %tr
+          - if current_user.can_manage_reports?
+            %td= report.user.try(:name)
           %td= l report.created_at, :format => :time_with_wday
-          %td= popover_link_to truncate(report.plan, :length => 10), '#', { :'data-content' => report.content, :'data-original-title' => report.plan }
-          %td= popover_link_to truncate(report.content, :length => 10), '#', {:'data-original-title' => report.content }
-          %td= popover_link_to truncate(report.comment, :length => 10), '#', {:'data-original-title' => report.comment }
+          %td= popover_link_to truncate(report.plan, :length => 10), 'javascript:void(0);', { :'data-content' => report.content, :'data-original-title' => report.plan }
+          %td= popover_link_to truncate(report.content, :length => 10), 'javascript:void(0);', {:'data-original-title' => report.content }
+          - if report.comment
+            %td= popover_link_to truncate(report.comment, :length => 10), 'javascript:void(0);', {:'data-original-title' => report.comment }
+          - else
+            %td
           %td= report.score
           
           - if current_user.can_manage_reports?
