@@ -3,15 +3,15 @@ class Post < ActiveRecord::Base
   
   attr_readonly :comments_count
 
-  # validates :name, :presence => true, :uniqueness => true
-  validates :title, :permalink, :content, :category_id,  :presence   => true
+  validates :title, :permalink, :category_id,	:presence => true
 
   has_many :comments
   
   belongs_to :category, :counter_cache => true
   belongs_to :user,     :counter_cache => true
   
-  scope :default_order, order('create_at DESC')
+  scope :default_order, order('created_at DESC')
+  scope :the_latest_ten_posts, default_order.limit(10)
 end
 
 # == Schema Information

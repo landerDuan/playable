@@ -50,9 +50,9 @@ end
 
 p "> create categories..."
 [
-  { :name => '公司新闻', :code => 'news' },
-  { :name => '团队故事', :code => 'team' },
-  { :name => '技术讨论', :code => 'technology' }
+  { :name => '公司新闻', :code => '1' },
+  { :name => '团队故事', :code => '2' },
+  { :name => '技术讨论', :code => '3' }
 ].each do |cat|
   Category.create(:name => cat[:name], :code => cat[:code])
 end

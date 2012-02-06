@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120108085614) do
+ActiveRecord::Schema.define(:version => 20120206040319) do
 
   create_table "ads", :force => true do |t|
     t.string   "title"
@@ -31,16 +31,28 @@ ActiveRecord::Schema.define(:version => 20120108085614) do
   end
 
   create_table "categories", :force => true do |t|
-    t.integer  "code"
+    t.string   "code"
     t.string   "name"
     t.integer  "posts_count", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "tag_list"
   end
 
   add_index "categories", ["code"], :name => "index_categories_on_code"
   add_index "categories", ["name"], :name => "index_categories_on_name"
   add_index "categories", ["posts_count"], :name => "index_categories_on_posts_count"
+
+  create_table "comments", :force => true do |t|
+    t.integer  "post_id"
+    t.string   "name"
+    t.string   "email"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
 
   create_table "events", :force => true do |t|
     t.integer  "user_id"
