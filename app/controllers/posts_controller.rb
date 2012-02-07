@@ -8,22 +8,8 @@ class PostsController < InheritedResources::Base
     @team_categories_count = current_user.posts.where("category_id = 2").count
     @technology_categories_count = current_user.posts.where("category_id = 3").count
 
-
-    @posts_month = current_user.posts.default_order
-    @resultdates = new Array(current_user.posts.count)
-
-    p "resultdatesAAAAAAAAAAAAA====#{@resultdates}"
-
-
-    @posts_month.each do |poo|
-      @year = poo["created_at"].strftime("%Y").to_i
-      p "year================#{@year}"
-      @month = poo["created_at"].strftime("%m").to_i
-      p "month================#{@month}"
-      @resultdates[@year][@month]+=1;
-    end
+    @posts_month = current_user.posts.group_by{ |x| x.created_at.year.month }
     
-    p "resultdates====#{@resultdates}"
   end
 
   protected
