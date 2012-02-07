@@ -4,7 +4,7 @@ class UsersController < InheritedResources::Base
   before_filter :get_related_resources, :only => :show
   
   def checkin
-    if current_user.checkin
+    if current_user.checkin(Time.zone.now, request.remote_ip)
       redirect_to :back, :notice => t('messages.successfully_checked_in')
     else
       redirect_to :back, :notice => t('messages.already_checked_in')
@@ -12,11 +12,15 @@ class UsersController < InheritedResources::Base
   end
   
   def checkout
-    result = current_user.checkout
-    
-    respond_to do |format|
-      format.json { render :json => result }
-      format.html { redirect_to :back, :notice => t('messages.successfully_checked_out') }
+    result = current_user.checkout(Time.zone.now, request.remote_ip)
+
+    if !result.present? 
+      redirect_to :back, :notice => t('messages.failure_checked_out')
+    else
+      respond_to do |format|
+        format.json { render :json => result }
+        format.html { redirect_to :back, :notice => t('messages.successfully_checked_out') }
+      end
     end
   end
 

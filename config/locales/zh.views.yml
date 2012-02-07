@@ -33,9 +33,10 @@ zh:
     url: 网址
     description: 描述
   messages:
-    successfully_checked_in: '您已经成功签到'
-    already_checked_in: '您不能重复签到'
-    successfully_checked_out: '您已经成功签出'
+    successfully_checked_in: '成功签到~'
+    already_checked_in: '签到失败!!不在办公室或者不能重复签到'
+    successfully_checked_out: '成功签出~'
+    failure_checked_out: '签出失败!!不在办公室不能签出'
     no_permission: '您不是管理员'
   profile:
     my_posts: 我的博客文章 (%{count})
