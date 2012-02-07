@@ -4,17 +4,11 @@
   .box
     %h3 按月份归档
     %ul.archives
-      %li= link_to '2012年1月 (6篇)', blog_path
-      %li= link_to '2012年2月 (6篇)', '#'
-      %li= link_to '2012年3月 (6篇)', '#'
-      %li= link_to '2012年4月 (6篇)', '#'
-      %li= link_to '2012年5月 (6篇)', '#'
-      %li= link_to '2012年6月 (6篇)', '#'
-      %li= link_to '2012年7月 (6篇)', '#'
+      - @archives.each do |month, posts|
+        %li= link_to l(month, :format => :month_archive, :count => posts.count), '#'
   
   .box
     %h3 按分类归档
     %ul.categories
-      %li= link_to '团队故事 (' << @news_categories_count.to_s << '篇)', blog_path(:category_id => 1)
-      %li= link_to '公司新闻 (' << @team_categories_count.to_s << '篇)', blog_path(:category_id => 2)
-      %li= link_to '技术交流 (' << @technology_categories_count.to_s << '篇)', blog_path(:category_id => 3)
+      - @categories.each do |category|
+        %li= link_to t('sidebar.category_archive', :name => category.name, :count => category.posts_count), category_posts_path(category)

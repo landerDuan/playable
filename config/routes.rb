@@ -6,6 +6,9 @@ Playable::Application.routes.draw do
   resources :events
   resources :reports
   resources :posts
+  resources :categories do
+    resources :posts, :only => :index
+  end
 
   scope '(:locale)',:locale=>/zh|en|jp/ do
     resources :products

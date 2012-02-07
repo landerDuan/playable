@@ -1,4 +1,4 @@
-= simple_form_for resource, :url => url  do |f|
+= simple_form_for resource, :url => url, :validate => true  do |f|
   .fieldset
     = f.input :title, :input_html => { :class => 'xlarge' }
     = f.input :permalink, :input_html => { :class => 'xlarge' }

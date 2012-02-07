@@ -20,6 +20,7 @@ zh:
   sidebar:
     settings: 帐号设置
     password_settings: 密码修改
+    category_archive: '%{name} (%{count}篇)'
   language:
     english: 英文
     japanese: 日文

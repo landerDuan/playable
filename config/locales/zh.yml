@@ -61,6 +61,7 @@ zh:
       default: "%Y年%b%d日 %A %H:%M:%S %Z"
       short: "%b%d日 %H:%M"
       long: "%Y年%b%d日 %H:%M"
+      month_archive: "%Y年%b (%{count}篇)"
       week: "%A"
       time: "%H:%M:%S"
       time_with_wday: "%Y/%m/%d (%A)"
