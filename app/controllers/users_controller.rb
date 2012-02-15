@@ -1,7 +1,7 @@
 class UsersController < InheritedResources::Base
   main_nav_highlight :members
-  before_filter :authenticate_user!
-  before_filter :get_related_resources, :only => :show
+  #before_filter :authenticate_user!
+  #before_filter :get_related_resources, :only => :show
   
   def checkin
     if current_user.checkin(Time.zone.now, request.remote_ip)

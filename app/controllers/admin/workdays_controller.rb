@@ -1,0 +1,16 @@
+class Admin::WorkdaysController < Admin::BaseController
+	main_nav_highlight :workdays
+	include_kindeditor
+
+	protected
+
+	def collection
+		if params.key?(:user_id)
+			@user = User.find(params[:user_id])
+			@search = @user.workdays.search(params[:search])
+		else
+			@search ||= end_of_association_chain.search(params[:search])
+		end
+		@workdays = @search.page(params[:page])
+	end
+end

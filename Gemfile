@@ -28,6 +28,7 @@ gem 'gravatarify',  '~> 3.0.0'
 gem 'compass',      '>= 0.12.alpha.4'
 gem 'exception_notification_rails3',  '~> 1.2.0', :require => 'exception_notifier'
 
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

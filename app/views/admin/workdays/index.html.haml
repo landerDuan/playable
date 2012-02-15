@@ -1,0 +1,33 @@
+.page-header
+  %h1
+    = t('activerecord.models.' + resource_class.name.downcase)
+    %small= t('admin.info.' + resource_class.name.downcase)
+.well
+  = link_to tt(resource_class.to_s), new_admin_workday_path, :class => 'btn large primary'
+  = paginate collection
+
+.row
+  .span16
+    %table#sortTableExample.zebra-striped
+      %thread
+        %tr
+          %th.blue= ta Workday, :date
+          %th.blue= ta Workday, :is_workday
+          %th.blue= ta Workday, :memo
+          %th.yellow= t('admin.actions.default')
+      %tbody
+        - if collection.blank?
+          %tr
+            %td{:colspan => 6}= t('admin.meta.empty_data')
+        - else
+          - collection.each do |workday|
+            %tr
+              %td= workday.date
+              %td= workday.is_workday
+              %td= workday.memo
+              %td
+                = link_to t('admin.actions.show'), admin_workday_path(workday), :class => 'btn'
+                = link_to t('admin.actions.edit'), edit_admin_workday_path(workday), :class => 'btn'
+                = link_to t('admin.actions.delete'), admin_workday_path(workday), :method => :delete, :confirm => t('admin.meta.confirm'), :class => 'btn danger'
+      
+    = paginate collection

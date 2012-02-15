@@ -1,0 +1,7 @@
+= simple_form_for resource, :url => url do |f|
+  = f.input :user_id,:as => :hidden,:input_html => { :value => current_user.id }
+  = f.input :date
+  = f.input :is_workday, :as => :radio
+  = f.input :memo, :input_html => { :style => 'width:200px;height:120px' }
+  .actions
+    = f.button :submit, t('admin.actions.add'), :class => 'btn middle success'

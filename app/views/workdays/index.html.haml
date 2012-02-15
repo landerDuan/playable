@@ -1,0 +1,23 @@
+%h1 Listing workdays
+
+%table
+  %tr
+    %th Date
+    %th Is workday
+    %th Memo
+    %th
+    %th
+    %th
+
+  - @workdays.each do |workday|
+    %tr
+      %td= workday.date
+      %td= workday.is_workday
+      %td= workday.memo
+      %td= link_to 'Show', workday
+      %td= link_to 'Edit', edit_workday_path(workday)
+      %td= link_to 'Destroy', workday, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Workday', new_workday_path

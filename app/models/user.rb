@@ -39,6 +39,7 @@ class User < ActiveRecord::Base
     user.has_many :events
     user.has_many :reports
     user.has_many :posts
+    user.has_many :workdays
   end
   
   has_and_belongs_to_many :roles

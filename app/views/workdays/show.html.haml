@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Date:
+  = @workday.date
+%p
+  %b Is workday:
+  = @workday.is_workday
+%p
+  %b Memo:
+  = @workday.memo
+
+= link_to 'Edit', edit_workday_path(@workday)
+\|
+= link_to 'Back', workdays_path

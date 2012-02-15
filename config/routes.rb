@@ -1,11 +1,14 @@
 Playable::Application.routes.draw do
   
+
+
   devise_for :users, :controllers => { :sessions => 'sessions' }
   
   resources :users
   resources :events
   resources :reports
   resources :posts
+
   resources :categories do
     resources :posts, :only => :index
   end
@@ -35,10 +38,12 @@ Playable::Application.routes.draw do
       resources :reports, :only => :index
       resources :events, :only => :index
       resources :posts, :only => :index
+      resources :workdays, :only => :index
     end
 
     resources :roles, :except => :show
     resources :reports
+    resources :workdays
     resources :events do
       collection do
         put :checkin

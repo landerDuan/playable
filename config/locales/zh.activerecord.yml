@@ -13,6 +13,7 @@ zh:
       comment: 回复
       ad: 广告
       wiki: Wiki
+      workday: 工作日设定
     attributes:
       user:
         username: 登陆名
@@ -115,3 +116,7 @@ zh:
         name:  名称
         url:  链接地址
         priority: 排序
+      workdays:
+        date:  时间
+        is_workday:  是否是工作日
+        memo:  备忘录

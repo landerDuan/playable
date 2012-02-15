@@ -63,3 +63,10 @@ ProductPhoto.blueprint do
   product   { Product.make! }
   photo     { Pathname.glob(Rails.root.join("app/assets/images/example/*")).sample.open }
 end
+Comments.blueprint do
+  # Attributes here
+end
+
+Workday.blueprint do
+  # Attributes here
+end

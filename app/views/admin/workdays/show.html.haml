@@ -1,0 +1,21 @@
+.page-header
+  %h1
+    = t('activerecord.models.' + resource_class.name.downcase)
+    %small= t('admin.info.' + resource_class.name.downcase)
+.well
+  = link_to t('admin.actions.back'), collection_path, :class => 'btn large primary'
+  = link_to t('admin.actions.edit'), edit_resource_path(resource), :class => 'btn large info'
+  
+.row
+  .span16
+    %table.zebra-striped
+      %tbody
+        %tr
+          %td= ta Workday, :date
+          %td= resource.date
+        %tr
+          %td= ta Workday, :is_workday
+          %td= resource.is_workday
+        %tr
+          %td= ta Workday, :memo
+          %td= resource.memo

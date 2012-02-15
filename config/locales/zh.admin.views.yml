@@ -16,6 +16,7 @@ zh:
       comments: '回复管理'
       ads: '广告管理'
       wikis: 'Wiki管理'
+      workdays: '工作日设定'
     info:
       user: 'users and administrators'
       report: 'reports of users'
